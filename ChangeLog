@@ -1,0 +1,76 @@
+2008-03-21 Graeme Gott <graeme@gottcode.org>
+	* Tagged version 2.0.4
+	* Add application icon.
+	* Don't show select screen when creating first novel.
+
+2008-03-20 Graeme Gott <graeme@gottcode.org>
+	* Add Mac support.
+	* Re-license to GPLv3.
+
+2008-01-22 Graeme Gott <graeme@gottcode.org>
+	* Add Windows support.
+
+2007-11-24 Graeme Gott <graeme@gottcode.org>
+	* Tagged version 2.0.3
+	* FIXED: Daily was sometimes showing 100% at startup.
+
+2007-11-05 Graeme Gott <graeme@gottcode.org>
+	* Tagged version 2.0.2
+	* Prompt user for novel name when there are no novels.
+	* Add labels to progressbars.
+
+2007-04-05 Graeme Gott <graeme@gottcode.org>
+	* Tagged version 2.0.1
+	* Remove leading zero from months in graph.
+	* FIXED: New novels were not parsed correctly.
+	* FIXED: Total progressbar didn't update with wordcount changes.
+
+2006-12-04 Graeme Gott <graeme@gottcode.org>
+	* Tagged version 2.0.0
+	* Replace color generation algorithm.
+	* FIXED: Segfault when goal was decreased under 20K.
+	* FIXED: Novel list reload caused a segfault.
+	* Add ability to remove a novel.
+	* Add ability to rename a novel.
+	* Add ability to create a novel.
+	* Remember currently selected novel.
+	* Restore main window geometry.
+	* Add ability to select a novel.
+	* Display list of novels.
+	* Lay out novels window.
+	* Show novels window when button toggled.
+	* Add novels window.
+	* FIXED: Main window was not resizing properly.
+
+2006-12-03 Graeme Gott <graeme@gottcode.org>
+	* FIXED: Segfault accessing missing colors.
+	* Implement goals window.
+	* Add goals window.
+	* Warn when value is less than previous value.
+	* Implement setting current value.
+	* Load initial data from database.
+	* Lay out main window.
+	* Add main window class.
+	* Resize view to show entire graph.
+	* Add labels to bars.
+	* Add labels to lines.
+	* Add hover effect to bars.
+	* Improve graph position.
+	* Use proper colors for graph.
+	* Draw basic graph.
+	* Rearrange database interface.
+	* Switch database to use months for timeframe.
+	* Add graph class.
+
+2006-12-02 Graeme Gott <graeme@gottcode.org>
+	* Write data file.
+	* Protect code against improper access.
+	* Add code to rename a novel.
+	* Add code to delete a novel.
+	* Add code to add a novel.
+	* FIXED: Was not reading file correctly.
+	* Read data file.
+	* Implement database interface.
+	* Move to data directory.
+	* Design database interface.
+	* Initial project layout.

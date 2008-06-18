@@ -41,8 +41,7 @@ unix: !macx {
 		PREFIX = /usr
 	}
 
-	binary.path = $$PREFIX/bin/
-	binary.files = novprog2
+	target.path = $$PREFIX/bin/
 
 	icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
 	icon.files = icons/novprog2.png
@@ -50,5 +49,5 @@ unix: !macx {
 	desktop.path = $$PREFIX/share/applications/
 	desktop.files = novprog2.desktop
 
-	INSTALLS += binary icon desktop
+	INSTALLS += target icon desktop
 }

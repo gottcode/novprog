@@ -59,7 +59,7 @@ unix: !macx {
 	icon.files = icons/novprog2.png
 
 	desktop.path = $$PREFIX/share/applications/
-	desktop.files = novprog2.desktop
+	desktop.files = icons/novprog2.desktop
 
 	qm.files = translations/*.qm
 	qm.path = $$PREFIX/share/novprog2/translations

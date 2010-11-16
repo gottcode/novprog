@@ -1,5 +1,6 @@
 [Desktop Entry]
-Name=NoveProg2
+Name=NovProg
+GenericName=Wordcount Graphing Program
 Exec=novprog2
 Icon=novprog2
 Terminal=false

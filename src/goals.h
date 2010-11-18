@@ -24,7 +24,7 @@
 class Database;
 class QDate;
 class QDateEdit;
-class QLineEdit;
+class QSpinBox;
 
 class GoalsWindow : public QWidget {
 	Q_OBJECT
@@ -41,15 +41,15 @@ protected:
 	void hideEvent(QHideEvent* event);
 
 private slots:
-	void totalEdited(const QString& value);
-	void dailyEdited(const QString& value);
+	void totalEdited(int value);
+	void dailyEdited(int value);
 	void startEdited(const QDate& start);
 	void endEdited(const QDate& start);
 
 private:
 	Database* m_data;
-	QLineEdit* m_total;
-	QLineEdit* m_daily;
+	QSpinBox* m_total;
+	QSpinBox* m_daily;
 	QDateEdit* m_start;
 	QDateEdit* m_end;
 };

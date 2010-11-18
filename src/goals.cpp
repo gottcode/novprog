@@ -24,29 +24,28 @@
 #include <QDateEdit>
 #include <QDialogButtonBox>
 #include <QFormLayout>
-#include <QIntValidator>
 #include <QLabel>
-#include <QLineEdit>
 #include <QPushButton>
+#include <QSpinBox>
 
 // ============================================================================
 
 GoalsWindow::GoalsWindow(QWidget* parent, Database* data)
 :	QWidget(parent, Qt::Dialog),
 	m_data(data) {
-	setWindowTitle(tr("Change Goals"));
+	setWindowTitle(tr("Goals"));
 
-	QValidator* validator = new QIntValidator(0, 999999, this);
+	m_total = new QSpinBox(this);
+	m_total->setCorrectionMode(QSpinBox::CorrectToNearestValue);
+	m_total->setRange(0, 9999999);
+	m_total->setSpecialValueText(tr("N/A"));
+	connect(m_total, SIGNAL(valueChanged(int)), this, SLOT(totalEdited(int)));
 
-	m_total = new QLineEdit(this);
-	m_total->setMinimumWidth(140);
-	m_total->setValidator(validator);
-	connect(m_total, SIGNAL(textEdited(const QString&)), this, SLOT(totalEdited(const QString&)));
-
-	m_daily = new QLineEdit(this);
-	m_daily->setMinimumWidth(140);
-	m_daily->setValidator(validator);
-	connect(m_daily, SIGNAL(textEdited(const QString&)), this, SLOT(dailyEdited(const QString&)));
+	m_daily = new QSpinBox(this);
+	m_daily->setCorrectionMode(QSpinBox::CorrectToNearestValue);
+	m_daily->setRange(0, 9999999);
+	m_daily->setSpecialValueText(tr("N/A"));
+	connect(m_daily, SIGNAL(valueChanged(int)), this, SLOT(dailyEdited(int)));
 
 	m_start = new QDateEdit(this);
 	m_start->setCalendarPopup(true);
@@ -71,8 +70,8 @@ GoalsWindow::GoalsWindow(QWidget* parent, Database* data)
 // ============================================================================
 
 void GoalsWindow::resetValues() {
-	m_total->setText(QString::number(m_data->finalGoal()));
-	m_daily->setText(QString::number(m_data->dailyGoal()));
+	m_total->setValue(m_data->finalGoal());
+	m_daily->setValue(m_data->dailyGoal());
 	m_start->setDate(m_data->startDate());
 	m_end->setDate(m_data->endDate());
 }
@@ -86,15 +85,15 @@ void GoalsWindow::hideEvent(QHideEvent* event) {
 
 // ============================================================================
 
-void GoalsWindow::totalEdited(const QString& value) {
-	m_data->setFinalGoal(value.toInt());
+void GoalsWindow::totalEdited(int value) {
+	m_data->setFinalGoal(value);
 	emit modified();
 }
 
 // ============================================================================
 
-void GoalsWindow::dailyEdited(const QString& value) {
-	m_data->setDailyGoal(value.toInt());
+void GoalsWindow::dailyEdited(int value) {
+	m_data->setDailyGoal(value);
 	emit modified();
 }
 

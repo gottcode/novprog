@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-11-18 Graeme Gott <graeme@gottcode.org>
+	* Use spinboxes for goals.
 	* Allow users to choose start and end dates.
 
 2008-06-18 Graeme Gott <graeme@gottcode.org>

@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,10 +44,10 @@ public:
 	int value(const QDate& day) const;
 	int dailyGoal() const;
 	int finalGoal() const;
-	int timeFrame() const;
 	void setDailyGoal(int words);
 	void setFinalGoal(int words);
-	void setTimeFrame(int months);
+	void setStart(const QDate& start);
+	void setEnd(const QDate& end);
 
 private:
 	void read();
@@ -57,8 +57,8 @@ private:
 	QList<int> m_values;
 	int m_daily_goal;
 	int m_final_goal;
-	int m_time_frame;
 	QDate m_start_date;
+	QDate m_end_date;
 };
 
 #endif // NOVPROG_DATA_H

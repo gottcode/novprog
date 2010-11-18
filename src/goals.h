@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@
 
 #include <QWidget>
 class Database;
+class QDate;
+class QDateEdit;
 class QLineEdit;
 
 class GoalsWindow : public QWidget {
@@ -41,13 +43,15 @@ protected:
 private slots:
 	void totalEdited(const QString& value);
 	void dailyEdited(const QString& value);
-	void monthsEdited(const QString& value);
+	void startEdited(const QDate& start);
+	void endEdited(const QDate& start);
 
 private:
 	Database* m_data;
 	QLineEdit* m_total;
 	QLineEdit* m_daily;
-	QLineEdit* m_months;
+	QDateEdit* m_start;
+	QDateEdit* m_end;
 };
 
 #endif // NOVPROG_GOALS_H

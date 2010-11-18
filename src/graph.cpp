@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -85,7 +85,7 @@ void Graph::draw() {
 	// Detemine height of scene
 	int rows = qMax(m_data->currentValue(), m_data->finalGoal()) / 10000;
 	int goal_row = m_data->finalGoal() / 10000;
-	int columns = m_data->startDate().daysTo(m_data->endDate());
+	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
 	int graph_height = (rows + 1) * 25;
 	int graph_width = (columns * 9) + 14;
 	m_scene->setSceneRect(0, 0, graph_width, graph_height);

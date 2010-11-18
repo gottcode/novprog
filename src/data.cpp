@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,8 +27,7 @@
 Database::Database(QObject* parent)
 :	QObject(parent),
 	m_daily_goal(0),
-	m_final_goal(0),
-	m_time_frame(0) {
+	m_final_goal(0) {
 	QString novel = QSettings().value("Current").toString();
 	if (novel.isEmpty()) {
 		QStringList list = novels();
@@ -86,8 +85,8 @@ bool Database::deleteNovel() {
 			m_values.clear();
 			m_daily_goal = 0;
 			m_final_goal = 0;
-			m_time_frame = 0;
 			m_start_date.setDate(0, 0, 0);
+			m_end_date = m_start_date;
 		}
 	}
 	return success;
@@ -145,7 +144,7 @@ QDate Database::startDate() const {
 // ============================================================================
 
 QDate Database::endDate() const {
-	return m_start_date.addMonths(m_time_frame);
+	return m_end_date;
 }
 
 // ============================================================================
@@ -172,12 +171,6 @@ int Database::finalGoal() const {
 
 // ============================================================================
 
-int Database::timeFrame() const {
-	return m_time_frame;
-}
-
-// ============================================================================
-
 void Database::setDailyGoal(int words) {
 	if (!m_novel.isEmpty()) {
 		m_daily_goal = words;
@@ -196,9 +189,18 @@ void Database::setFinalGoal(int words) {
 
 // ============================================================================
 
-void Database::setTimeFrame(int months) {
+void Database::setStart(const QDate& start) {
 	if (!m_novel.isEmpty()) {
-		m_time_frame = months;
+		m_start_date = start;
+		write();
+	}
+}
+
+// ============================================================================
+
+void Database::setEnd(const QDate& end) {
+	if (!m_novel.isEmpty()) {
+		m_end_date = end;
 		write();
 	}
 }
@@ -213,13 +215,14 @@ void Database::read() {
 	m_values.clear();
 	m_daily_goal = 0;
 	m_final_goal = 0;
-	m_time_frame = 0;
 	m_start_date.setDate(0, 0, 0);
+	m_end_date = m_start_date;
 
 	// Read file
 	QFile file(novel);
-	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
 		return;
+	}
 	QString data = QString::fromUtf8(file.readAll());
 	file.close();
 
@@ -234,7 +237,15 @@ void Database::read() {
 	m_final_goal = header[0].toInt();
 	m_daily_goal = header[1].toInt();
 	m_start_date = QDate::fromString(header[2], Qt::ISODate);
-	m_time_frame = header[3].toInt();
+	int months = header[3].toInt();
+	if (months == 0) {
+		m_end_date = QDate::fromString(header[3], Qt::ISODate);
+	} else {
+		m_end_date = m_start_date.addMonths(months).addDays(-1);
+	}
+	if (m_end_date < m_start_date) {
+		m_end_date = m_start_date;
+	}
 
 	// Parse values
 	foreach (QString day, lines) {
@@ -242,11 +253,13 @@ void Database::read() {
 		int value = day.section(' ', 1, 1).toInt();
 		if (pos >= m_values.count()) {
 			int last_value = 0;
-			if (m_values.count() > 0)
+			if (m_values.count() > 0) {
 				last_value = m_values.last();
+			}
 			int length = pos - m_values.count();
-			for (int i = 0; i < length; ++i)
+			for (int i = 0; i < length; ++i) {
 				m_values.append(last_value);
+			}
 		}
 		m_values.append(value);
 	}
@@ -255,7 +268,11 @@ void Database::read() {
 // ============================================================================
 
 void Database::write() {
-	QString data = QString("%1 %2 %3 %4\n").arg(m_final_goal).arg(m_daily_goal).arg(m_start_date.toString(Qt::ISODate)).arg(m_time_frame);
+	QString data = QString("%1 %2 %3 %4\n")
+		.arg(m_final_goal)
+		.arg(m_daily_goal)
+		.arg(m_start_date.toString(Qt::ISODate))
+		.arg(m_end_date.toString(Qt::ISODate));
 
 	int value = 0;
 	QDate day = m_start_date;
@@ -271,8 +288,9 @@ void Database::write() {
 
 	// Write file
 	QFile file(m_novel);
-	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
 		return;
+	}
 	file.write(data.toUtf8());
 	file.close();
 }

@@ -31,7 +31,7 @@ Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& 
 :	QGraphicsRectItem(x, y, w, h) {
 	setPen(Qt::NoPen);
 	setBrush(color);
-	setToolTip(QString("%1\n%L2 words").arg(day.toString("MMM d")).arg(value));
+	setToolTip(tr("%1\n%L2 words").arg(day.toString("MMM d")).arg(value));
 #if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
 	setAcceptHoverEvents(true);
 #else
@@ -165,7 +165,7 @@ void Graph::draw() {
 	day = m_data->startDate();
 	int length = day.daysTo(m_data->endDate()) / 7;
 	for (int i = 0; i <= length; ++i) {
-		QGraphicsTextItem* text = new QGraphicsTextItem(day.toString("M/dd"));
+		QGraphicsTextItem* text = new QGraphicsTextItem(day.toString("MMM d"));
 		text->setDefaultTextColor(QColor(102, 102, 102));
 		text->setFont(label_font);
 		int h = static_cast<int>(text->boundingRect().height() + 0.5f);

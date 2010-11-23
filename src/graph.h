@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,12 +20,14 @@
 #ifndef NOVPROG_GRAPH_H
 #define NOVPROG_GRAPH_H
 
+#include <QCoreApplication>
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 class QGraphicsScene;
 class Database;
 
 class Bar : public QGraphicsRectItem {
+	Q_DECLARE_TR_FUNCTIONS(Bar)
 public:
 	Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color);
 

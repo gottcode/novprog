@@ -35,8 +35,17 @@ int main(int argc, char** argv) {
 
 	LocaleDialog::loadTranslator("novprog_");
 
+	// Handle portability
+	QString path = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+	QFileInfo portable(app.applicationDirPath() + "/Data");
+	if (portable.exists() && portable.isWritable()) {
+		path = portable.absoluteFilePath();
+		QSettings::setDefaultFormat(QSettings::IniFormat);
+		QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, path + "/Settings");
+	}
+
 	// Change to novels directory
-	QString path = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/Novels/";
+	path += "/Novels/";
 	if (!QFileInfo(path).exists()) {
 		QDir::home().mkpath(path);
 

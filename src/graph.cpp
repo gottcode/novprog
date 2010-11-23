@@ -86,6 +86,7 @@ void Graph::draw() {
 	int rows = qMax(m_data->currentValue(), m_data->finalGoal()) / 10000;
 	int goal_row = m_data->finalGoal() / 10000;
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
+	double delta = static_cast<double>(m_data->finalGoal()) / static_cast<double>(columns);
 	int graph_height = (rows + 1) * 25;
 	int graph_width = (columns * 9) + 14;
 	m_scene->setSceneRect(0, 0, graph_width, graph_height);
@@ -127,30 +128,31 @@ void Graph::draw() {
 	}
 
 	// Draw bars
-	int prev_value = 0, value, x, y, w, h;
+	int prev_value = 0, value, minimum, x, h;
 	QColor color;
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
 		value = m_data->value(day);
-		w = 8;
+		minimum = qRound(delta * (c + 1));
 		h = value / 400;
 		x = (c * 9) + 8;
-		y = graph_height - h;
-		if (value >= prev_value) {
-			if (value < m_data->finalGoal()) {
-				if ((value / 10000) % 2) {
-					color.setRgb(150, 150, 150);
-				} else {
-					color.setRgb(100, 100, 100);
-				}
-			} else {
-				color.setRgb(153, 204, 255);
-			}
-		} else {
+		if (value < prev_value) {
 			color.setRgb(255, 0, 0);
+		} else if (value >= m_data->finalGoal()) {
+			color.setRgb(153, 204, 255);
+		} else if (value >= minimum) {
+			color.setRgb(0, 140, 0);
+		} else {
+			color.setRgb(255, 170, 0);
 		}
 		prev_value = value;
-		m_scene->addItem(new Bar(x, y, w, h, value, day, color));
+		m_scene->addItem(new Bar(x, graph_height - h, 8, h, value, day, color));
+
+		h = minimum / 400;
+		QGraphicsRectItem* rect = m_scene->addRect(x, graph_height - h, 8, h, Qt::NoPen, Qt::black);
+		rect->setOpacity(0.15);
+		rect->setZValue(2);
+
 		day = day.addDays(1);
 	}
 

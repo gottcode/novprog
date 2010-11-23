@@ -18,9 +18,9 @@ isEmpty(VERSION) {
 DEFINES += VERSIONSTR=\\\"git.$${VERSION}\\\"
 
 unix: !macx {
-	TARGET = novprog2
+	TARGET = novprog
 } else {
-	TARGET = NovProg2
+	TARGET = NovProg
 }
 
 HEADERS = src/data.h \
@@ -38,11 +38,11 @@ SOURCES = src/data.cpp \
 	src/window.cpp \
 	src/main.cpp
 
-TRANSLATIONS = translations/novprog2_en.ts \
-	translations/novprog2_fr.ts
+TRANSLATIONS = translations/novprog_en.ts \
+	translations/novprog_fr.ts
 
 macx {
-	ICON = icons/novprog2.icns
+	ICON = icons/novprog.icns
 }
 win32 {
 	RC_FILE = icons/icon.rc
@@ -56,13 +56,13 @@ unix: !macx {
 	target.path = $$PREFIX/bin/
 
 	icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
-	icon.files = icons/novprog2.png
+	icon.files = icons/novprog.png
 
 	desktop.path = $$PREFIX/share/applications/
-	desktop.files = icons/novprog2.desktop
+	desktop.files = icons/novprog.desktop
 
 	qm.files = translations/*.qm
-	qm.path = $$PREFIX/share/novprog2/translations
+	qm.path = $$PREFIX/share/novprog/translations
 
 	INSTALLS += target icon desktop qm
 }

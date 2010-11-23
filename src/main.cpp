@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,30 +21,42 @@
 #include "window.h"
 
 #include <QApplication>
+#include <QDesktopServices>
 #include <QDir>
 #include <QFileInfo>
 #include <QSettings>
 
 int main(int argc, char** argv) {
 	QApplication app(argc, argv);
-	app.setApplicationName("NovProg2");
+	app.setApplicationName("NovProg");
 	app.setApplicationVersion(VERSIONSTR);
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");
 
-	LocaleDialog::loadTranslator("novprog2_");
+	LocaleDialog::loadTranslator("novprog_");
 
 	// Change to novels directory
-#if defined(Q_OS_MAC)
-	QString path = QDir::homePath() + "/Library/Application Support/GottCode/NovProg2/";
-#elif defined(Q_OS_UNIX)
-	QString path = QDir::homePath() + "/.novprog2/";
-#elif defined(Q_OS_WIN32)
-	QString path = QDir::homePath() + "/Application Data/GottCode/NovProg2/";
-#endif
-	path = QSettings().value("Location", path).toString();
-	if (!QFileInfo(path).exists())
+	QString path = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/Novels/";
+	if (!QFileInfo(path).exists()) {
 		QDir::home().mkpath(path);
+
+		// Import NovProg2 files
+		QString novprog2;
+#if defined(Q_OS_MAC)
+		novprog2 = QDir::homePath() + "/Library/Application Support/GottCode/NovProg2/";
+#elif defined(Q_OS_UNIX)
+		novprog2 = QDir::homePath() + "/.novprog2/";
+#elif defined(Q_OS_WIN32)
+		novprog2 = QDir::homePath() + "/Application Data/GottCode/NovProg2/";
+#endif
+		if (!novprog2.isEmpty()) {
+			QDir dir(novprog2);
+			QStringList novels = dir.entryList(QDir::Files);
+			foreach (const QString& novel, novels) {
+				QFile::copy(novprog2 + novel, path + novel);
+			}
+		}
+	}
 	QDir::setCurrent(path);
 
 	Window window;

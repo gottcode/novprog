@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=NovProg
 GenericName=Wordcount Graphing Program
-Exec=novprog2
-Icon=novprog2
+Exec=novprog
+Icon=novprog
 Terminal=false
 Type=Application
 Categories=Qt;Utility;

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP='NovProg2'
+APP='NovProg'
 BUNDLE="$APP.app"
 VERSION=$(git rev-parse --short HEAD)
 

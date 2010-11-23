@@ -22,39 +22,45 @@
 #include <QDir>
 #include <QSettings>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-Database::Database(QObject* parent)
-:	QObject(parent),
+Database::Database(QObject* parent) :
+	QObject(parent),
 	m_daily_goal(0),
-	m_final_goal(0) {
+	m_final_goal(0)
+{
 	QString novel = QSettings().value("Current").toString();
 	if (novel.isEmpty()) {
 		QStringList list = novels();
-		if (!list.isEmpty())
+		if (!list.isEmpty()) {
 			novel = list.first();
+		}
 	}
-	if (!novel.isEmpty())
+	if (!novel.isEmpty()) {
 		setCurrentNovel(novel);
+	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-QStringList Database::novels() {
+QStringList Database::novels()
+{
 	return QDir().entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Name | QDir::IgnoreCase);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-bool Database::addNovel(const QString& novel) {
+bool Database::addNovel(const QString& novel)
+{
 	bool success = false;
 	if (!novels().contains(novel)) {
 		QDate date = QDate::currentDate();
 		QString data = QString("50000 2000 %1-%2-01 1\n").arg(date.year()).arg(date.month(), 2, 10, QChar('0'));
 
 		QFile file(novel);
-		if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+		if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
 			return false;
+		}
 		file.write(data.toUtf8());
 		file.close();
 		success = true;
@@ -62,21 +68,24 @@ bool Database::addNovel(const QString& novel) {
 	return success;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-bool Database::renameNovel(const QString& novel) {
+bool Database::renameNovel(const QString& novel)
+{
 	bool success = false;
 	if (!m_novel.isEmpty()) {
 		success = QDir().rename(m_novel, novel);
-		if (success)
+		if (success) {
 			m_novel = novel;
+		}
 	}
 	return success;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-bool Database::deleteNovel() {
+bool Database::deleteNovel()
+{
 	bool success = false;
 	if (!m_novel.isEmpty()) {
 		success = QDir().remove(m_novel);
@@ -92,15 +101,17 @@ bool Database::deleteNovel() {
 	return success;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-QString Database::currentNovel() const {
+QString Database::currentNovel() const
+{
 	return m_novel;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::setCurrentNovel(const QString& novel) {
+void Database::setCurrentNovel(const QString& novel)
+{
 	if (novels().contains(novel)) {
 		QSettings().setValue("Current", novel);
 		m_novel = novel;
@@ -108,106 +119,122 @@ void Database::setCurrentNovel(const QString& novel) {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-int Database::currentValue() const {
+int Database::currentValue() const
+{
 	int value = 0;
-	if (!m_values.isEmpty())
+	if (!m_values.isEmpty()) {
 		value = m_values.last();
+	}
 	return value;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::setCurrentValue(int value) {
+void Database::setCurrentValue(int value)
+{
 	if (!m_novel.isEmpty()) {
 		int pos = m_start_date.daysTo(QDate::currentDate());
 		if (pos >= m_values.count()) {
 			int last_value = 0;
-			if (m_values.count() > 0)
+			if (m_values.count() > 0) {
 				last_value = m_values.last();
+			}
 			int length = pos - m_values.count();
-			for (int i = 0; i <= length; ++i)
+			for (int i = 0; i <= length; ++i) {
 				m_values.append(last_value);
+			}
 		}
 		m_values[pos] = value;
 		write();
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-QDate Database::startDate() const {
+QDate Database::startDate() const
+{
 	return m_start_date;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-QDate Database::endDate() const {
+QDate Database::endDate() const
+{
 	return m_end_date;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-int Database::value(const QDate& day) const {
+int Database::value(const QDate& day) const
+{
 	int value = 0;
 	int pos = m_start_date.daysTo(day);
-	if (pos < m_values.count() && pos >= 0)
+	if (pos < m_values.count() && pos >= 0) {
 		value = m_values[pos];
+	}
 	return value;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-int Database::dailyGoal() const {
+int Database::dailyGoal() const
+{
 	return m_daily_goal;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-int Database::finalGoal() const {
+int Database::finalGoal() const
+{
 	return m_final_goal;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::setDailyGoal(int words) {
+void Database::setDailyGoal(int words)
+{
 	if (!m_novel.isEmpty()) {
 		m_daily_goal = words;
 		write();
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::setFinalGoal(int words) {
+void Database::setFinalGoal(int words)
+{
 	if (!m_novel.isEmpty()) {
 		m_final_goal = words;
 		write();
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::setStart(const QDate& start) {
+void Database::setStart(const QDate& start)
+{
 	if (!m_novel.isEmpty()) {
 		m_start_date = start;
 		write();
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::setEnd(const QDate& end) {
+void Database::setEnd(const QDate& end)
+{
 	if (!m_novel.isEmpty()) {
 		m_end_date = end;
 		write();
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::read() {
+void Database::read()
+{
 	QString novel = m_novel;
 
 	// Reset values to null
@@ -228,11 +255,13 @@ void Database::read() {
 
 	// Parse header data
 	QStringList lines = data.split('\n', QString::SkipEmptyParts);
-	if (lines.count() == 0)
+	if (lines.count() == 0) {
 		return;
+	}
 	QStringList header = lines.takeFirst().split(' ', QString::SkipEmptyParts);
-	if (header.count() != 4)
+	if (header.count() != 4) {
 		return;
+	}
 	m_novel = novel;
 	m_final_goal = header[0].toInt();
 	m_daily_goal = header[1].toInt();
@@ -265,9 +294,10 @@ void Database::read() {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Database::write() {
+void Database::write()
+{
 	QString data = QString("%1 %2 %3 %4\n")
 		.arg(m_final_goal)
 		.arg(m_daily_goal)
@@ -295,4 +325,4 @@ void Database::write() {
 	file.close();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

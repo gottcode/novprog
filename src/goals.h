@@ -26,7 +26,8 @@ class QDate;
 class QDateEdit;
 class QSpinBox;
 
-class GoalsWindow : public QWidget {
+class GoalsWindow : public QWidget
+{
 	Q_OBJECT
 public:
 	GoalsWindow(QWidget* parent, Database* data);

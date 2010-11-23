@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,8 @@ class QListWidgetItem;
 class QPushButton;
 class Database;
 
-class NovelsWindow : public QWidget {
+class NovelsWindow : public QWidget
+{
 	Q_OBJECT
 public:
 	NovelsWindow(QWidget* parent, Database* data);

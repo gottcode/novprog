@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,11 +28,12 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-NovelsWindow::NovelsWindow(QWidget* parent, Database* data)
-:	QWidget(parent, Qt::Dialog),
-	m_data(data) {
+NovelsWindow::NovelsWindow(QWidget* parent, Database* data) :
+	QWidget(parent, Qt::Dialog),
+	m_data(data)
+{
 	setWindowTitle(tr("Select Novel"));
 
 	m_novels = new QListWidget(this);
@@ -63,35 +64,40 @@ NovelsWindow::NovelsWindow(QWidget* parent, Database* data)
 	layout->addLayout(button_layout);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-bool NovelsWindow::add() {
+bool NovelsWindow::add()
+{
 	return addClicked();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void NovelsWindow::reload() {
+void NovelsWindow::reload()
+{
 	m_novels->clear();
 	m_novels->addItems(Database::novels());
 	QList<QListWidgetItem*> items = m_novels->findItems(m_data->currentNovel(), Qt::MatchExactly);
 	bool list_empty = items.isEmpty();
 	m_rename_button->setEnabled(!list_empty);
 	m_remove_button->setEnabled(!list_empty);
-	if (!list_empty)
+	if (!list_empty) {
 		m_novels->setCurrentItem(items.first());
+	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void NovelsWindow::hideEvent(QHideEvent* event) {
+void NovelsWindow::hideEvent(QHideEvent* event)
+{
 	emit hidden();
 	QWidget::hideEvent(event);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-bool NovelsWindow::addClicked() {
+bool NovelsWindow::addClicked()
+{
 	bool ok;
 	QString novel = QInputDialog::getText(this, tr("New Novel"), tr("Enter novel name:"), QLineEdit::Normal, "", &ok);
 	if (ok && !novel.isEmpty()) {
@@ -105,22 +111,22 @@ bool NovelsWindow::addClicked() {
 	return false;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void NovelsWindow::renameClicked()  {
+void NovelsWindow::renameClicked()
+{
 	bool ok;
 	QString novel = QInputDialog::getText(this, tr("Rename Novel"), tr("Enter new novel name:"), QLineEdit::Normal, m_data->currentNovel(), &ok);
-	if (ok && !novel.isEmpty()) {
-		if (m_data->renameNovel(novel)) {
-			reload();
-			emit selected(novel);
-		}
+	if (ok && !novel.isEmpty() && m_data->renameNovel(novel)) {
+		reload();
+		emit selected(novel);
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void NovelsWindow::removeClicked() {
+void NovelsWindow::removeClicked()
+{
 	if (QMessageBox::question(this, tr("Delete Novel"), tr("Delete selected novel?"), QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel) == QMessageBox::Yes) {
 		if (m_data->deleteNovel()) {
 			QStringList list = m_data->novels();
@@ -133,9 +139,10 @@ void NovelsWindow::removeClicked() {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void NovelsWindow::currentNovelChanged(QListWidgetItem* item) {
+void NovelsWindow::currentNovelChanged(QListWidgetItem* item)
+{
 	if (item) {
 		QString novel = item->text();
 		if (novel != m_data->currentNovel()) {
@@ -145,4 +152,4 @@ void NovelsWindow::currentNovelChanged(QListWidgetItem* item) {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

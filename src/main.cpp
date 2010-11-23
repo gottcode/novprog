@@ -26,7 +26,8 @@
 #include <QFileInfo>
 #include <QSettings>
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
 	QApplication app(argc, argv);
 	app.setApplicationName("NovProg");
 	app.setApplicationVersion(VERSIONSTR);

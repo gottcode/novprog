@@ -32,9 +32,10 @@
 #include <QPushButton>
 #include <QSettings>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-Window::Window() {
+Window::Window()
+{
 	setWindowTitle(tr("Novel Progress"));
 #if (QT_VERSION >= QT_VERSION_CHECK(4, 6, 0))
 	setWindowIcon(QIcon::fromTheme("novprog", QPixmap(":/novprog.png")));
@@ -90,25 +91,28 @@ Window::Window() {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::closeEvent(QCloseEvent* event) {
+void Window::closeEvent(QCloseEvent* event)
+{
 	QSettings().setValue("Geometry", saveGeometry());
 	QWidget::closeEvent(event);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::load(const QString& novel) {
+void Window::load(const QString& novel)
+{
 	m_data->setCurrentNovel(novel);
 	m_novel_title->setText(QString("<big>%1</big>").arg(m_data->currentNovel()));
 	m_wordcount->setText(QString::number(m_data->currentValue()));
 	novelModified();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::novelModified() {
+void Window::novelModified()
+{
 	m_graph->draw();
 
 	// Update total progressbar
@@ -129,15 +133,17 @@ void Window::novelModified() {
 			}
 		}
 	}
-	if (value < 0)
+	if (value < 0) {
 		value = 0;
+	}
 	m_daily_progress->setRange(0, m_data->dailyGoal());
 	m_daily_progress->setValue(qMin(m_data->dailyGoal(), value));
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::goalsToggled(bool down) {
+void Window::goalsToggled(bool down)
+{
 	if (down) {
 		m_goals->resetValues();
 		m_goals->show();
@@ -146,15 +152,17 @@ void Window::goalsToggled(bool down) {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::goalsWindowHidden() {
+void Window::goalsWindowHidden()
+{
 	m_goals_button->setChecked(false);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::novelsToggled(bool down) {
+void Window::novelsToggled(bool down)
+{
 	if (down) {
 		m_novels->reload();
 		m_novels->show();
@@ -163,17 +171,19 @@ void Window::novelsToggled(bool down) {
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::novelsWindowHidden() {
+void Window::novelsWindowHidden()
+{
 	m_novels_button->setChecked(false);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Window::wordcountEdited(const QString& value) {
+void Window::wordcountEdited(const QString& value)
+{
 	m_data->setCurrentValue(value.toInt());
 	novelModified();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

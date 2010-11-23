@@ -28,11 +28,12 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-GoalsWindow::GoalsWindow(QWidget* parent, Database* data)
-:	QWidget(parent, Qt::Dialog),
-	m_data(data) {
+GoalsWindow::GoalsWindow(QWidget* parent, Database* data) :
+	QWidget(parent, Qt::Dialog),
+	m_data(data)
+{
 	setWindowTitle(tr("Goals"));
 
 	m_total = new QSpinBox(this);
@@ -67,48 +68,54 @@ GoalsWindow::GoalsWindow(QWidget* parent, Database* data)
 	layout->addRow(buttons);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void GoalsWindow::resetValues() {
+void GoalsWindow::resetValues()
+{
 	m_total->setValue(m_data->finalGoal());
 	m_daily->setValue(m_data->dailyGoal());
 	m_start->setDate(m_data->startDate());
 	m_end->setDate(m_data->endDate());
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void GoalsWindow::hideEvent(QHideEvent* event) {
+void GoalsWindow::hideEvent(QHideEvent* event)
+{
 	emit hidden();
 	QWidget::hideEvent(event);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void GoalsWindow::totalEdited(int value) {
+void GoalsWindow::totalEdited(int value)
+{
 	m_data->setFinalGoal(value);
 	emit modified();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void GoalsWindow::dailyEdited(int value) {
+void GoalsWindow::dailyEdited(int value)
+{
 	m_data->setDailyGoal(value);
 	emit modified();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void GoalsWindow::startEdited(const QDate& start) {
+void GoalsWindow::startEdited(const QDate& start)
+{
 	m_data->setStart(start);
 	emit modified();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void GoalsWindow::endEdited(const QDate& end) {
+void GoalsWindow::endEdited(const QDate& end)
+{
 	m_data->setEnd(end);
 	emit modified();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

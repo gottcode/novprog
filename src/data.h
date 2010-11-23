@@ -24,7 +24,8 @@
 #include <QString>
 #include <QStringList>
 
-class Database : public QObject {
+class Database : public QObject
+{
 public:
 	Database(QObject* parent);
 
@@ -53,6 +54,7 @@ private:
 	void read();
 	void write();
 
+private:
 	QString m_novel;
 	QList<int> m_values;
 	int m_daily_goal;

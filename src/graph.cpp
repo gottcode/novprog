@@ -25,10 +25,11 @@
 #include <QGraphicsTextItem>
 #include <QStyle>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color)
-:	QGraphicsRectItem(x, y, w, h) {
+Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color) :
+	QGraphicsRectItem(x, y, w, h)
+{
 	setPen(Qt::NoPen);
 	setBrush(color);
 	setToolTip(tr("%1\n%L2 words").arg(day.toString("MMM d")).arg(value));
@@ -40,9 +41,10 @@ Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& 
 	setZValue(1);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Bar::hoverEnterEvent(QGraphicsSceneHoverEvent* e) {
+void Bar::hoverEnterEvent(QGraphicsSceneHoverEvent* e)
+{
 	QBrush b = brush();
 	QColor c = b.color();
 	c.setAlpha(128);
@@ -51,9 +53,10 @@ void Bar::hoverEnterEvent(QGraphicsSceneHoverEvent* e) {
 	QGraphicsRectItem::hoverEnterEvent(e);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e) {
+void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
+{
 	QBrush b = brush();
 	QColor c = b.color();
 	c.setAlpha(255);
@@ -62,20 +65,22 @@ void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e) {
 	QGraphicsRectItem::hoverLeaveEvent(e);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-Graph::Graph(QWidget* parent, Database* data)
-:	QGraphicsView(parent),
-	m_data(data) {
+Graph::Graph(QWidget* parent, Database* data) :
+	QGraphicsView(parent),
+	m_data(data)
+{
 	m_scene = new QGraphicsScene;
 	m_scene->setBackgroundBrush(Qt::white);
 	setScene(m_scene);
 	setMinimumSize((30 * 9) + 14, 6 * 25);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-void Graph::draw() {
+void Graph::draw()
+{
 	// Remove all current items
 	foreach (QGraphicsItem* item, m_scene->items()) {
 		m_scene->removeItem(item);
@@ -105,8 +110,9 @@ void Graph::draw() {
 	// Draw lines
 	pen.setStyle(Qt::DotLine);
 	for (int i = 1; i <= rows; ++i) {
-		if (i > goal_row)
+		if (i > goal_row) {
 			pen.setColor(QColor(153, 204, 255));
+		}
 		int y = graph_height - (i * 25);
 		m_scene->addLine(QLine(0, y, graph_width, y), pen);
 	}
@@ -126,8 +132,9 @@ void Graph::draw() {
 		QRectF bound = text->boundingRect();
 		int h = static_cast<int>(bound.height() * 0.5f);
 		int w = static_cast<int>(bound.width() + 0.5f);
-		if (graph_width + w > m_scene->width())
+		if (graph_width + w > m_scene->width()) {
 			m_scene->setSceneRect(0, 0, graph_width + w, m_scene->height());
+		}
 		text->setPos(graph_width, graph_height - (i * 25) - h);
 		m_scene->addItem(text);
 	}
@@ -182,4 +189,4 @@ void Graph::draw() {
 	setMinimumSize(static_cast<int>(m_scene->width()) + frame, static_cast<int>(m_scene->height()) + frame);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

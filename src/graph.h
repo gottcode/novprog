@@ -26,7 +26,8 @@
 class QGraphicsScene;
 class Database;
 
-class Bar : public QGraphicsRectItem {
+class Bar : public QGraphicsRectItem
+{
 	Q_DECLARE_TR_FUNCTIONS(Bar)
 public:
 	Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color);
@@ -37,7 +38,8 @@ protected:
 };
 
 
-class Graph : public QGraphicsView {
+class Graph : public QGraphicsView
+{
 public:
 	Graph(QWidget* parent, Database* data);
 

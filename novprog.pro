@@ -41,6 +41,7 @@ SOURCES = src/data.cpp \
 TRANSLATIONS = translations/novprog_en.ts \
 	translations/novprog_fr.ts
 
+RESOURCES += icons/icon.qrc
 macx {
 	ICON = icons/novprog.icns
 }

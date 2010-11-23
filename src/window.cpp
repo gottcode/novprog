@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,6 +36,11 @@
 
 Window::Window() {
 	setWindowTitle(tr("Novel Progress"));
+#if (QT_VERSION >= QT_VERSION_CHECK(4, 6, 0))
+	setWindowIcon(QIcon::fromTheme("novprog", QPixmap(":/novprog.png")));
+#else
+	setWindowIcon(QPixmap(":/novprog.png"));
+#endif
 
 	m_data = new Database(this);
 	m_graph = new Graph(this, m_data);

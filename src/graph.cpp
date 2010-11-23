@@ -111,7 +111,7 @@ void Graph::draw() {
 	label_font.setFamily("Serif");
 	label_font.setPointSize(7);
 	for (int i = 1; i <= rows; ++i) {
-		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%1K").arg(i * 10));
+		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg(i * 10000));
 		if (i <= goal_row) {
 			text->setDefaultTextColor(QColor(102, 102, 102));
 		} else {

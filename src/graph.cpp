@@ -91,14 +91,19 @@ void Graph::draw() {
 	int graph_width = (columns * 9) + 14;
 	m_scene->setSceneRect(0, 0, graph_width, graph_height);
 
-	// Draw lines
-	QPen pen;
-	pen.setCapStyle(Qt::RoundCap);
-	pen.setJoinStyle(Qt::RoundJoin);
-	pen.setColor(QColor(204, 204, 204));
-	pen.setStyle(Qt::SolidLine);
+	// Draw baseline
+	QPen pen(QColor(204, 204, 204), 0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
 	m_scene->addLine(QLineF(0, graph_height - 1, graph_width, graph_height - 1), pen);
-	pen.setDashPattern(QVector<qreal>() << 1 << 2);
+
+	// Draw ticks
+	for (int c = 0; c < columns; ++c) {
+		int h = (c % 7 == 0) ? 5 : 2;
+		int x = (c * 9) + 12;
+		m_scene->addLine(x, graph_height, x, graph_height + h, pen);
+	}
+
+	// Draw lines
+	pen.setStyle(Qt::DotLine);
 	for (int i = 1; i <= rows; ++i) {
 		if (i > goal_row)
 			pen.setColor(QColor(153, 204, 255));
@@ -164,9 +169,10 @@ void Graph::draw() {
 		text->setDefaultTextColor(QColor(102, 102, 102));
 		text->setFont(label_font);
 		int h = static_cast<int>(text->boundingRect().height() + 0.5f);
-		if (graph_height + h > m_scene->height())
-			m_scene->setSceneRect(0, 0, m_scene->width(), graph_height + h);
-		text->setPos(i * 63, graph_height);
+		if (graph_height + h > m_scene->height()) {
+			m_scene->setSceneRect(0, 0, m_scene->width(), graph_height + h + 4);
+		}
+		text->setPos(i * 63, graph_height + 4);
 		m_scene->addItem(text);
 		day = day.addDays(7);
 	}

@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-11-23 Graeme Gott <graeme@gottcode.org>
+	* Add ticks to bottom of graph.
 	* Show line labels as full numbers.
 	* Show daily values necessary to reach goal.
 

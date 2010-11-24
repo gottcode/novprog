@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-11-24 Graeme Gott <graeme@gottcode.org>
+	* Move novel management into main window.
 	* Refactor adding novels.
 	* Add vertical scaling.
 

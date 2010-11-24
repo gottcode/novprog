@@ -20,14 +20,14 @@
 #ifndef NOVPROG_WINDOW_H
 #define NOVPROG_WINDOW_H
 
+class Database;
+class Graph;
+
 #include <QWidget>
-class QLabel;
+class QComboBox;
 class QLineEdit;
 class QProgressBar;
 class QPushButton;
-class Database;
-class Graph;
-class NovelsWindow;
 
 class Window : public QWidget
 {
@@ -39,23 +39,25 @@ protected:
 	void closeEvent(QCloseEvent* event);
 
 private slots:
+	void newNovel();
 	void editNovel();
+	void deleteNovel();
 	void load(const QString& novel);
 	void novelModified();
-	void novelsToggled(bool down);
-	void novelsWindowHidden();
 	void wordcountEdited(const QString& value);
+
+private:
+	void reloadList();
 
 private:
 	Database* m_data;
 	Graph* m_graph;
-	QLabel* m_novel_title;
+	QComboBox* m_novels;
+	QPushButton* m_edit_button;
+	QPushButton* m_delete_button;
 	QProgressBar* m_total_progress;
 	QProgressBar* m_daily_progress;
 	QLineEdit* m_wordcount;
-
-	NovelsWindow* m_novels;
-	QPushButton* m_novels_button;
 };
 
 #endif // NOVPROG_WINDOW_H

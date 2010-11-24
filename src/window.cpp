@@ -22,12 +22,14 @@
 #include "data.h"
 #include "graph.h"
 #include "novel_dialog.h"
-#include "novels.h"
 
+#include <QComboBox>
 #include <QGridLayout>
+#include <QHBoxLayout>
 #include <QIntValidator>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMessageBox>
 #include <QProgressBar>
 #include <QPushButton>
 #include <QSettings>
@@ -45,41 +47,49 @@ Window::Window()
 
 	m_data = new Database(this);
 	m_graph = new Graph(this, m_data);
-	m_novel_title = new QLabel(this);
+	m_novels = new QComboBox(this);
+	connect(m_novels, SIGNAL(activated(const QString&)), this, SLOT(load(const QString&)));
 	m_total_progress = new QProgressBar(this);
 	m_daily_progress = new QProgressBar(this);
-	m_wordcount = new QLineEdit(this);
 
-	m_novels = new NovelsWindow(this, m_data);
-	connect(m_novels, SIGNAL(hidden()), this, SLOT(novelsWindowHidden()));
-	connect(m_novels, SIGNAL(selected(const QString&)), this, SLOT(load(const QString&)));
+	m_wordcount = new QLineEdit(this);
 
 	QValidator* validator = new QIntValidator(0, 999999, this);
 	m_wordcount->setValidator(validator);
 	connect(m_wordcount, SIGNAL(textEdited(const QString&)), this, SLOT(wordcountEdited(const QString&)));
 
-	m_novels_button = new QPushButton(tr("Select"), this);
-	m_novels_button->setCheckable(true);
-	connect(m_novels_button, SIGNAL(toggled(bool)), this, SLOT(novelsToggled(bool)));
+	QPushButton* new_button = new QPushButton(tr("New"), this);
+	connect(new_button, SIGNAL(clicked()), this, SLOT(newNovel()));
 
-	QPushButton* edit_button = new QPushButton(tr("Edit"), this);
-	connect(edit_button, SIGNAL(clicked()), this, SLOT(editNovel()));
+	m_edit_button = new QPushButton(tr("Edit"), this);
+	connect(m_edit_button, SIGNAL(clicked()), this, SLOT(editNovel()));
+
+	m_delete_button = new QPushButton(tr("Delete"), this);
+	connect(m_delete_button, SIGNAL(clicked()), this, SLOT(deleteNovel()));
+
+	QHBoxLayout* selector_layout = new QHBoxLayout;
+	selector_layout->addWidget(m_novels, 1);
+	selector_layout->addWidget(new_button);
+	selector_layout->addWidget(m_edit_button);
+	selector_layout->addWidget(m_delete_button);
 
 	QGridLayout* grid = new QGridLayout(this);
 	grid->setColumnStretch(1, 1);
-	grid->addWidget(m_novel_title, 0, 0, 1, 2);
-	grid->addWidget(m_novels_button, 0, 2);
+	grid->addLayout(selector_layout, 0, 0, 1, 3);
 	grid->addWidget(m_graph, 1, 0, 1, 3);
 	grid->addWidget(new QLabel(tr("Total:"), this), 2, 0, Qt::AlignRight);
 	grid->addWidget(m_total_progress, 2, 1, 1, 2);
 	grid->addWidget(new QLabel(tr("Daily:"), this), 3, 0, Qt::AlignRight);
 	grid->addWidget(m_daily_progress, 3, 1, 1, 2);
 	grid->addWidget(m_wordcount, 4, 0, 1, 2);
-	grid->addWidget(edit_button, 4, 2);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 
-	if (!m_data->currentNovel().isEmpty() || m_novels->add()) {
+	reloadList();
+	if (m_data->currentNovel().isEmpty()) {
+		newNovel();
+	}
+	if (!m_data->currentNovel().isEmpty()) {
 		load(m_data->currentNovel());
 		show();
 	}
@@ -95,11 +105,39 @@ void Window::closeEvent(QCloseEvent* event)
 
 //-----------------------------------------------------------------------------
 
+void Window::newNovel()
+{
+	NovelDialog add_dialog(QString(), m_data, this);
+	if (add_dialog.exec() == QDialog::Accepted) {
+		reloadList();
+		load(m_data->currentNovel());
+	}
+}
+
+//-----------------------------------------------------------------------------
+
 void Window::editNovel()
 {
 	NovelDialog edit_dialog(m_data->currentNovel(), m_data, this);
 	if (edit_dialog.exec() == QDialog::Accepted) {
+		reloadList();
 		novelModified();
+	}
+}
+
+//-----------------------------------------------------------------------------
+
+void Window::deleteNovel()
+{
+	if (QMessageBox::question(this, tr("Question"), tr("Delete current novel?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
+		if (m_data->deleteNovel()) {
+			QStringList list = m_data->novels();
+			if (!list.isEmpty()) {
+				m_data->setCurrentNovel(list.first());
+				reloadList();
+				load(list.first());
+			}
+		}
 	}
 }
 
@@ -116,8 +154,6 @@ void Window::load(const QString& novel)
 
 void Window::novelModified()
 {
-	m_novel_title->setText(QString("<big>%1</big>").arg(m_data->currentNovel()));
-
 	m_graph->draw();
 
 	// Update total progressbar
@@ -147,29 +183,25 @@ void Window::novelModified()
 
 //-----------------------------------------------------------------------------
 
-void Window::novelsToggled(bool down)
-{
-	if (down) {
-		m_novels->reload();
-		m_novels->show();
-	} else {
-		m_novels->hide();
-	}
-}
-
-//-----------------------------------------------------------------------------
-
-void Window::novelsWindowHidden()
-{
-	m_novels_button->setChecked(false);
-}
-
-//-----------------------------------------------------------------------------
-
 void Window::wordcountEdited(const QString& value)
 {
 	m_data->setCurrentValue(value.toInt());
 	novelModified();
+}
+
+//-----------------------------------------------------------------------------
+
+void Window::reloadList()
+{
+	m_novels->clear();
+	m_novels->addItems(Database::novels());
+	int index = m_novels->findText(m_data->currentNovel());
+	bool found = (index != -1);
+	m_edit_button->setEnabled(found);
+	m_delete_button->setEnabled(found);
+	if (found) {
+		m_novels->setCurrentIndex(index);
+	}
 }
 
 //-----------------------------------------------------------------------------

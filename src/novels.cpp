@@ -20,6 +20,7 @@
 #include "novels.h"
 
 #include "data.h"
+#include "novel_dialog.h"
 
 #include <QHBoxLayout>
 #include <QInputDialog>
@@ -98,15 +99,11 @@ void NovelsWindow::hideEvent(QHideEvent* event)
 
 bool NovelsWindow::addClicked()
 {
-	bool ok;
-	QString novel = QInputDialog::getText(this, tr("New Novel"), tr("Enter novel name:"), QLineEdit::Normal, "", &ok);
-	if (ok && !novel.isEmpty()) {
-		if (m_data->addNovel(novel)) {
-			m_data->setCurrentNovel(novel);
-			reload();
-			emit selected(novel);
-			return true;
-		}
+	NovelDialog add_dialog(QString(), m_data, this);
+	if (add_dialog.exec() == QDialog::Accepted) {
+		reload();
+		emit selected(m_data->currentNovel());
+		return true;
 	}
 	return false;
 }

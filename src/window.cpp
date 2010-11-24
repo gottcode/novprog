@@ -97,7 +97,7 @@ void Window::closeEvent(QCloseEvent* event)
 
 void Window::editNovel()
 {
-	NovelDialog edit_dialog(this, m_data);
+	NovelDialog edit_dialog(m_data->currentNovel(), m_data, this);
 	if (edit_dialog.exec() == QDialog::Accepted) {
 		novelModified();
 	}

@@ -32,7 +32,7 @@ class NovelDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	NovelDialog(QWidget* parent, Database* data);
+	NovelDialog(const QString& novel, Database* data, QWidget* parent);
 
 public slots:
 	void accept();
@@ -48,6 +48,7 @@ private:
 	QDateEdit* m_start;
 	QDateEdit* m_end;
 	QPushButton* m_accept;
+	bool m_new;
 };
 
 #endif // NOVPROG_NOVEL_DIALOG_H

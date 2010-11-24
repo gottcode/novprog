@@ -52,20 +52,20 @@ QStringList Database::novels()
 
 bool Database::addNovel(const QString& novel)
 {
-	bool success = false;
-	if (!novels().contains(novel)) {
-		QDate date = QDate::currentDate();
-		QString data = QString("50000 2000 %1-%2-01 1\n").arg(date.year()).arg(date.month(), 2, 10, QChar('0'));
-
-		QFile file(novel);
-		if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-			return false;
-		}
-		file.write(data.toUtf8());
-		file.close();
-		success = true;
+	if (novels().contains(novel)) {
+		return false;
 	}
-	return success;
+
+	QSettings().setValue("Current", novel);
+	m_novel = novel;
+	m_values.clear();
+	m_daily_goal = 0;
+	m_final_goal = 0;
+	m_start_date.setDate(0, 0, 0);
+	m_end_date = m_start_date;
+	write();
+
+	return true;
 }
 
 //-----------------------------------------------------------------------------

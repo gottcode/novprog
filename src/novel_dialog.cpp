@@ -34,12 +34,11 @@
 
 //-----------------------------------------------------------------------------
 
-NovelDialog::NovelDialog(QWidget* parent, Database* data) :
+NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent) :
 	QDialog(parent),
-	m_data(data)
+	m_data(data),
+	m_new(novel.isEmpty())
 {
-	setWindowTitle(tr("Edit Novel"));
-
 	// Create name widget
 	m_name = new QLineEdit(this);
 	connect(m_name, SIGNAL(textChanged(const QString&)), this, SLOT(checkAcceptAllowed()));
@@ -95,21 +94,36 @@ NovelDialog::NovelDialog(QWidget* parent, Database* data) :
 	layout->addWidget(buttons);
 
 	// Load values
-	m_name->setText(m_data->currentNovel());
-	m_total->setValue(m_data->finalGoal());
-	m_daily->setValue(m_data->dailyGoal());
-	m_start->setDate(m_data->startDate());
-	m_end->setDate(m_data->endDate());
+	if (m_new) {
+		setWindowTitle(tr("Add Novel"));
+		m_accept->setEnabled(false);
+		m_total->setValue(50000);
+		m_daily->setValue(2000);
+		QDate date = QDate::currentDate();
+		m_start->setDate(QDate(date.year(), date.month(), 1));
+		m_end->setDate(QDate(date.year(), date.month(), date.daysInMonth()));
+	} else {
+		setWindowTitle(tr("Edit Novel"));
+		m_name->setText(novel);
+		m_total->setValue(m_data->finalGoal());
+		m_daily->setValue(m_data->dailyGoal());
+		m_start->setDate(m_data->startDate());
+		m_end->setDate(m_data->endDate());
+	}
 }
 
 //-----------------------------------------------------------------------------
 
 void NovelDialog::accept()
 {
-	if (m_data->renameNovel(m_name->text()) == false) {
-		QMessageBox::warning(this, tr("Sorry"), tr("A novel already exists with that name."));
-		return;
+	QString novel = m_name->text();
+	if (novel != m_data->currentNovel()) {
+		if ((m_new ? m_data->addNovel(novel) : m_data->renameNovel(novel)) == false) {
+			QMessageBox::warning(this, tr("Sorry"), tr("A novel already exists with that name."));
+			return;
+		}
 	}
+
 	m_data->setFinalGoal(m_total->value());
 	m_data->setDailyGoal(m_daily->value());
 	m_data->setStart(m_start->date());

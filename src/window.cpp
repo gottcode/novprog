@@ -67,7 +67,6 @@ Window::Window()
 
 	QGridLayout* grid = new QGridLayout(this);
 	grid->setColumnStretch(1, 1);
-	grid->setSizeConstraint(QLayout::SetFixedSize);
 	grid->addWidget(m_novel_title, 0, 0, 1, 2);
 	grid->addWidget(m_novels_button, 0, 2);
 	grid->addWidget(m_graph, 1, 0, 1, 3);

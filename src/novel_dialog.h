@@ -17,42 +17,37 @@
  *
  ***********************************************************************/
 
-#ifndef NOVPROG_GOALS_H
-#define NOVPROG_GOALS_H
+#ifndef NOVPROG_NOVEL_DIALOG_H
+#define NOVPROG_NOVEL_DIALOG_H
 
-#include <QWidget>
+#include <QDialog>
 class Database;
 class QDate;
 class QDateEdit;
+class QLineEdit;
+class QPushButton;
 class QSpinBox;
 
-class GoalsWindow : public QWidget
+class NovelDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	GoalsWindow(QWidget* parent, Database* data);
+	NovelDialog(QWidget* parent, Database* data);
 
-	void resetValues();
-
-signals:
-	void hidden();
-	void modified();
-
-protected:
-	void hideEvent(QHideEvent* event);
+public slots:
+	void accept();
 
 private slots:
-	void totalEdited(int value);
-	void dailyEdited(int value);
-	void startEdited(const QDate& start);
-	void endEdited(const QDate& start);
+	void checkAcceptAllowed();
 
 private:
 	Database* m_data;
+	QLineEdit* m_name;
 	QSpinBox* m_total;
 	QSpinBox* m_daily;
 	QDateEdit* m_start;
 	QDateEdit* m_end;
+	QPushButton* m_accept;
 };
 
-#endif // NOVPROG_GOALS_H
+#endif // NOVPROG_NOVEL_DIALOG_H

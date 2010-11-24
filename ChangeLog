@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-11-23 Graeme Gott <graeme@gottcode.org>
+	* Refactor novel editing.
 	* Update coding style.
 	* Add portable mode.
 	* Remove '2' from the project name.

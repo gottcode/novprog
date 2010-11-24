@@ -20,8 +20,8 @@
 #include "window.h"
 
 #include "data.h"
-#include "goals.h"
 #include "graph.h"
+#include "novel_dialog.h"
 #include "novels.h"
 
 #include <QGridLayout>
@@ -50,6 +50,10 @@ Window::Window()
 	m_daily_progress = new QProgressBar(this);
 	m_wordcount = new QLineEdit(this);
 
+	m_novels = new NovelsWindow(this, m_data);
+	connect(m_novels, SIGNAL(hidden()), this, SLOT(novelsWindowHidden()));
+	connect(m_novels, SIGNAL(selected(const QString&)), this, SLOT(load(const QString&)));
+
 	QValidator* validator = new QIntValidator(0, 999999, this);
 	m_wordcount->setValidator(validator);
 	connect(m_wordcount, SIGNAL(textEdited(const QString&)), this, SLOT(wordcountEdited(const QString&)));
@@ -58,9 +62,8 @@ Window::Window()
 	m_novels_button->setCheckable(true);
 	connect(m_novels_button, SIGNAL(toggled(bool)), this, SLOT(novelsToggled(bool)));
 
-	m_goals_button = new QPushButton(tr("Goals"), this);
-	m_goals_button->setCheckable(true);
-	connect(m_goals_button, SIGNAL(toggled(bool)), this, SLOT(goalsToggled(bool)));
+	QPushButton* edit_button = new QPushButton(tr("Edit"), this);
+	connect(edit_button, SIGNAL(clicked()), this, SLOT(editNovel()));
 
 	QGridLayout* grid = new QGridLayout(this);
 	grid->setColumnStretch(1, 1);
@@ -73,15 +76,7 @@ Window::Window()
 	grid->addWidget(new QLabel(tr("Daily:"), this), 3, 0, Qt::AlignRight);
 	grid->addWidget(m_daily_progress, 3, 1, 1, 2);
 	grid->addWidget(m_wordcount, 4, 0, 1, 2);
-	grid->addWidget(m_goals_button, 4, 2);
-
-	m_novels = new NovelsWindow(this, m_data);
-	connect(m_novels, SIGNAL(hidden()), this, SLOT(novelsWindowHidden()));
-	connect(m_novels, SIGNAL(selected(const QString&)), this, SLOT(load(const QString&)));
-
-	m_goals = new GoalsWindow(this, m_data);
-	connect(m_goals, SIGNAL(hidden()), this, SLOT(goalsWindowHidden()));
-	connect(m_goals, SIGNAL(modified()), this, SLOT(novelModified()));
+	grid->addWidget(edit_button, 4, 2);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 
@@ -101,10 +96,19 @@ void Window::closeEvent(QCloseEvent* event)
 
 //-----------------------------------------------------------------------------
 
+void Window::editNovel()
+{
+	NovelDialog edit_dialog(this, m_data);
+	if (edit_dialog.exec() == QDialog::Accepted) {
+		novelModified();
+	}
+}
+
+//-----------------------------------------------------------------------------
+
 void Window::load(const QString& novel)
 {
 	m_data->setCurrentNovel(novel);
-	m_novel_title->setText(QString("<big>%1</big>").arg(m_data->currentNovel()));
 	m_wordcount->setText(QString::number(m_data->currentValue()));
 	novelModified();
 }
@@ -113,6 +117,8 @@ void Window::load(const QString& novel)
 
 void Window::novelModified()
 {
+	m_novel_title->setText(QString("<big>%1</big>").arg(m_data->currentNovel()));
+
 	m_graph->draw();
 
 	// Update total progressbar
@@ -138,25 +144,6 @@ void Window::novelModified()
 	}
 	m_daily_progress->setRange(0, m_data->dailyGoal());
 	m_daily_progress->setValue(qMin(m_data->dailyGoal(), value));
-}
-
-//-----------------------------------------------------------------------------
-
-void Window::goalsToggled(bool down)
-{
-	if (down) {
-		m_goals->resetValues();
-		m_goals->show();
-	} else {
-		m_goals->hide();
-	}
-}
-
-//-----------------------------------------------------------------------------
-
-void Window::goalsWindowHidden()
-{
-	m_goals_button->setChecked(false);
 }
 
 //-----------------------------------------------------------------------------

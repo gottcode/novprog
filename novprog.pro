@@ -25,15 +25,15 @@ unix: !macx {
 
 HEADERS = src/data.h \
 	src/graph.h \
-	src/goals.h \
 	src/locale_dialog.h \
+	src/novel_dialog.h \
 	src/novels.h \
 	src/window.h
 
 SOURCES = src/data.cpp \
 	src/graph.cpp \
-	src/goals.cpp \
 	src/locale_dialog.cpp \
+	src/novel_dialog.cpp \
 	src/novels.cpp \
 	src/window.cpp \
 	src/main.cpp

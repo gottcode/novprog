@@ -26,7 +26,6 @@ class QLineEdit;
 class QProgressBar;
 class QPushButton;
 class Database;
-class GoalsWindow;
 class Graph;
 class NovelsWindow;
 
@@ -40,10 +39,9 @@ protected:
 	void closeEvent(QCloseEvent* event);
 
 private slots:
+	void editNovel();
 	void load(const QString& novel);
 	void novelModified();
-	void goalsToggled(bool down);
-	void goalsWindowHidden();
 	void novelsToggled(bool down);
 	void novelsWindowHidden();
 	void wordcountEdited(const QString& value);
@@ -56,8 +54,6 @@ private:
 	QProgressBar* m_daily_progress;
 	QLineEdit* m_wordcount;
 
-	GoalsWindow* m_goals;
-	QPushButton* m_goals_button;
 	NovelsWindow* m_novels;
 	QPushButton* m_novels_button;
 };

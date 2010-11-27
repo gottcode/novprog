@@ -25,9 +25,9 @@ class Graph;
 
 #include <QWidget>
 class QComboBox;
-class QLineEdit;
 class QProgressBar;
 class QPushButton;
+class QSpinBox;
 
 class Window : public QWidget
 {
@@ -44,7 +44,7 @@ private slots:
 	void deleteNovel();
 	void load(const QString& novel);
 	void novelModified();
-	void wordcountEdited(const QString& value);
+	void wordcountEdited();
 
 private:
 	void reloadList();
@@ -57,7 +57,7 @@ private:
 	QPushButton* m_delete_button;
 	QProgressBar* m_total_progress;
 	QProgressBar* m_daily_progress;
-	QLineEdit* m_wordcount;
+	QSpinBox* m_wordcount;
 };
 
 #endif // NOVPROG_WINDOW_H

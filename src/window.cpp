@@ -26,13 +26,12 @@
 #include <QComboBox>
 #include <QGridLayout>
 #include <QHBoxLayout>
-#include <QIntValidator>
 #include <QLabel>
-#include <QLineEdit>
 #include <QMessageBox>
 #include <QProgressBar>
 #include <QPushButton>
 #include <QSettings>
+#include <QSpinBox>
 
 //-----------------------------------------------------------------------------
 
@@ -52,11 +51,11 @@ Window::Window()
 	m_total_progress = new QProgressBar(this);
 	m_daily_progress = new QProgressBar(this);
 
-	m_wordcount = new QLineEdit(this);
-
-	QValidator* validator = new QIntValidator(0, 999999, this);
-	m_wordcount->setValidator(validator);
-	connect(m_wordcount, SIGNAL(textEdited(const QString&)), this, SLOT(wordcountEdited(const QString&)));
+	m_wordcount = new QSpinBox(this);
+	m_wordcount->setCorrectionMode(QSpinBox::CorrectToNearestValue);
+	m_wordcount->setRange(0, 9999999);
+	m_wordcount->setFocus();
+	connect(m_wordcount, SIGNAL(editingFinished()), this, SLOT(wordcountEdited()));
 
 	QPushButton* new_button = new QPushButton(tr("New"), this);
 	connect(new_button, SIGNAL(clicked()), this, SLOT(newNovel()));
@@ -75,13 +74,13 @@ Window::Window()
 
 	QGridLayout* grid = new QGridLayout(this);
 	grid->setColumnStretch(1, 1);
-	grid->addLayout(selector_layout, 0, 0, 1, 3);
-	grid->addWidget(m_graph, 1, 0, 1, 3);
-	grid->addWidget(new QLabel(tr("Total:"), this), 2, 0, Qt::AlignRight);
-	grid->addWidget(m_total_progress, 2, 1, 1, 2);
-	grid->addWidget(new QLabel(tr("Daily:"), this), 3, 0, Qt::AlignRight);
-	grid->addWidget(m_daily_progress, 3, 1, 1, 2);
-	grid->addWidget(m_wordcount, 4, 0, 1, 2);
+	grid->addLayout(selector_layout, 0, 0, 1, 2);
+	grid->addWidget(m_wordcount, 1, 0, 1, 2, Qt::AlignCenter);
+	grid->addWidget(m_graph, 2, 0, 1, 2);
+	grid->addWidget(new QLabel(tr("Total:"), this), 3, 0, Qt::AlignRight);
+	grid->addWidget(m_total_progress, 3, 1);
+	grid->addWidget(new QLabel(tr("Daily:"), this), 4, 0, Qt::AlignRight);
+	grid->addWidget(m_daily_progress, 4, 1);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 
@@ -146,7 +145,7 @@ void Window::deleteNovel()
 void Window::load(const QString& novel)
 {
 	m_data->setCurrentNovel(novel);
-	m_wordcount->setText(QString::number(m_data->currentValue()));
+	m_wordcount->setValue(m_data->currentValue());
 	novelModified();
 }
 
@@ -183,10 +182,13 @@ void Window::novelModified()
 
 //-----------------------------------------------------------------------------
 
-void Window::wordcountEdited(const QString& value)
+void Window::wordcountEdited()
 {
-	m_data->setCurrentValue(value.toInt());
-	novelModified();
+	int value = m_wordcount->value();
+	if (value != m_data->currentValue(Database::Total)) {
+		m_data->setCurrentValue(value);
+		novelModified();
+	}
 }
 
 //-----------------------------------------------------------------------------

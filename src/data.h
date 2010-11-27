@@ -53,6 +53,7 @@ public:
 private:
 	void read();
 	void write();
+	void resetValues();
 
 private:
 	QString m_novel;

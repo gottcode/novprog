@@ -59,13 +59,9 @@ bool Database::addNovel(const QString& novel)
 		return false;
 	}
 
+	resetValues();
 	QSettings().setValue("Current", novel);
 	m_novel = novel;
-	m_values.clear();
-	m_daily_goal = 0;
-	m_final_goal = 0;
-	m_start_date.setDate(0, 0, 0);
-	m_end_date = m_start_date;
 	write();
 
 	return true;
@@ -93,12 +89,7 @@ bool Database::deleteNovel()
 	if (!m_novel.isEmpty()) {
 		success = QDir().remove(m_novel);
 		if (success) {
-			m_novel.clear();
-			m_values.clear();
-			m_daily_goal = 0;
-			m_final_goal = 0;
-			m_start_date.setDate(0, 0, 0);
-			m_end_date = m_start_date;
+			resetValues();
 		}
 	}
 	return success;
@@ -120,12 +111,7 @@ void Database::setCurrentNovel(const QString& novel)
 		m_novel = novel;
 		read();
 	} else {
-		m_novel.clear();
-		m_values.clear();
-		m_daily_goal = 0;
-		m_final_goal = 0;
-		m_start_date.setDate(0, 0, 0);
-		m_end_date = m_start_date;
+		resetValues();
 	}
 }
 
@@ -246,14 +232,7 @@ void Database::setEnd(const QDate& end)
 void Database::read()
 {
 	QString novel = m_novel;
-
-	// Reset values to null
-	m_novel.clear();
-	m_values.clear();
-	m_daily_goal = 0;
-	m_final_goal = 0;
-	m_start_date.setDate(0, 0, 0);
-	m_end_date = m_start_date;
+	resetValues();
 
 	// Read file
 	QFile file(novel);
@@ -333,6 +312,18 @@ void Database::write()
 	}
 	file.write(data.toUtf8());
 	file.close();
+}
+
+//-----------------------------------------------------------------------------
+
+void Database::resetValues()
+{
+	m_novel.clear();
+	m_values.clear();
+	m_daily_goal = 0;
+	m_final_goal = 0;
+	m_start_date.setDate(0, 0, 0);
+	m_end_date = m_start_date;
 }
 
 //-----------------------------------------------------------------------------

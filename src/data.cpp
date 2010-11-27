@@ -119,6 +119,13 @@ void Database::setCurrentNovel(const QString& novel)
 		QSettings().setValue("Current", novel);
 		m_novel = novel;
 		read();
+	} else {
+		m_novel.clear();
+		m_values.clear();
+		m_daily_goal = 0;
+		m_final_goal = 0;
+		m_start_date.setDate(0, 0, 0);
+		m_end_date = m_start_date;
 	}
 }
 

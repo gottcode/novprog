@@ -76,9 +76,9 @@ Graph::Graph(QWidget* parent, Database* data) :
 void Graph::draw()
 {
 	// Remove all current items
-	foreach (QGraphicsItem* item, m_scene->items()) {
-		m_scene->removeItem(item);
-		delete item;
+	m_scene->clear();
+	if (m_data->currentNovel().isEmpty()) {
+		return;
 	}
 
 	// Detemine height of scene

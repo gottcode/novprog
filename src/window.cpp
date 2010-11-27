@@ -88,10 +88,7 @@ Window::Window()
 	if (m_data->currentNovel().isEmpty()) {
 		newNovel();
 	}
-	if (!m_data->currentNovel().isEmpty()) {
-		load(m_data->currentNovel());
-		show();
-	}
+	load(m_data->currentNovel());
 }
 
 //-----------------------------------------------------------------------------
@@ -133,9 +130,9 @@ void Window::deleteNovel()
 			QStringList list = m_data->novels();
 			if (!list.isEmpty()) {
 				m_data->setCurrentNovel(list.first());
-				reloadList();
-				load(list.first());
 			}
+			reloadList();
+			load(m_data->currentNovel());
 		}
 	}
 }
@@ -157,7 +154,7 @@ void Window::novelModified()
 
 	// Update total progressbar
 	int value = m_data->currentValue();
-	m_total_progress->setRange(0, m_data->finalGoal());
+	m_total_progress->setMaximum(qMax(1, m_data->finalGoal()));
 	m_total_progress->setValue(qMin(m_data->finalGoal(), value));
 
 	// Update daily progressbar
@@ -176,7 +173,7 @@ void Window::novelModified()
 	if (value < 0) {
 		value = 0;
 	}
-	m_daily_progress->setRange(0, m_data->dailyGoal());
+	m_daily_progress->setMaximum(qMax(1, m_data->dailyGoal()));
 	m_daily_progress->setValue(qMin(m_data->dailyGoal(), value));
 }
 
@@ -201,6 +198,7 @@ void Window::reloadList()
 	bool found = (index != -1);
 	m_edit_button->setEnabled(found);
 	m_delete_button->setEnabled(found);
+	m_wordcount->setEnabled(found);
 	if (found) {
 		m_novels->setCurrentIndex(index);
 	}

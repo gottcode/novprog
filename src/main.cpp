@@ -70,9 +70,7 @@ int main(int argc, char** argv)
 	QDir::setCurrent(path);
 
 	Window window;
-	if (!window.isHidden()) {
-		return app.exec();
-	} else {
-		return 0;
-	}
+	window.show();
+
+	return app.exec();
 }

@@ -38,6 +38,9 @@ Database::Database(QObject* parent) :
 	}
 	if (!novel.isEmpty()) {
 		setCurrentNovel(novel);
+		if (m_novel.isEmpty()) {
+			setCurrentNovel(novels().value(0));
+		}
 	}
 }
 

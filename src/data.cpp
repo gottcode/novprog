@@ -117,11 +117,11 @@ void Database::setCurrentNovel(const QString& novel)
 
 //-----------------------------------------------------------------------------
 
-int Database::currentValue() const
+int Database::currentValue(ValueType type) const
 {
 	int value = 0;
 	if (!m_values.isEmpty()) {
-		value = m_values.last();
+		value = (type == Total) ? m_values.last() : m_daily_values.last();
 	}
 	return value;
 }
@@ -163,12 +163,12 @@ QDate Database::endDate() const
 
 //-----------------------------------------------------------------------------
 
-int Database::value(const QDate& day) const
+int Database::value(const QDate& day, ValueType type) const
 {
 	int value = 0;
 	int pos = m_start_date.daysTo(day);
 	if (pos < m_values.count() && pos >= 0) {
-		value = m_values[pos];
+		value = (type == Total) ? m_values[pos] : m_daily_values[pos];
 	}
 	return value;
 }
@@ -281,6 +281,13 @@ void Database::read()
 		}
 		m_values.append(value);
 	}
+
+	// Find daily values
+	int prev_value = 0;
+	foreach (int value, m_values) {
+		m_daily_values.append(qMax(0, value - prev_value));
+		prev_value = value;
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -320,6 +327,7 @@ void Database::resetValues()
 {
 	m_novel.clear();
 	m_values.clear();
+	m_daily_values.clear();
 	m_daily_goal = 0;
 	m_final_goal = 0;
 	m_start_date.setDate(0, 0, 0);

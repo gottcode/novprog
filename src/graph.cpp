@@ -82,7 +82,7 @@ void Graph::draw()
 	}
 
 	// Detemine height of scene
-	int rows = qMax(m_data->currentValue(), m_data->finalGoal()) / 10000;
+	int rows = qMax(m_data->currentValue(Database::Total), m_data->finalGoal()) / 10000;
 	int goal_row = m_data->finalGoal() / 10000;
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
 	double delta = static_cast<double>(m_data->finalGoal()) / static_cast<double>(columns);
@@ -139,7 +139,7 @@ void Graph::draw()
 	QColor color;
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
-		value = m_data->value(day);
+		value = m_data->value(day, Database::Total);
 		minimum = qRound(delta * (c + 1));
 		h = value / 400;
 		x = (c * 9) + 8;

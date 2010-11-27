@@ -142,7 +142,7 @@ void Window::deleteNovel()
 void Window::load(const QString& novel)
 {
 	m_data->setCurrentNovel(novel);
-	m_wordcount->setValue(m_data->currentValue());
+	m_wordcount->setValue(m_data->currentValue(Database::Total));
 	novelModified();
 }
 
@@ -153,26 +153,12 @@ void Window::novelModified()
 	m_graph->draw();
 
 	// Update total progressbar
-	int value = m_data->currentValue();
+	int value = m_data->currentValue(Database::Total);
 	m_total_progress->setMaximum(qMax(1, m_data->finalGoal()));
 	m_total_progress->setValue(qMin(m_data->finalGoal(), value));
 
 	// Update daily progressbar
-	if (value > 0) {
-		QDate date = QDate::currentDate();
-		int count = date.day();
-		for (int i = 0; i < count; ++i) {
-			date = date.addDays(-1);
-			int v = m_data->value(date);
-			if (v) {
-				value -= v;
-				break;
-			}
-		}
-	}
-	if (value < 0) {
-		value = 0;
-	}
+	value = m_data->currentValue(Database::Daily);
 	m_daily_progress->setMaximum(qMax(1, m_data->dailyGoal()));
 	m_daily_progress->setValue(qMin(m_data->dailyGoal(), value));
 }

@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-11-27 Graeme Gott <graeme@gottcode.org>
+	* Track daily values in database.
 	* Handle all novels being deleted.
 	* Handle current novel being deleted while program is closed.
 	* Use spinbox for wordcount.

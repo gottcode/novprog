@@ -25,13 +25,14 @@
 
 #include <QComboBox>
 #include <QGridLayout>
+#include <QGroupBox>
 #include <QHBoxLayout>
-#include <QLabel>
 #include <QMessageBox>
 #include <QProgressBar>
 #include <QPushButton>
 #include <QSettings>
 #include <QSpinBox>
+#include <QVBoxLayout>
 
 //-----------------------------------------------------------------------------
 
@@ -45,11 +46,16 @@ Window::Window()
 #endif
 
 	m_data = new Database(this);
-	m_graph = new Graph(this, m_data);
 	m_novels = new QComboBox(this);
 	connect(m_novels, SIGNAL(activated(const QString&)), this, SLOT(load(const QString&)));
-	m_total_progress = new QProgressBar(this);
-	m_daily_progress = new QProgressBar(this);
+
+	QGroupBox* daily_group = new QGroupBox(tr("Daily"), this);
+	m_daily_graph = new Graph(m_data, Database::Daily, daily_group);
+	m_daily_progress = new QProgressBar(daily_group);
+
+	QGroupBox* total_group = new QGroupBox(tr("Total"), this);
+	m_total_graph = new Graph(m_data, Database::Total, total_group);
+	m_total_progress = new QProgressBar(total_group);
 
 	m_wordcount = new QSpinBox(this);
 	m_wordcount->setCorrectionMode(QSpinBox::CorrectToNearestValue);
@@ -72,15 +78,21 @@ Window::Window()
 	selector_layout->addWidget(m_edit_button);
 	selector_layout->addWidget(m_delete_button);
 
-	QGridLayout* grid = new QGridLayout(this);
-	grid->setColumnStretch(1, 1);
-	grid->addLayout(selector_layout, 0, 0, 1, 2);
-	grid->addWidget(m_wordcount, 1, 0, 1, 2, Qt::AlignCenter);
-	grid->addWidget(m_graph, 2, 0, 1, 2);
-	grid->addWidget(new QLabel(tr("Total:"), this), 3, 0, Qt::AlignRight);
-	grid->addWidget(m_total_progress, 3, 1);
-	grid->addWidget(new QLabel(tr("Daily:"), this), 4, 0, Qt::AlignRight);
-	grid->addWidget(m_daily_progress, 4, 1);
+	QVBoxLayout* daily_layout = new QVBoxLayout(daily_group);
+	daily_layout->addWidget(m_daily_graph);
+	daily_layout->addWidget(m_daily_progress);
+
+	QVBoxLayout* total_layout = new QVBoxLayout(total_group);
+	total_layout->addWidget(m_total_graph);
+	total_layout->addWidget(m_total_progress);
+
+	QGridLayout* layout = new QGridLayout(this);
+	layout->setColumnStretch(0, 1);
+	layout->setColumnStretch(1, 1);
+	layout->addLayout(selector_layout, 0, 0, 1, 2);
+	layout->addWidget(m_wordcount, 1, 0, 1, 2, Qt::AlignCenter);
+	layout->addWidget(daily_group, 2, 0);
+	layout->addWidget(total_group, 2, 1);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 
@@ -150,7 +162,8 @@ void Window::load(const QString& novel)
 
 void Window::novelModified()
 {
-	m_graph->draw();
+	m_total_graph->draw();
+	m_daily_graph->draw();
 
 	// Update total progressbar
 	int value = m_data->currentValue(Database::Total);

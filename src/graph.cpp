@@ -61,9 +61,10 @@ void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
 
 //-----------------------------------------------------------------------------
 
-Graph::Graph(QWidget* parent, Database* data) :
+Graph::Graph(Database* data, Database::ValueType type, QWidget* parent) :
 	QGraphicsView(parent),
-	m_data(data)
+	m_data(data),
+	m_type(type)
 {
 	m_scene = new QGraphicsScene;
 	m_scene->setBackgroundBrush(Qt::white);
@@ -82,10 +83,11 @@ void Graph::draw()
 	}
 
 	// Detemine size of scene
-	int row_value = 10000;
+	int goal = (m_type == Database::Total) ? m_data->finalGoal() : m_data->dailyGoal();
+	int row_value = (m_type == Database::Total) ? 10000 : 500;
 	int pixel_value = row_value / 25;
-	int rows = qMax(m_data->currentValue(Database::Total), m_data->finalGoal()) / row_value;
-	int goal_row = m_data->finalGoal() / row_value;
+	int rows = qMax(m_data->maximumValue(m_type), goal) / row_value;
+	int goal_row = goal / row_value;
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
 	int graph_height = (rows + 1) * 25;
 	int graph_width = (columns * 9) + 14;
@@ -140,15 +142,15 @@ void Graph::draw()
 	QColor color;
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
-		value = m_data->value(day, Database::Total);
-		minimum = m_data->minimumValue(day, Database::Total);
+		value = m_data->value(day, m_type);
+		minimum = m_data->minimumValue(day, m_type);
 
 		// Bar for value
 		h = value / pixel_value;
 		x = (c * 9) + 8;
-		if (value < prev_value) {
+		if (value < prev_value && m_type == Database::Total) {
 			color.setRgb(255, 0, 0);
-		} else if (value >= m_data->finalGoal()) {
+		} else if (value >= goal) {
 			color.setRgb(153, 204, 255);
 		} else if (value >= minimum) {
 			color.setRgb(0, 140, 0);

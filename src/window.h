@@ -51,12 +51,13 @@ private:
 
 private:
 	Database* m_data;
-	Graph* m_graph;
+	Graph* m_daily_graph;
+	Graph* m_total_graph;
 	QComboBox* m_novels;
 	QPushButton* m_edit_button;
 	QPushButton* m_delete_button;
-	QProgressBar* m_total_progress;
 	QProgressBar* m_daily_progress;
+	QProgressBar* m_total_progress;
 	QSpinBox* m_wordcount;
 };
 

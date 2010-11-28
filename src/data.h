@@ -49,6 +49,7 @@ public:
 	QDate startDate() const;
 	QDate endDate() const;
 	int minimumValue(const QDate& day, ValueType type) const;
+	int maximumValue(ValueType type) const;
 	int value(const QDate& day, ValueType type) const;
 	int dailyGoal() const;
 	int finalGoal() const;
@@ -68,6 +69,8 @@ private:
 	QList<int> m_minimum_values;
 	QList<int> m_daily_values;
 	QList<int> m_daily_minimum_values;
+	int m_maximum_value;
+	int m_daily_maximum_value;
 	int m_daily_goal;
 	int m_final_goal;
 	QDate m_start_date;

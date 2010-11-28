@@ -170,6 +170,13 @@ int Database::minimumValue(const QDate& day, ValueType type) const
 
 //-----------------------------------------------------------------------------
 
+int Database::maximumValue(ValueType type) const
+{
+	return (type == Total ? m_maximum_value : m_daily_maximum_value);
+}
+
+//-----------------------------------------------------------------------------
+
 int Database::value(const QDate& day, ValueType type) const
 {
 	return (type == Total ? m_values : m_daily_values).value(m_start_date.daysTo(day));
@@ -287,12 +294,15 @@ void Database::read()
 	// Find daily values
 	int prev_value = 0;
 	foreach (int value, m_values) {
+		m_maximum_value = qMax(value, m_maximum_value);
 		m_daily_values.append(qMax(0, value - prev_value));
+		m_daily_maximum_value = qMax(m_daily_values.last(), m_daily_maximum_value);
 		prev_value = value;
 	}
 
 	// Calculate minimum values
 	int count = m_start_date.daysTo(m_end_date) + 1;
+	int end = qMin(count, m_start_date.daysTo(QDate::currentDate()) + 1);
 	double days = count;
 	double remaining = m_final_goal;
 	double delta = remaining / days;
@@ -300,7 +310,11 @@ void Database::read()
 		m_minimum_values.append(qRound(delta * i));
 		m_daily_minimum_values.append(qRound(remaining / days));
 		days -= 1;
-		remaining = qMax(remaining - m_daily_values.value(i - 1), 0.0);
+		int value = m_daily_values.value(i - 1);
+		if (i >= end && value == 0) {
+			value = m_daily_minimum_values.last();
+		}
+		remaining = qMax(remaining - value, 0.0);
 	}
 }
 
@@ -344,6 +358,8 @@ void Database::resetValues()
 	m_minimum_values.clear();
 	m_daily_values.clear();
 	m_daily_minimum_values.clear();
+	m_maximum_value = 0;
+	m_daily_maximum_value = 0;
 	m_daily_goal = 0;
 	m_final_goal = 0;
 	m_start_date.setDate(0, 0, 0);

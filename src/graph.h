@@ -20,11 +20,12 @@
 #ifndef NOVPROG_GRAPH_H
 #define NOVPROG_GRAPH_H
 
+#include "data.h"
+
 #include <QCoreApplication>
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 class QGraphicsScene;
-class Database;
 
 class Bar : public QGraphicsRectItem
 {
@@ -41,12 +42,13 @@ protected:
 class Graph : public QGraphicsView
 {
 public:
-	Graph(QWidget* parent, Database* data);
+	Graph(Database* data, Database::ValueType type, QWidget* parent);
 
 	void draw();
 
 private:
 	Database* m_data;
+	Database::ValueType m_type;
 	QGraphicsScene* m_scene;
 };
 

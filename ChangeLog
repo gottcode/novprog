@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-11-28 Graeme Gott <graeme@gottcode.org>
+	* Stop hardcoding row values.
 	* Store minimum values in database.
 
 2010-11-27 Graeme Gott <graeme@gottcode.org>

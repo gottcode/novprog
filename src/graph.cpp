@@ -81,9 +81,11 @@ void Graph::draw()
 		return;
 	}
 
-	// Detemine height of scene
-	int rows = qMax(m_data->currentValue(Database::Total), m_data->finalGoal()) / 10000;
-	int goal_row = m_data->finalGoal() / 10000;
+	// Detemine size of scene
+	int row_value = 10000;
+	int pixel_value = row_value / 25;
+	int rows = qMax(m_data->currentValue(Database::Total), m_data->finalGoal()) / row_value;
+	int goal_row = m_data->finalGoal() / row_value;
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
 	int graph_height = (rows + 1) * 25;
 	int graph_width = (columns * 9) + 14;
@@ -116,7 +118,7 @@ void Graph::draw()
 	label_font.setFamily("Serif");
 	label_font.setPointSize(7);
 	for (int i = 1; i <= rows; ++i) {
-		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg(i * 10000));
+		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg(i * row_value));
 		if (i <= goal_row) {
 			text->setDefaultTextColor(QColor(102, 102, 102));
 		} else {
@@ -140,7 +142,9 @@ void Graph::draw()
 	for (int c = 0; c < columns; ++c) {
 		value = m_data->value(day, Database::Total);
 		minimum = m_data->minimumValue(day, Database::Total);
-		h = value / 400;
+
+		// Bar for value
+		h = value / pixel_value;
 		x = (c * 9) + 8;
 		if (value < prev_value) {
 			color.setRgb(255, 0, 0);
@@ -154,9 +158,9 @@ void Graph::draw()
 		prev_value = value;
 		m_scene->addItem(new Bar(x, graph_height - h, 8, h, value, day, color));
 
-		h = minimum / 400;
-		QGraphicsRectItem* rect = m_scene->addRect(x, graph_height - h, 8, h, Qt::NoPen, Qt::black);
-		rect->setOpacity(0.15);
+		// Bar for minimum value
+		h = minimum / pixel_value;
+		QGraphicsRectItem* rect = m_scene->addRect(x, graph_height - h, 8, h, Qt::NoPen, QColor(0, 0, 0, 38));
 		rect->setZValue(2);
 
 		day = day.addDays(1);

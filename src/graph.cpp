@@ -85,7 +85,6 @@ void Graph::draw()
 	int rows = qMax(m_data->currentValue(Database::Total), m_data->finalGoal()) / 10000;
 	int goal_row = m_data->finalGoal() / 10000;
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
-	double delta = static_cast<double>(m_data->finalGoal()) / static_cast<double>(columns);
 	int graph_height = (rows + 1) * 25;
 	int graph_width = (columns * 9) + 14;
 	m_scene->setSceneRect(0, 0, graph_width, graph_height);
@@ -140,7 +139,7 @@ void Graph::draw()
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
 		value = m_data->value(day, Database::Total);
-		minimum = qRound(delta * (c + 1));
+		minimum = m_data->minimumValue(day, Database::Total);
 		h = value / 400;
 		x = (c * 9) + 8;
 		if (value < prev_value) {

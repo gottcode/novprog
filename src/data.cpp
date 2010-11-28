@@ -163,14 +163,16 @@ QDate Database::endDate() const
 
 //-----------------------------------------------------------------------------
 
+int Database::minimumValue(const QDate& day, ValueType type) const
+{
+	return (type == Total ? m_minimum_values : m_daily_minimum_values).value(m_start_date.daysTo(day));
+}
+
+//-----------------------------------------------------------------------------
+
 int Database::value(const QDate& day, ValueType type) const
 {
-	int value = 0;
-	int pos = m_start_date.daysTo(day);
-	if (pos < m_values.count() && pos >= 0) {
-		value = (type == Total) ? m_values[pos] : m_daily_values[pos];
-	}
-	return value;
+	return (type == Total ? m_values : m_daily_values).value(m_start_date.daysTo(day));
 }
 
 //-----------------------------------------------------------------------------
@@ -288,6 +290,18 @@ void Database::read()
 		m_daily_values.append(qMax(0, value - prev_value));
 		prev_value = value;
 	}
+
+	// Calculate minimum values
+	int count = m_start_date.daysTo(m_end_date) + 1;
+	double days = count;
+	double remaining = m_final_goal;
+	double delta = remaining / days;
+	for (int i = 1; i <= count; ++i) {
+		m_minimum_values.append(qRound(delta * i));
+		m_daily_minimum_values.append(qRound(remaining / days));
+		days -= 1;
+		remaining = qMax(remaining - m_daily_values.value(i - 1), 0.0);
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -327,7 +341,9 @@ void Database::resetValues()
 {
 	m_novel.clear();
 	m_values.clear();
+	m_minimum_values.clear();
 	m_daily_values.clear();
+	m_daily_minimum_values.clear();
 	m_daily_goal = 0;
 	m_final_goal = 0;
 	m_start_date.setDate(0, 0, 0);

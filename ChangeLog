@@ -1,6 +1,9 @@
 2012-12-24 Graeme Gott <graeme@gottcode.org>
 	* Add support for compiling with Qt 5.0.0.
 
+2010-11-28 Graeme Gott <graeme@gottcode.org>
+	* Store minimum values in database.
+
 2010-11-27 Graeme Gott <graeme@gottcode.org>
 	* Track daily values in database.
 	* Handle all novels being deleted.

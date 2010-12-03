@@ -105,8 +105,8 @@ NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent) 
 	} else {
 		setWindowTitle(tr("Edit Novel"));
 		m_name->setText(novel);
-		m_total->setValue(m_data->finalGoal());
-		m_daily->setValue(m_data->dailyGoal());
+		m_total->setValue(m_data->goal(Database::Total));
+		m_daily->setValue(m_data->goal(Database::Daily));
 		m_start->setDate(m_data->startDate());
 		m_end->setDate(m_data->endDate());
 	}
@@ -124,8 +124,8 @@ void NovelDialog::accept()
 		}
 	}
 
-	m_data->setFinalGoal(m_total->value());
-	m_data->setDailyGoal(m_daily->value());
+	m_data->setGoal(Database::Total, m_total->value());
+	m_data->setGoal(Database::Daily, m_daily->value());
 	m_data->setStart(m_start->date());
 	m_data->setEnd(m_end->date());
 	QDialog::accept();

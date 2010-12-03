@@ -29,7 +29,7 @@ class Database : public QObject
 public:
 	Database(QObject* parent);
 
-	enum ValueType
+	enum GoalType
 	{
 		Daily,
 		Total
@@ -42,19 +42,17 @@ public:
 	bool deleteNovel();
 
 	QString currentNovel() const;
-	int currentValue(ValueType type) const;
+	int currentValue(GoalType type) const;
 	void setCurrentNovel(const QString& novel);
 	void setCurrentValue(int value);
 
 	QDate startDate() const;
 	QDate endDate() const;
-	int minimumValue(const QDate& day, ValueType type) const;
-	int maximumValue(ValueType type) const;
-	int value(const QDate& day, ValueType type) const;
-	int dailyGoal() const;
-	int finalGoal() const;
-	void setDailyGoal(int words);
-	void setFinalGoal(int words);
+	int goal(GoalType type) const;
+	int minimumValue(GoalType type, const QDate& day) const;
+	int maximumValue(GoalType type) const;
+	int value(GoalType type, const QDate& day) const;
+	void setGoal(GoalType type, int words);
 	void setStart(const QDate& start);
 	void setEnd(const QDate& end);
 

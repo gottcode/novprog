@@ -42,13 +42,13 @@ protected:
 class Graph : public QGraphicsView
 {
 public:
-	Graph(Database* data, Database::ValueType type, QWidget* parent);
+	Graph(Database* data, Database::GoalType type, QWidget* parent);
 
 	void draw();
 
 private:
 	Database* m_data;
-	Database::ValueType m_type;
+	Database::GoalType m_type;
 	QGraphicsScene* m_scene;
 };
 

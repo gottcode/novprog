@@ -61,7 +61,7 @@ void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
 
 //-----------------------------------------------------------------------------
 
-Graph::Graph(Database* data, Database::ValueType type, QWidget* parent) :
+Graph::Graph(Database* data, Database::GoalType type, QWidget* parent) :
 	QGraphicsView(parent),
 	m_data(data),
 	m_type(type)
@@ -83,7 +83,7 @@ void Graph::draw()
 	}
 
 	// Detemine size of scene
-	int goal = (m_type == Database::Total) ? m_data->finalGoal() : m_data->dailyGoal();
+	int goal = m_data->goal(m_type);
 	int row_value = (m_type == Database::Total) ? 10000 : 500;
 	int pixel_value = row_value / 25;
 	int rows = qMax(m_data->maximumValue(m_type), goal) / row_value;
@@ -142,8 +142,8 @@ void Graph::draw()
 	QColor color;
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
-		value = m_data->value(day, m_type);
-		minimum = m_data->minimumValue(day, m_type);
+		value = m_data->value(m_type, day);
+		minimum = m_data->minimumValue(m_type, day);
 
 		// Bar for value
 		h = value / pixel_value;

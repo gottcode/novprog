@@ -117,7 +117,7 @@ void Database::setCurrentNovel(const QString& novel)
 
 //-----------------------------------------------------------------------------
 
-int Database::currentValue(ValueType type) const
+int Database::currentValue(GoalType type) const
 {
 	int value = 0;
 	if (!m_values.isEmpty()) {
@@ -164,55 +164,38 @@ QDate Database::endDate() const
 
 //-----------------------------------------------------------------------------
 
-int Database::minimumValue(const QDate& day, ValueType type) const
+int Database::goal(GoalType type) const
+{
+	return (type == Total ? m_final_goal : m_daily_goal);
+}
+
+//-----------------------------------------------------------------------------
+
+int Database::minimumValue(GoalType type, const QDate& day) const
 {
 	return (type == Total ? m_minimum_values : m_daily_minimum_values).value(m_start_date.daysTo(day));
 }
 
 //-----------------------------------------------------------------------------
 
-int Database::maximumValue(ValueType type) const
+int Database::maximumValue(GoalType type) const
 {
 	return (type == Total ? m_maximum_value : m_daily_maximum_value);
 }
 
 //-----------------------------------------------------------------------------
 
-int Database::value(const QDate& day, ValueType type) const
+int Database::value(GoalType type, const QDate& day) const
 {
 	return (type == Total ? m_values : m_daily_values).value(m_start_date.daysTo(day));
 }
 
 //-----------------------------------------------------------------------------
 
-int Database::dailyGoal() const
-{
-	return m_daily_goal;
-}
-
-//-----------------------------------------------------------------------------
-
-int Database::finalGoal() const
-{
-	return m_final_goal;
-}
-
-//-----------------------------------------------------------------------------
-
-void Database::setDailyGoal(int words)
+void Database::setGoal(GoalType type, int words)
 {
 	if (!m_novel.isEmpty()) {
-		m_daily_goal = words;
-		write();
-	}
-}
-
-//-----------------------------------------------------------------------------
-
-void Database::setFinalGoal(int words)
-{
-	if (!m_novel.isEmpty()) {
-		m_final_goal = words;
+		(type == Total ? m_final_goal : m_daily_goal) = words;
 		updateValues();
 		write();
 	}

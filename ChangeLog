@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2010-12-03 Graeme Gott <graeme@gottcode.org>
+	* Refactor data storage.
 	* Refactor goal handling.
 	* Update daily and minimum values.
 

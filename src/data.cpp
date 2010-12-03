@@ -25,9 +25,7 @@
 //-----------------------------------------------------------------------------
 
 Database::Database(QObject* parent) :
-	QObject(parent),
-	m_daily_goal(0),
-	m_final_goal(0)
+	QObject(parent)
 {
 	QString novel = QSettings().value("Current").toString();
 	if (novel.isEmpty()) {
@@ -119,11 +117,7 @@ void Database::setCurrentNovel(const QString& novel)
 
 int Database::currentValue(GoalType type) const
 {
-	int value = 0;
-	if (!m_values.isEmpty()) {
-		value = (type == Total) ? m_values.last() : m_daily_values.last();
-	}
-	return value;
+	return !m_data[type].values.isEmpty() ? m_data[type].values.last() : 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -132,17 +126,17 @@ void Database::setCurrentValue(int value)
 {
 	if (!m_novel.isEmpty()) {
 		int pos = m_start_date.daysTo(QDate::currentDate());
-		if (pos >= m_values.count()) {
+		if (pos >= m_data[Total].values.count()) {
 			int last_value = 0;
-			if (m_values.count() > 0) {
-				last_value = m_values.last();
+			if (!m_data[Total].values.isEmpty()) {
+				last_value = m_data[Total].values.last();
 			}
-			int length = pos - m_values.count();
+			int length = pos - m_data[Total].values.count();
 			for (int i = 0; i <= length; ++i) {
-				m_values.append(last_value);
+				m_data[Total].values.append(last_value);
 			}
 		}
-		m_values[pos] = value;
+		m_data[Total].values[pos] = value;
 		updateValues();
 		write();
 	}
@@ -166,28 +160,28 @@ QDate Database::endDate() const
 
 int Database::goal(GoalType type) const
 {
-	return (type == Total ? m_final_goal : m_daily_goal);
+	return m_data[type].goal;
 }
 
 //-----------------------------------------------------------------------------
 
 int Database::minimumValue(GoalType type, const QDate& day) const
 {
-	return (type == Total ? m_minimum_values : m_daily_minimum_values).value(m_start_date.daysTo(day));
+	return m_data[type].minimum_values.value(m_start_date.daysTo(day));
 }
 
 //-----------------------------------------------------------------------------
 
 int Database::maximumValue(GoalType type) const
 {
-	return (type == Total ? m_maximum_value : m_daily_maximum_value);
+	return m_data[type].maximum_value;
 }
 
 //-----------------------------------------------------------------------------
 
 int Database::value(GoalType type, const QDate& day) const
 {
-	return (type == Total ? m_values : m_daily_values).value(m_start_date.daysTo(day));
+	return m_data[type].values.value(m_start_date.daysTo(day));
 }
 
 //-----------------------------------------------------------------------------
@@ -195,7 +189,7 @@ int Database::value(GoalType type, const QDate& day) const
 void Database::setGoal(GoalType type, int words)
 {
 	if (!m_novel.isEmpty()) {
-		(type == Total ? m_final_goal : m_daily_goal) = words;
+		m_data[type].goal = words;
 		updateValues();
 		write();
 	}
@@ -248,8 +242,8 @@ void Database::read()
 		return;
 	}
 	m_novel = novel;
-	m_final_goal = header[0].toInt();
-	m_daily_goal = header[1].toInt();
+	m_data[Total].goal = header[0].toInt();
+	m_data[Daily].goal = header[1].toInt();
 	m_start_date = QDate::fromString(header[2], Qt::ISODate);
 	int months = header[3].toInt();
 	if (months == 0) {
@@ -265,17 +259,17 @@ void Database::read()
 	foreach (QString day, lines) {
 		int pos = day.section(' ', 0, 0).toInt() - 1;
 		int value = day.section(' ', 1, 1).toInt();
-		if (pos >= m_values.count()) {
+		if (pos >= m_data[Total].values.count()) {
 			int last_value = 0;
-			if (m_values.count() > 0) {
-				last_value = m_values.last();
+			if (!m_data[Total].values.isEmpty()) {
+				last_value = m_data[Total].values.last();
 			}
-			int length = pos - m_values.count();
+			int length = pos - m_data[Total].values.count();
 			for (int i = 0; i < length; ++i) {
-				m_values.append(last_value);
+				m_data[Total].values.append(last_value);
 			}
 		}
-		m_values.append(value);
+		m_data[Total].values.append(value);
 	}
 	updateValues();
 }
@@ -285,16 +279,16 @@ void Database::read()
 void Database::write()
 {
 	QString data = QString("%1 %2 %3 %4\n")
-		.arg(m_final_goal)
-		.arg(m_daily_goal)
+		.arg(m_data[Total].goal)
+		.arg(m_data[Daily].goal)
 		.arg(m_start_date.toString(Qt::ISODate))
 		.arg(m_end_date.toString(Qt::ISODate));
 
 	int value = 0;
 	QDate day = m_start_date;
-	int length = m_values.count();
+	int length = m_data[Total].values.count();
 	for (int i = 0; i < length; ++i) {
-		int new_value = m_values[i];
+		int new_value = m_data[Total].values[i];
 		if (new_value != value) {
 			value = new_value;
 			data += QString("%1 %2\n").arg(i + 1).arg(value);
@@ -316,16 +310,14 @@ void Database::write()
 void Database::resetValues()
 {
 	m_novel.clear();
-	m_values.clear();
-	m_minimum_values.clear();
-	m_daily_values.clear();
-	m_daily_minimum_values.clear();
-	m_maximum_value = 0;
-	m_daily_maximum_value = 0;
-	m_daily_goal = 0;
-	m_final_goal = 0;
 	m_start_date.setDate(0, 0, 0);
 	m_end_date = m_start_date;
+	for (int i = Daily; i <= Total; ++i) {
+		m_data[i].values.clear();
+		m_data[i].minimum_values.clear();
+		m_data[i].maximum_value = 0;
+		m_data[i].goal = 0;
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -333,32 +325,32 @@ void Database::resetValues()
 void Database::updateValues()
 {
 	// Calculate daily values
-	m_daily_values.clear();
-	m_maximum_value = 0;
-	m_daily_maximum_value = 0;
+	m_data[Daily].values.clear();
+	m_data[Daily].maximum_value = 0;
+	m_data[Total].maximum_value = 0;
 	int prev_value = 0;
-	foreach (int value, m_values) {
-		m_maximum_value = qMax(value, m_maximum_value);
-		m_daily_values.append(qMax(0, value - prev_value));
-		m_daily_maximum_value = qMax(m_daily_values.last(), m_daily_maximum_value);
+	foreach (int value, m_data[Total].values) {
+		m_data[Total].maximum_value = qMax(value, m_data[Total].maximum_value);
+		m_data[Daily].values.append(qMax(0, value - prev_value));
+		m_data[Daily].maximum_value = qMax(m_data[Daily].values.last(), m_data[Daily].maximum_value);
 		prev_value = value;
 	}
 
 	// Calculate minimum values
-	m_minimum_values.clear();
-	m_daily_minimum_values.clear();
+	m_data[Daily].minimum_values.clear();
+	m_data[Total].minimum_values.clear();
 	int count = m_start_date.daysTo(m_end_date) + 1;
 	int end = qMin(count, m_start_date.daysTo(QDate::currentDate()) + 1);
 	double days = count;
-	double remaining = m_final_goal;
+	double remaining = m_data[Total].goal;
 	double delta = remaining / days;
 	for (int i = 1; i <= count; ++i) {
-		m_minimum_values.append(qRound(delta * i));
-		m_daily_minimum_values.append(qRound(remaining / days));
+		m_data[Total].minimum_values.append(qRound(delta * i));
+		m_data[Daily].minimum_values.append(qRound(remaining / days));
 		days -= 1;
-		int value = m_daily_values.value(i - 1);
+		int value = m_data[Daily].values.value(i - 1);
 		if ((i >= end) && (value == 0)) {
-			value = m_daily_minimum_values.last();
+			value = m_data[Daily].minimum_values.last();
 		}
 		remaining = qMax(remaining - value, 0.0);
 	}

@@ -143,6 +143,7 @@ void Database::setCurrentValue(int value)
 			}
 		}
 		m_values[pos] = value;
+		updateValues();
 		write();
 	}
 }
@@ -212,6 +213,7 @@ void Database::setFinalGoal(int words)
 {
 	if (!m_novel.isEmpty()) {
 		m_final_goal = words;
+		updateValues();
 		write();
 	}
 }
@@ -222,6 +224,7 @@ void Database::setStart(const QDate& start)
 {
 	if (!m_novel.isEmpty()) {
 		m_start_date = start;
+		updateValues();
 		write();
 	}
 }
@@ -232,6 +235,7 @@ void Database::setEnd(const QDate& end)
 {
 	if (!m_novel.isEmpty()) {
 		m_end_date = end;
+		updateValues();
 		write();
 	}
 }
@@ -290,32 +294,7 @@ void Database::read()
 		}
 		m_values.append(value);
 	}
-
-	// Find daily values
-	int prev_value = 0;
-	foreach (int value, m_values) {
-		m_maximum_value = qMax(value, m_maximum_value);
-		m_daily_values.append(qMax(0, value - prev_value));
-		m_daily_maximum_value = qMax(m_daily_values.last(), m_daily_maximum_value);
-		prev_value = value;
-	}
-
-	// Calculate minimum values
-	int count = m_start_date.daysTo(m_end_date) + 1;
-	int end = qMin(count, m_start_date.daysTo(QDate::currentDate()) + 1);
-	double days = count;
-	double remaining = m_final_goal;
-	double delta = remaining / days;
-	for (int i = 1; i <= count; ++i) {
-		m_minimum_values.append(qRound(delta * i));
-		m_daily_minimum_values.append(qRound(remaining / days));
-		days -= 1;
-		int value = m_daily_values.value(i - 1);
-		if (i >= end && value == 0) {
-			value = m_daily_minimum_values.last();
-		}
-		remaining = qMax(remaining - value, 0.0);
-	}
+	updateValues();
 }
 
 //-----------------------------------------------------------------------------
@@ -364,6 +343,42 @@ void Database::resetValues()
 	m_final_goal = 0;
 	m_start_date.setDate(0, 0, 0);
 	m_end_date = m_start_date;
+}
+
+//-----------------------------------------------------------------------------
+
+void Database::updateValues()
+{
+	// Calculate daily values
+	m_daily_values.clear();
+	m_maximum_value = 0;
+	m_daily_maximum_value = 0;
+	int prev_value = 0;
+	foreach (int value, m_values) {
+		m_maximum_value = qMax(value, m_maximum_value);
+		m_daily_values.append(qMax(0, value - prev_value));
+		m_daily_maximum_value = qMax(m_daily_values.last(), m_daily_maximum_value);
+		prev_value = value;
+	}
+
+	// Calculate minimum values
+	m_minimum_values.clear();
+	m_daily_minimum_values.clear();
+	int count = m_start_date.daysTo(m_end_date) + 1;
+	int end = qMin(count, m_start_date.daysTo(QDate::currentDate()) + 1);
+	double days = count;
+	double remaining = m_final_goal;
+	double delta = remaining / days;
+	for (int i = 1; i <= count; ++i) {
+		m_minimum_values.append(qRound(delta * i));
+		m_daily_minimum_values.append(qRound(remaining / days));
+		days -= 1;
+		int value = m_daily_values.value(i - 1);
+		if ((i >= end) && (value == 0)) {
+			value = m_daily_minimum_values.last();
+		}
+		remaining = qMax(remaining - value, 0.0);
+	}
 }
 
 //-----------------------------------------------------------------------------

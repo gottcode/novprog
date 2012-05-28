@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006-2008, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@
 int main(int argc, char** argv) {
 	QApplication app(argc, argv);
 	app.setApplicationName("NovProg2");
+	app.setApplicationVersion(VERSIONSTR);
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");
 

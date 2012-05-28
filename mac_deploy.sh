@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP="NovProg2"
-VERSION="2.0.5"
+VERSION=VERSION=$(git rev-parse --short HEAD)
 
 BUNDLE="$APP.app"
 BUNDLE_FW="$BUNDLE/Contents/Frameworks"

@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2008, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,14 +17,13 @@
  *
  ***********************************************************************/
 
+#include "locale_dialog.h"
+#include "window.h"
+
 #include <QApplication>
 #include <QDir>
 #include <QFileInfo>
-#include <QLocale>
 #include <QSettings>
-#include <QTranslator>
-
-#include "window.h"
 
 int main(int argc, char** argv) {
 	QApplication app(argc, argv);
@@ -33,13 +32,7 @@ int main(int argc, char** argv) {
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");
 
-	QTranslator qt_translator;
-	qt_translator.load("qt_" + QLocale::system().name());
-	app.installTranslator(&qt_translator);
-
-	QTranslator novprog2_translator;
-	novprog2_translator.load("novprog2_" + QLocale::system().name());
-	app.installTranslator(&novprog2_translator);
+	LocaleDialog::loadTranslator("novprog2_");
 
 	// Change to novels directory
 #if defined(Q_OS_MAC)

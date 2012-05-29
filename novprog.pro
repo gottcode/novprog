@@ -1,9 +1,7 @@
 TEMPLATE = app
-CONFIG += warn_on release
+CONFIG += warn_on
 macx {
-	# Uncomment the following line to compile on PowerPC Macs
-	# QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.4u.sdk
-	CONFIG += x86 ppc
+	CONFIG += x86_64
 }
 
 MOC_DIR = build
@@ -25,15 +23,19 @@ unix: !macx {
 HEADERS = src/data.h \
 	src/graph.h \
 	src/goals.h \
+	src/locale_dialog.h \
 	src/novels.h \
 	src/window.h
 
 SOURCES = src/data.cpp \
 	src/graph.cpp \
 	src/goals.cpp \
+	src/locale_dialog.cpp \
 	src/novels.cpp \
 	src/window.cpp \
 	src/main.cpp
+
+TRANSLATIONS = translations/novprog2_en.ts
 
 macx {
 	ICON = icons/novprog2.icns
@@ -55,5 +57,8 @@ unix: !macx {
 	desktop.path = $$PREFIX/share/applications/
 	desktop.files = novprog2.desktop
 
-	INSTALLS += target icon desktop
+	qm.files = translations/*.qm
+	qm.path = $$PREFIX/share/novprog2/translations
+
+	INSTALLS += target icon desktop qm
 }

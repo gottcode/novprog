@@ -35,7 +35,8 @@ SOURCES = src/data.cpp \
 	src/window.cpp \
 	src/main.cpp
 
-TRANSLATIONS = translations/novprog2_en.ts
+TRANSLATIONS = translations/novprog2_en.ts \
+	translations/novprog2_fr.ts
 
 macx {
 	ICON = icons/novprog2.icns

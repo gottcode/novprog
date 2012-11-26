@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,10 +51,12 @@ public:
 	int goal(GoalType type) const;
 	int minimumValue(GoalType type, const QDate& day) const;
 	int maximumValue(GoalType type) const;
+	int startValue() const;
 	int value(GoalType type, const QDate& day) const;
 	void setGoal(GoalType type, int words);
 	void setStart(const QDate& start);
 	void setEnd(const QDate& end);
+	void setStartValue(int value);
 
 private:
 	void read();
@@ -66,6 +68,7 @@ private:
 	QString m_novel;
 	QDate m_start_date;
 	QDate m_end_date;
+	int m_start_value;
 
 	struct Data
 	{

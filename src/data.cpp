@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -186,6 +186,13 @@ int Database::value(GoalType type, const QDate& day) const
 
 //-----------------------------------------------------------------------------
 
+int Database::startValue() const
+{
+	return m_start_value;
+}
+
+//-----------------------------------------------------------------------------
+
 void Database::setGoal(GoalType type, int words)
 {
 	if (!m_novel.isEmpty()) {
@@ -219,6 +226,16 @@ void Database::setEnd(const QDate& end)
 
 //-----------------------------------------------------------------------------
 
+void Database::setStartValue(int value)
+{
+	if (!m_novel.isEmpty()) {
+		m_start_value = value;
+		write();
+	}
+}
+
+//-----------------------------------------------------------------------------
+
 void Database::read()
 {
 	QString novel = m_novel;
@@ -238,7 +255,7 @@ void Database::read()
 		return;
 	}
 	QStringList header = lines.takeFirst().split(' ', QString::SkipEmptyParts);
-	if (header.count() != 4) {
+	if (header.count() < 4) {
 		return;
 	}
 	m_novel = novel;
@@ -254,6 +271,7 @@ void Database::read()
 	if (m_end_date < m_start_date) {
 		m_end_date = m_start_date;
 	}
+	m_start_value = (header.count() > 4) ? header[4].toInt() : 0;
 
 	// Parse values
 	foreach (QString day, lines) {
@@ -278,11 +296,12 @@ void Database::read()
 
 void Database::write()
 {
-	QString data = QString("%1 %2 %3 %4\n")
+	QString data = QString("%1 %2 %3 %4 %5\n")
 		.arg(m_data[Total].goal)
 		.arg(m_data[Daily].goal)
 		.arg(m_start_date.toString(Qt::ISODate))
-		.arg(m_end_date.toString(Qt::ISODate));
+		.arg(m_end_date.toString(Qt::ISODate))
+		.arg(m_start_value);
 
 	int value = 0;
 	QDate day = m_start_date;

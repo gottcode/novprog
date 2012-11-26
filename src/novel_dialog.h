@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@ private:
 	QSpinBox* m_daily;
 	QDateEdit* m_start;
 	QDateEdit* m_end;
+	QSpinBox* m_start_value;
 	QPushButton* m_accept;
 	bool m_new;
 };

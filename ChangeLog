@@ -2,6 +2,7 @@
 	* Add support for compiling with Qt 5.0.0.
 
 2012-12-01 Graeme Gott <graeme@gottcode.org>
+	* Make totals graph respect start value.
 	* Make daily value graph respect start value.
 
 2012-11-26 Graeme Gott <graeme@gottcode.org>

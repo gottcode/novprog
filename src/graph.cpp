@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -84,9 +84,16 @@ void Graph::draw()
 
 	// Detemine size of scene
 	int goal = m_data->goal(m_type);
+	int maximum = m_data->maximumValue(m_type);
+	int start_value = 0;
+	if (m_type == Database::Total) {
+		start_value = m_data->startValue();
+		goal -= start_value;
+		maximum -= start_value;
+	}
 	int row_value = (m_type == Database::Total) ? 10000 : 500;
 	int pixel_value = row_value / 25;
-	int rows = qMax(m_data->maximumValue(m_type), goal) / row_value;
+	int rows = qMax(maximum, goal) / row_value;
 	int goal_row = goal / row_value;
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
 	int graph_height = (rows + 1) * 25;
@@ -120,7 +127,7 @@ void Graph::draw()
 	label_font.setFamily("Serif");
 	label_font.setPointSize(7);
 	for (int i = 1; i <= rows; ++i) {
-		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg(i * row_value));
+		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg((i * row_value) + start_value));
 		if (i <= goal_row) {
 			text->setDefaultTextColor(QColor(102, 102, 102));
 		} else {
@@ -138,12 +145,15 @@ void Graph::draw()
 	}
 
 	// Draw bars
-	int prev_value = 0, value, minimum, x, h;
+	int prev_value = 0, value, tooltipvalue, minimum, x, h;
 	QColor color;
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
-		value = m_data->value(m_type, day);
+		tooltipvalue = value = m_data->value(m_type, day);
 		minimum = m_data->minimumValue(m_type, day);
+		if (m_type == Database::Total) {
+			value = qMax(0, value - start_value);
+		}
 
 		// Bar for value
 		h = value / pixel_value;
@@ -158,7 +168,7 @@ void Graph::draw()
 			color.setRgb(255, 170, 0);
 		}
 		prev_value = value;
-		m_scene->addItem(new Bar(x, graph_height - h, 8, h, value, day, color));
+		m_scene->addItem(new Bar(x, graph_height - h, 8, h, tooltipvalue, day, color));
 
 		// Bar for minimum value
 		h = minimum / pixel_value;

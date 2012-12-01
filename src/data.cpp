@@ -127,7 +127,7 @@ void Database::setCurrentValue(int value)
 	if (!m_novel.isEmpty()) {
 		int pos = m_start_date.daysTo(QDate::currentDate());
 		if (pos >= m_data[Total].values.count()) {
-			int last_value = 0;
+			int last_value = m_start_value;
 			if (!m_data[Total].values.isEmpty()) {
 				last_value = m_data[Total].values.last();
 			}
@@ -278,7 +278,7 @@ void Database::read()
 		int pos = day.section(' ', 0, 0).toInt() - 1;
 		int value = day.section(' ', 1, 1).toInt();
 		if (pos >= m_data[Total].values.count()) {
-			int last_value = 0;
+			int last_value = m_start_value;
 			if (!m_data[Total].values.isEmpty()) {
 				last_value = m_data[Total].values.last();
 			}
@@ -347,7 +347,7 @@ void Database::updateValues()
 	m_data[Daily].values.clear();
 	m_data[Daily].maximum_value = 0;
 	m_data[Total].maximum_value = 0;
-	int prev_value = 0;
+	int prev_value = m_start_value;
 	foreach (int value, m_data[Total].values) {
 		m_data[Total].maximum_value = qMax(value, m_data[Total].maximum_value);
 		m_data[Daily].values.append(qMax(0, value - prev_value));
@@ -361,7 +361,7 @@ void Database::updateValues()
 	int count = m_start_date.daysTo(m_end_date) + 1;
 	int end = qMin(count, m_start_date.daysTo(QDate::currentDate()) + 1);
 	double days = count;
-	double remaining = m_data[Total].goal;
+	double remaining = m_data[Total].goal - m_start_value;
 	double delta = remaining / days;
 	for (int i = 1; i <= count; ++i) {
 		m_data[Total].minimum_values.append(qRound(delta * i));

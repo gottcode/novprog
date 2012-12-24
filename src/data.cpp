@@ -359,7 +359,7 @@ void Database::updateValues()
 	m_data[Daily].minimum_values.clear();
 	m_data[Total].minimum_values.clear();
 	int count = m_start_date.daysTo(m_end_date) + 1;
-	int end = qMin(count, m_start_date.daysTo(QDate::currentDate()) + 1);
+	int end = qMin(count, static_cast<int>(m_start_date.daysTo(QDate::currentDate())) + 1);
 	double days = count;
 	double remaining = m_data[Total].goal - m_start_value;
 	double delta = remaining / days;

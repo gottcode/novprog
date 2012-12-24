@@ -56,7 +56,7 @@ bool Database::addNovel(const QString& novel) {
 		QFile file(novel);
 		if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
 			return false;
-		file.write(data.toAscii());
+		file.write(data.toUtf8());
 		file.close();
 		success = true;
 	}
@@ -220,7 +220,7 @@ void Database::read() {
 	QFile file(novel);
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
 		return;
-	QString data = file.readAll();
+	QString data = QString::fromUtf8(file.readAll());
 	file.close();
 
 	// Parse header data
@@ -273,7 +273,7 @@ void Database::write() {
 	QFile file(m_novel);
 	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
 		return;
-	file.write(data.toAscii());
+	file.write(data.toUtf8());
 	file.close();
 }
 

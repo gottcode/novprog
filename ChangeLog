@@ -1,3 +1,6 @@
+2012-12-24 Graeme Gott <graeme@gottcode.org>
+	* Add support for compiling with Qt 5.0.0.
+
 2008-06-18 Graeme Gott <graeme@gottcode.org>
 	* Tag version 2.0.5.
 

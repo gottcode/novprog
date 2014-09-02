@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@
 #include <QPushButton>
 #include <QSettings>
 #include <QSpinBox>
+#include <QTabWidget>
 #include <QVBoxLayout>
 
 //-----------------------------------------------------------------------------
@@ -49,13 +50,17 @@ Window::Window()
 	m_novels = new QComboBox(this);
 	connect(m_novels, SIGNAL(activated(const QString&)), this, SLOT(load(const QString&)));
 
-	QGroupBox* daily_group = new QGroupBox(tr("Daily"), this);
-	m_daily_graph = new Graph(m_data, Database::Daily, daily_group);
-	m_daily_progress = new QProgressBar(daily_group);
+	QTabWidget* graphs = new QTabWidget(this);
 
-	QGroupBox* total_group = new QGroupBox(tr("Total"), this);
+	QWidget* total_group = new QWidget(this);
 	m_total_graph = new Graph(m_data, Database::Total, total_group);
 	m_total_progress = new QProgressBar(total_group);
+	graphs->addTab(total_group, tr("Total"));
+
+	QWidget* daily_group = new QWidget(this);
+	m_daily_graph = new Graph(m_data, Database::Daily, daily_group);
+	m_daily_progress = new QProgressBar(daily_group);
+	graphs->addTab(daily_group, tr("Daily"));
 
 	m_wordcount = new QSpinBox(this);
 	m_wordcount->setCorrectionMode(QSpinBox::CorrectToNearestValue);
@@ -91,8 +96,7 @@ Window::Window()
 	layout->setColumnStretch(1, 1);
 	layout->addLayout(selector_layout, 0, 0, 1, 2);
 	layout->addWidget(m_wordcount, 1, 0, 1, 2, Qt::AlignCenter);
-	layout->addWidget(daily_group, 2, 0);
-	layout->addWidget(total_group, 2, 1);
+	layout->addWidget(graphs, 2, 0, 1, 2);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 

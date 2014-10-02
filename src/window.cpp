@@ -27,6 +27,7 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QMessageBox>
 #include <QProgressBar>
 #include <QPushButton>
@@ -68,6 +69,8 @@ Window::Window()
 	m_wordcount->setFocus();
 	connect(m_wordcount, SIGNAL(editingFinished()), this, SLOT(wordcountEdited()));
 
+	QLabel* wordcount_label = new QLabel(tr("Word count:"), this);
+
 	QPushButton* new_button = new QPushButton(tr("New"), this);
 	connect(new_button, SIGNAL(clicked()), this, SLOT(newNovel()));
 
@@ -95,8 +98,9 @@ Window::Window()
 	layout->setColumnStretch(0, 1);
 	layout->setColumnStretch(1, 1);
 	layout->addLayout(selector_layout, 0, 0, 1, 2);
-	layout->addWidget(m_wordcount, 1, 0, 1, 2, Qt::AlignCenter);
-	layout->addWidget(graphs, 2, 0, 1, 2);
+	layout->addWidget(graphs, 1, 0, 1, 2);
+	layout->addWidget(wordcount_label, 2, 0, Qt::AlignRight | Qt::AlignVCenter);
+	layout->addWidget(m_wordcount, 2, 1, Qt::AlignLeft| Qt::AlignVCenter);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 

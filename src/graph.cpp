@@ -95,6 +95,10 @@ void Graph::draw()
 	int pixel_value = row_value / 25;
 	int rows = qMax(maximum, goal) / row_value;
 	int goal_row = goal / row_value;
+	if ((rows * row_value) < goal) {
+		++rows;
+		++goal_row;
+	}
 	int columns = m_data->startDate().daysTo(m_data->endDate()) + 1;
 	int graph_height = (rows + 1) * 25;
 	int graph_width = (columns * 9) + 14;

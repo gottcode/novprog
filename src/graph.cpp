@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -115,7 +115,7 @@ void Graph::draw()
 	pen.setColor(QColor(204, 204, 204));
 	pen.setStyle(Qt::DotLine);
 	for (int i = 1; i <= rows; ++i) {
-		if (i > goal_row) {
+		if (i >= goal_row) {
 			pen.setColor(QColor(153, 204, 255));
 		}
 		int y = graph_height - (i * 25);
@@ -128,7 +128,7 @@ void Graph::draw()
 	label_font.setPointSize(7);
 	for (int i = 1; i <= rows; ++i) {
 		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg((i * row_value) + start_value));
-		if (i <= goal_row) {
+		if (i < goal_row) {
 			text->setDefaultTextColor(QColor(102, 102, 102));
 		} else {
 			text->setDefaultTextColor(QColor(153, 204, 255));

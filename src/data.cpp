@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -117,7 +117,18 @@ void Database::setCurrentNovel(const QString& novel)
 
 int Database::currentValue(GoalType type) const
 {
-	return !m_data[type].values.isEmpty() ? m_data[type].values.last() : 0;
+	const QList<int>& data = m_data[type].values;
+	if (data.isEmpty()) {
+		return 0;
+	}
+
+	if (type == Total) {
+		return data.last();
+	} else if (m_start_date.daysTo(QDate::currentDate()) < data.count()) {
+		return data.last();
+	} else {
+		return 0;
+	}
 }
 
 //-----------------------------------------------------------------------------

@@ -174,8 +174,8 @@ void Window::novelModified()
 	m_daily_graph->draw();
 
 	// Update total progressbar
-	int goal = m_data->goal(Database::Total);
-	int value = m_data->currentValue(Database::Total);
+	int goal = m_data->goal(Database::Total) - m_data->startValue();
+	int value = qMax(0, m_data->currentValue(Database::Total) - m_data->startValue());
 	m_total_progress->setMaximum(qMax(1, goal));
 	m_total_progress->setValue(qMin(value, goal));
 

@@ -116,15 +116,26 @@ void Graph::draw()
 	}
 
 	// Draw lines
+	int goal_y = goal_row * row_value;
 	pen.setColor(QColor(204, 204, 204));
 	pen.setStyle(Qt::DotLine);
 	for (int i = 1; i <= rows; ++i) {
-		if (i >= goal_row) {
+		if ((goal_y == goal) && (i == goal_row)) {
+			continue;
+		} else if (i >= goal_row) {
 			pen.setColor(QColor(153, 204, 255));
 		}
 		int y = graph_height - (i * 25);
 		m_scene->addLine(0, y + 0.5, graph_width, y + 0.5, pen);
 	}
+
+	// Draw goal line
+	qreal delta = (goal_y - goal) / static_cast<qreal>(row_value) * 25.0;
+	int y = delta + ((goal_row - (goal_y != goal ? 1 : 0)) * 25);
+	y = graph_height - y;
+	pen.setColor(QColor(153, 204, 255));
+	pen.setStyle(Qt::DashLine);
+	m_scene->addLine(0, y + 0.5, graph_width, y + 0.5, pen);
 
 	// Add line labels
 	QFont label_font;

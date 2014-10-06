@@ -374,8 +374,9 @@ void Database::updateValues()
 	double days = count;
 	double remaining = m_data[Total].goal - m_start_value;
 	double delta = remaining / days;
+	int start = m_start_value - ((m_start_value / 10000) * 10000);
 	for (int i = 1; i <= count; ++i) {
-		m_data[Total].minimum_values.append(qRound(delta * i));
+		m_data[Total].minimum_values.append(qRound(delta * i) + start);
 		m_data[Daily].minimum_values.append(qRound(remaining / days));
 		days -= 1;
 		int value = m_data[Daily].values.value(i - 1);

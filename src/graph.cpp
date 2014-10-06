@@ -87,7 +87,7 @@ void Graph::draw()
 	int maximum = m_data->maximumValue(m_type);
 	int start_value = 0;
 	if (m_type == Database::Total) {
-		start_value = m_data->startValue();
+		start_value = (m_data->startValue() / 10000) * 10000;
 		goal -= start_value;
 		maximum -= start_value;
 	}

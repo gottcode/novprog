@@ -23,17 +23,21 @@
 #include "graph.h"
 #include "novel_dialog.h"
 
+#include <QAction>
 #include <QComboBox>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMenu>
+#include <QMenuBar>
 #include <QMessageBox>
 #include <QProgressBar>
-#include <QPushButton>
 #include <QSettings>
 #include <QSpinBox>
 #include <QTabWidget>
+#include <QToolBar>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 //-----------------------------------------------------------------------------
@@ -46,9 +50,18 @@ Window::Window()
 #else
 	setWindowIcon(QPixmap(":/novprog.png"));
 #endif
+	setContextMenuPolicy(Qt::NoContextMenu);
+
+	if (iconSize().width() == 26) {
+		setIconSize(QSize(24,24));
+	}
+
+	QWidget* contents = new QWidget(this);
+	setCentralWidget(contents);
 
 	m_data = new Database(this);
 	m_novels = new QComboBox(this);
+	m_novels->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
 	connect(m_novels, SIGNAL(activated(const QString&)), this, SLOT(load(const QString&)));
 
 	QTabWidget* graphs = new QTabWidget(this);
@@ -71,20 +84,42 @@ Window::Window()
 
 	QLabel* wordcount_label = new QLabel(tr("Word count:"), this);
 
-	QPushButton* new_button = new QPushButton(tr("New"), this);
-	connect(new_button, SIGNAL(clicked()), this, SLOT(newNovel()));
+#ifndef Q_OS_MAC
+	QToolBar* actions = new QToolBar(this);
+	actions->setFloatable(false);
+	actions->setMovable(false);
+	actions->addWidget(m_novels);
+	addToolBar(actions);
 
-	m_edit_button = new QPushButton(tr("Edit"), this);
-	connect(m_edit_button, SIGNAL(clicked()), this, SLOT(editNovel()));
+	QMenu* menu = new QMenu(this);
+	menu->addAction(tr("&New Novel"), this, SLOT(newNovel()), QKeySequence::New);
+	m_edit_button = menu->addAction(tr("&Edit Novel"), this, SLOT(editNovel()));
+	m_delete_button = menu->addAction(tr("&Delete Novel"), this, SLOT(deleteNovel()));
+	menu->addSeparator();
+	menu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
 
-	m_delete_button = new QPushButton(tr("Delete"), this);
-	connect(m_delete_button, SIGNAL(clicked()), this, SLOT(deleteNovel()));
-
-	QHBoxLayout* selector_layout = new QHBoxLayout;
-	selector_layout->addWidget(m_novels, 1);
-	selector_layout->addWidget(new_button);
-	selector_layout->addWidget(m_edit_button);
-	selector_layout->addWidget(m_delete_button);
+	QToolButton* menubutton = new QToolButton(this);
+	{
+		QIcon fallback(":/application-menu/64.png");
+		fallback.addFile(":/application-menu/48.png");
+		fallback.addFile(":/application-menu/32.png");
+		fallback.addFile(":/application-menu/24.png");
+		fallback.addFile(":/application-menu/22.png");
+		fallback.addFile(":/application-menu/16.png");
+		menubutton->setIcon(QIcon::fromTheme("application-menu", fallback));
+	}
+	menubutton->setPopupMode(QToolButton::InstantPopup);
+	menubutton->setMenu(menu);
+	actions->addWidget(menubutton);
+#else
+	QMenu* menu = menuBar()->addMenu(tr("&Novel"));
+	menu->addAction(tr("&New"), this, SLOT(newNovel()), QKeySequence::New);
+	m_edit_button = menu->addAction(tr("&Edit"), this, SLOT(editNovel()));
+	m_delete_button = menu->addAction(tr("&Delete"), this, SLOT(deleteNovel()));
+	menu->addSeparator();
+	QAction* quit = menu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
+	quit->setMenuRole(QAction::QuitRole);
+#endif
 
 	QVBoxLayout* daily_layout = new QVBoxLayout(daily_group);
 	daily_layout->addWidget(m_daily_graph);
@@ -94,10 +129,12 @@ Window::Window()
 	total_layout->addWidget(m_total_graph);
 	total_layout->addWidget(m_total_progress);
 
-	QGridLayout* layout = new QGridLayout(this);
+	QGridLayout* layout = new QGridLayout(contents);
 	layout->setColumnStretch(0, 1);
 	layout->setColumnStretch(1, 1);
-	layout->addLayout(selector_layout, 0, 0, 1, 2);
+#ifdef Q_OS_MAC
+	layout->addWidget(m_novels, 0, 0, 1, 2);
+#endif
 	layout->addWidget(graphs, 1, 0, 1, 2);
 	layout->addWidget(wordcount_label, 2, 0, Qt::AlignRight | Qt::AlignVCenter);
 	layout->addWidget(m_wordcount, 2, 1, Qt::AlignLeft| Qt::AlignVCenter);

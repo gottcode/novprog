@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,13 +23,13 @@
 class Database;
 class Graph;
 
-#include <QWidget>
+#include <QMainWindow>
+class QAction;
 class QComboBox;
 class QProgressBar;
-class QPushButton;
 class QSpinBox;
 
-class Window : public QWidget
+class Window : public QMainWindow
 {
 	Q_OBJECT
 public:
@@ -54,8 +54,8 @@ private:
 	Graph* m_daily_graph;
 	Graph* m_total_graph;
 	QComboBox* m_novels;
-	QPushButton* m_edit_button;
-	QPushButton* m_delete_button;
+	QAction* m_edit_button;
+	QAction* m_delete_button;
 	QProgressBar* m_daily_progress;
 	QProgressBar* m_total_progress;
 	QSpinBox* m_wordcount;

@@ -141,7 +141,7 @@ void Graph::draw()
 	QFont label_font;
 	label_font.setFamily("Serif");
 	label_font.setPointSize(7);
-	for (int i = 1; i <= rows; ++i) {
+	for (int i = (start_value ? 0 : 1); i <= rows; ++i) {
 		QGraphicsTextItem* text = new QGraphicsTextItem(QString("%L1").arg((i * row_value) + start_value));
 		if (i < goal_row) {
 			text->setDefaultTextColor(QColor(102, 102, 102));

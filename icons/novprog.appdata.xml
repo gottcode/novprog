@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <id type="desktop">novprog.desktop</id>
+  <licence>CC0</licence>
+  <summary>Wordcount graphing program</summary>
+  <description>
+    <p>NovProg is a tool to graph your progress in writing a novel. You enter your wordcount and it updates a graph showing you how much progress you have made. It also shows you how far you are through your daily goal, and your total goal. Mousing over a bar in the graph will show a tooltip with that day’s wordcount.</p>
+  </description>
+  <screenshots>
+    <screenshot width="1280" type="default" height="720">http://gottcode.org/novprog/screenshots/appdata.png</screenshot>
+  </screenshots>
+  <url type="homepage">http://gottcode.org/novprog/</url>
+</application>

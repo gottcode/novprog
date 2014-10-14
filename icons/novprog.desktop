@@ -1,6 +1,25 @@
 [Desktop Entry]
 Name=NovProg
+Name[de]=NovProg
+Name[el]=NovProg
+Name[es]=NovProg
+Name[he]=NovProg
+Name[nl]=NovProg
+Name[pl]=NovProg
+Name[ro]=NovProg
+Name[ru]=NovProg
+Name[tr]=NovProg
 GenericName=Wordcount Graphing Program
+GenericName[de]=Ein grafisches Programm zum Wörter zählen
+GenericName[el]=Πρόγραμμα γραφικής απεικόνισης καταμέτρησης κειμένου
+GenericName[es]=Programa de graficación de recuento de palabras
+GenericName[he]=תוכנית תרשים מונה מילים
+GenericName[nl]=Programma voor grafische weergave van het aantal woorden
+GenericName[pl]=Program graficzny podsumowania liczby słów
+GenericName[ro]=Program contorizare grafică a cuvintelor
+GenericName[ru]=Программа для графического подсчёта слов
+GenericName[tr]=Kelime Sayısı Grafiği Programı
+Comment=Track your novel progress
 Exec=novprog
 Icon=novprog
 Terminal=false

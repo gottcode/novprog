@@ -34,7 +34,9 @@ Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& 
 {
 	setPen(Qt::NoPen);
 	setBrush(color);
-	setToolTip(tr("%1\n%L2 words").arg(day.toString("MMM d")).arg(value));
+	setToolTip(QString("%1\n%2")
+			.arg(day.toString("MMM d"))
+			.arg(tr("%Ln word(s)", "", value)));
 #if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
 	setAcceptHoverEvents(true);
 #else

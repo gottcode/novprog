@@ -182,7 +182,14 @@ void Window::editNovel()
 
 void Window::deleteNovel()
 {
-	if (QMessageBox::question(this, tr("Question"), tr("Delete current novel?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
+	QMessageBox mbox(window());
+	mbox.setWindowTitle(tr("Delete novel?"));
+	mbox.setText(tr("Delete progress for the novel '%1'?").arg(m_novels->currentText()));
+	mbox.setInformativeText(tr("This action cannot be undone."));
+	mbox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+	mbox.setDefaultButton(QMessageBox::No);
+	mbox.setIcon(QMessageBox::Warning);
+	if (mbox.exec() == QMessageBox::Yes) {
 		if (m_data->deleteNovel()) {
 			QStringList list = m_data->novels();
 			if (!list.isEmpty()) {

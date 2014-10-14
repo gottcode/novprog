@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="ro">
 <context>
     <name>Bar</name>
     <message numerus="yes">
         <location filename="../src/graph.cpp" line="39"/>
         <source>%Ln word(s)</source>
-        <translation>
-            <numerusform>%Ln word</numerusform>
-            <numerusform>%Ln words</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -17,22 +18,22 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="50"/>
         <source>Select application language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Selectaţi limba aplicaţiei:</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="53"/>
         <source>&lt;System Language&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Limbaj Sistem&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="181"/>
         <source>Note</source>
-        <translation type="unfinished"></translation>
+        <translation>Notă</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="181"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vă rugăm reporniţi această aplicaţie pentru ca schimbarea limbii să aibă efect.</translation>
     </message>
 </context>
 <context>
@@ -45,7 +46,7 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Obiective</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
@@ -66,12 +67,12 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Total:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zilnic:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
@@ -114,7 +115,7 @@
     <message>
         <location filename="../src/window.cpp" line="47"/>
         <source>Novel Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Progresul romanului</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="72"/>

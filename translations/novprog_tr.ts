@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="tr">
 <context>
     <name>Bar</name>
     <message numerus="yes">
         <location filename="../src/graph.cpp" line="39"/>
         <source>%Ln word(s)</source>
-        <translation>
-            <numerusform>%Ln word</numerusform>
-            <numerusform>%Ln words</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -17,22 +16,22 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="50"/>
         <source>Select application language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uygulama dilini seçin:</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="53"/>
         <source>&lt;System Language&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Sistem Dili&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="181"/>
         <source>Note</source>
-        <translation type="unfinished"></translation>
+        <translation>Not</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="181"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dil değişikliğinin etkin olması için lütfen bu uygulamayı yeniden başlatın.</translation>
     </message>
 </context>
 <context>
@@ -45,7 +44,7 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hedefler</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
@@ -66,12 +65,12 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Toplam:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Günlük:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
@@ -114,7 +113,7 @@
     <message>
         <location filename="../src/window.cpp" line="47"/>
         <source>Novel Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Roman İlerlemesi</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="72"/>

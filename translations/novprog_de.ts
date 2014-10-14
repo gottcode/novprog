@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="de">
 <context>
     <name>Bar</name>
     <message numerus="yes">
         <location filename="../src/graph.cpp" line="39"/>
         <source>%Ln word(s)</source>
-        <translation>
-            <numerusform>%Ln word</numerusform>
-            <numerusform>%Ln words</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -17,22 +17,22 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="50"/>
         <source>Select application language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprachdatei auswählen:</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="53"/>
         <source>&lt;System Language&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;System Sprache&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="181"/>
         <source>Note</source>
-        <translation type="unfinished"></translation>
+        <translation>Notiz</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="181"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte starten Sie diese Anwendung neu damit die Änderung der Sprache übernohmen wird. </translation>
     </message>
 </context>
 <context>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tore</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
@@ -66,12 +66,12 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Insgesamt:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Täglich:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../src/window.cpp" line="47"/>
         <source>Novel Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Novel Status</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="72"/>

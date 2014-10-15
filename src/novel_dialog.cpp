@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent) 
 {
 	// Create name widget
 	m_name = new QLineEdit(this);
-	connect(m_name, SIGNAL(textChanged(const QString&)), this, SLOT(checkAcceptAllowed()));
+	connect(m_name, &QLineEdit::textChanged, this, &NovelDialog::checkAcceptAllowed);
 
 	QHBoxLayout* name_layout = new QHBoxLayout;
 	name_layout->addWidget(new QLabel(tr("Name:"), this));
@@ -65,11 +65,11 @@ NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent) 
 
 	m_start = new QDateEdit(dates);
 	m_start->setCalendarPopup(true);
-	connect(m_start, SIGNAL(dateChanged(const QDate&)), this, SLOT(checkAcceptAllowed()));
+	connect(m_start, &QDateEdit::dateChanged, this, &NovelDialog::checkAcceptAllowed);
 
 	m_end = new QDateEdit(dates);
 	m_end->setCalendarPopup(true);
-	connect(m_end, SIGNAL(dateChanged(const QDate&)), this, SLOT(checkAcceptAllowed()));
+	connect(m_end, &QDateEdit::dateChanged, this, &NovelDialog::checkAcceptAllowed);
 
 	// Create word count widgets
 	QGroupBox* wordcount = new QGroupBox(tr("Word Count"), this);
@@ -81,8 +81,8 @@ NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent) 
 	// Create buttons
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
 	m_accept = buttons->button(QDialogButtonBox::Ok);
-	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
-	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+	connect(buttons, &QDialogButtonBox::accepted, this, &NovelDialog::accept);
+	connect(buttons, &QDialogButtonBox::rejected, this, &NovelDialog::reject);
 
 	// Lay out window
 	QFormLayout* goals_layout = new QFormLayout(goals);

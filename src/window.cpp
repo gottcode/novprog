@@ -47,11 +47,7 @@
 Window::Window()
 {
 	setWindowTitle(tr("Novel Progress"));
-#if (QT_VERSION >= QT_VERSION_CHECK(4, 6, 0))
 	setWindowIcon(QIcon::fromTheme("novprog", QPixmap(":/novprog.png")));
-#else
-	setWindowIcon(QPixmap(":/novprog.png"));
-#endif
 	setContextMenuPolicy(Qt::NoContextMenu);
 
 	if (iconSize().width() == 26) {
@@ -64,7 +60,7 @@ Window::Window()
 	m_data = new Database(this);
 	m_novels = new QComboBox(this);
 	m_novels->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-	connect(m_novels, SIGNAL(activated(const QString&)), this, SLOT(load(const QString&)));
+	connect(m_novels, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), this, &Window::load);
 
 	QTabWidget* graphs = new QTabWidget(this);
 
@@ -82,7 +78,7 @@ Window::Window()
 	m_wordcount->setCorrectionMode(QSpinBox::CorrectToNearestValue);
 	m_wordcount->setRange(0, 9999999);
 	m_wordcount->setFocus();
-	connect(m_wordcount, SIGNAL(editingFinished()), this, SLOT(wordcountEdited()));
+	connect(m_wordcount, &QSpinBox::editingFinished, this, &Window::wordcountEdited);
 
 	QLabel* wordcount_label = new QLabel(tr("Word count:"), this);
 

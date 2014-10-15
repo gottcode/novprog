@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,11 +24,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QSettings>
-#if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
 #include <QStandardPaths>
-#else
-#include <QDesktopServices>
-#endif
 
 int main(int argc, char** argv)
 {
@@ -41,11 +37,7 @@ int main(int argc, char** argv)
 	LocaleDialog::loadTranslator("novprog_");
 
 	// Handle portability
-#if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
 	QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
-#else
-	QString path = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
-#endif
 	QFileInfo portable(app.applicationDirPath() + "/Data");
 	if (portable.exists() && portable.isWritable()) {
 		path = portable.absoluteFilePath();

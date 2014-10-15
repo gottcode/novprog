@@ -1,9 +1,9 @@
-TEMPLATE = app
-greaterThan(QT_MAJOR_VERSION, 4) {
-	QT += widgets
+lessThan(QT_VERSION, 5.2) {
+	error("NovProg requires Qt 5.2 or greater")
 }
-CONFIG += warn_on
-QMAKE_CXXFLAGS += -std=c++11
+TEMPLATE = app
+QT += widgets
+CONFIG += warn_on c++11
 
 # Allow in-tree builds
 !win32 {

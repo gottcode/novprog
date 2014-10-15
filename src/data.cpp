@@ -22,6 +22,8 @@
 #include <QDir>
 #include <QSettings>
 
+#include <algorithm>
+
 //-----------------------------------------------------------------------------
 
 Database::Database(QObject* parent) :
@@ -285,7 +287,7 @@ void Database::read()
 	m_start_value = (header.count() > 4) ? header[4].toInt() : 0;
 
 	// Parse values
-	foreach (QString day, lines) {
+	for (const QString& day : lines) {
 		int pos = day.section(' ', 0, 0).toInt() - 1;
 		int value = day.section(' ', 1, 1).toInt();
 		if (pos >= m_data[Total].values.count()) {
@@ -359,10 +361,10 @@ void Database::updateValues()
 	m_data[Daily].maximum_value = 0;
 	m_data[Total].maximum_value = 0;
 	int prev_value = m_start_value;
-	foreach (int value, m_data[Total].values) {
-		m_data[Total].maximum_value = qMax(value, m_data[Total].maximum_value);
-		m_data[Daily].values.append(qMax(0, value - prev_value));
-		m_data[Daily].maximum_value = qMax(m_data[Daily].values.last(), m_data[Daily].maximum_value);
+	for (int value : m_data[Total].values) {
+		m_data[Total].maximum_value = std::max(value, m_data[Total].maximum_value);
+		m_data[Daily].values.append(std::max(0, value - prev_value));
+		m_data[Daily].maximum_value = std::max(m_data[Daily].values.last(), m_data[Daily].maximum_value);
 		prev_value = value;
 	}
 
@@ -370,20 +372,20 @@ void Database::updateValues()
 	m_data[Daily].minimum_values.clear();
 	m_data[Total].minimum_values.clear();
 	int count = m_start_date.daysTo(m_end_date) + 1;
-	int end = qMin(count, static_cast<int>(m_start_date.daysTo(QDate::currentDate())) + 1);
+	int end = std::min(count, static_cast<int>(m_start_date.daysTo(QDate::currentDate())) + 1);
 	double days = count;
 	double remaining = m_data[Total].goal - m_start_value;
 	double delta = remaining / days;
 	int start = m_start_value - ((m_start_value / 10000) * 10000);
 	for (int i = 1; i <= count; ++i) {
-		m_data[Total].minimum_values.append(qRound(delta * i) + start);
-		m_data[Daily].minimum_values.append(qRound(remaining / days));
+		m_data[Total].minimum_values.append(std::round(delta * i) + start);
+		m_data[Daily].minimum_values.append(std::round(remaining / days));
 		days -= 1;
 		int value = m_data[Daily].values.value(i - 1);
 		if ((i >= end) && (value == 0)) {
 			value = m_data[Daily].minimum_values.last();
 		}
-		remaining = qMax(remaining - value, 0.0);
+		remaining = std::max(remaining - value, 0.0);
 	}
 }
 

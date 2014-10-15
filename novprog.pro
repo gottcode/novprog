@@ -3,6 +3,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 	QT += widgets
 }
 CONFIG += warn_on
+QMAKE_CXXFLAGS += -std=c++11
 
 # Allow in-tree builds
 !win32 {

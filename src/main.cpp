@@ -70,7 +70,7 @@ int main(int argc, char** argv)
 		if (!novprog2.isEmpty()) {
 			QDir dir(novprog2);
 			QStringList novels = dir.entryList(QDir::Files);
-			foreach (const QString& novel, novels) {
+			for (const QString& novel : novels) {
 				QFile::copy(novprog2 + novel, path + novel);
 			}
 		}

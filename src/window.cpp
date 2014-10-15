@@ -40,6 +40,8 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 
+#include <algorithm>
+
 //-----------------------------------------------------------------------------
 
 Window::Window()
@@ -219,15 +221,15 @@ void Window::novelModified()
 
 	// Update total progressbar
 	int goal = m_data->goal(Database::Total) - m_data->startValue();
-	int value = qMax(0, m_data->currentValue(Database::Total) - m_data->startValue());
-	m_total_progress->setMaximum(qMax(1, goal));
-	m_total_progress->setValue(qMin(value, goal));
+	int value = std::max(0, m_data->currentValue(Database::Total) - m_data->startValue());
+	m_total_progress->setMaximum(std::max(1, goal));
+	m_total_progress->setValue(std::min(value, goal));
 
 	// Update daily progressbar
 	goal = m_data->goal(Database::Daily);
 	value = m_data->currentValue(Database::Daily);
-	m_daily_progress->setMaximum(qMax(1, goal));
-	m_daily_progress->setValue(qMin(value, goal));
+	m_daily_progress->setMaximum(std::max(1, goal));
+	m_daily_progress->setValue(std::min(value, goal));
 }
 
 //-----------------------------------------------------------------------------

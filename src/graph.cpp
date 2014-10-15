@@ -25,6 +25,7 @@
 #include <QGraphicsTextItem>
 #include <QStyle>
 
+#include <algorithm>
 #include <cmath>
 
 //-----------------------------------------------------------------------------
@@ -95,7 +96,7 @@ void Graph::draw()
 	}
 	int row_value = (m_type == Database::Total) ? 10000 : 500;
 	int pixel_value = row_value / 25;
-	int rows = qMax(maximum, goal) / row_value;
+	int rows = std::max(maximum, goal) / row_value;
 	int goal_row = goal / row_value;
 	if ((rows * row_value) < goal) {
 		++rows;
@@ -169,7 +170,7 @@ void Graph::draw()
 		tooltipvalue = value = m_data->value(m_type, day);
 		minimum = m_data->minimumValue(m_type, day);
 		if (m_type == Database::Total) {
-			value = qMax(0, value - start_value);
+			value = std::max(0, value - start_value);
 		}
 
 		// Bar for value

@@ -44,7 +44,7 @@ SOURCES = src/data.cpp \
 TRANSLATIONS = $$files(translations/novprog_*.ts)
 
 # Install program data
-RESOURCES += icons/icon.qrc
+RESOURCES += icons/icon-application-menu.qrc
 
 macx {
 	ICON = icons/novprog.icns
@@ -61,13 +61,15 @@ macx {
 		DATADIR = $$PREFIX/share
 	}
 
+	RESOURCES += icons/icon.qrc
+
 	target.path = $$BINDIR
 
-	icon.path = $$DATADIR/icons/hicolor/48x48/apps
-	icon.files = icons/novprog.png
+	icon.files = icons/hicolor/*
+	icon.path = $$DATADIR/icons/hicolor
 
-	desktop.path = $$DATADIR/applications
 	desktop.files = icons/novprog.desktop
+	desktop.path = $$DATADIR/applications
 
 	appdata.files = icons/novprog.appdata.xml
 	appdata.path = $$DATADIR/appdata/

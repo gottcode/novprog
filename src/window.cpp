@@ -47,7 +47,6 @@
 Window::Window()
 {
 	setWindowTitle(tr("Novel Progress"));
-	setWindowIcon(QIcon::fromTheme("novprog", QPixmap(":/novprog.png")));
 	setContextMenuPolicy(Qt::NoContextMenu);
 
 	if (iconSize().width() == 26) {

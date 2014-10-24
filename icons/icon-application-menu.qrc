@@ -1,0 +1,10 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file>application-menu/16.png</file>
+	<file>application-menu/22.png</file>
+	<file>application-menu/24.png</file>
+	<file>application-menu/32.png</file>
+	<file>application-menu/48.png</file>
+	<file>application-menu/64.png</file>
+</qresource>
+</RCC>

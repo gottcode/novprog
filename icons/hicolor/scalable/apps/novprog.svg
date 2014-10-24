@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="64"
+   height="64"
+   id="svg2">
+  <title
+     id="title3048">NovProg icon</title>
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4266-2-3">
+      <stop
+         id="stop4268-4-1"
+         style="stop-color:#ffffff;stop-opacity:0.49803922"
+         offset="0" />
+      <stop
+         id="stop4270-1-1"
+         style="stop-color:#ffffff;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       cx="102.44181"
+       cy="1009.2616"
+       r="19"
+       fx="102.44181"
+       fy="1009.2616"
+       id="radialGradient3811"
+       xlink:href="#linearGradient4266-2-3"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.119016,0,0,3.5483486,-182.11531,-3595.5301)" />
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter3832">
+      <feGaussianBlur
+         id="feGaussianBlur3834"
+         stdDeviation="0.81" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>NovProg icon</dc:title>
+        <dc:date>2014-10-24</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Graeme Gott</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://www.gnu.org/licenses/gpl-3.0.txt" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,16)"
+     id="layer5">
+    <rect
+       width="50"
+       height="58"
+       rx="2.6315789"
+       ry="2.6363635"
+       x="7"
+       y="-13"
+       id="rect4203"
+       style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter3832)" />
+  </g>
+  <g
+     transform="translate(0,16)"
+     id="layer4">
+    <rect
+       width="50"
+       height="58"
+       rx="2.6315789"
+       ry="2.6363635"
+       x="7"
+       y="-13"
+       id="rect4347"
+       style="fill:#3552dd;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     transform="translate(0,16)"
+     id="layer7">
+    <path
+       d="M 16,45 9.5714282,45 C 8.146857,45 7,43.824182 7,42.363636 L 7,-10.363636 C 7,-11.824182 8.146857,-13 9.5714282,-13 l 0,0 6.4285688,0"
+       id="path4356"
+       style="fill:#0c1646;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     transform="translate(0,16)"
+     id="layer6">
+    <path
+       d="m 43,0 6,0 0,32 -6,0 0,-32 z"
+       id="rect3895"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path
+       d="m 32,16 6,0 0,15.999805 -6,0 0,-16 z"
+       id="rect3898"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path
+       d="m 21,8 6,0 0,23.999707 -6,0 0,-24 z"
+       id="rect3901"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     transform="translate(0,16)"
+     id="layer2"
+     style="display:inline">
+    <rect
+       width="50"
+       height="58"
+       rx="2.6315789"
+       ry="2.6363635"
+       x="7"
+       y="-13"
+       id="rect4264"
+       style="fill:url(#radialGradient3811);fill-opacity:1;stroke:none" />
+  </g>
+</svg>

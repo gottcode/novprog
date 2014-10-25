@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# M T <michtrz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-14 21:09+0000\n"
-"PO-Revision-Date: 2014-10-14 21:09+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-10-16 23:04+0000\n"
+"Last-Translator: M T <michtrz@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/novprog/language/"
 "pl/)\n"
 "Language: pl\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ../novprog.appdata.xml.in.h:1
 msgid "Wordcount graphing program"
-msgstr ""
+msgstr "Program graficzny podsumowania liczby słów"
 
 #: ../novprog.appdata.xml.in.h:2
 msgid ""
@@ -31,6 +32,11 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
+"NovProg jest narzędziem do wykresu twojego postępu w pisaniu powieści. "
+"Wprowadzasz twoją liczbę słów i aktualizujesz wykres, pokazujący twój "
+"aktualny postęp. Program pokazuje również, jak daleko jesteś oddalony od "
+"twojego codziennego i całkowitego celu. Najeżdżając myszką na słupek w "
+"wykresie, pojawi się tooltip z dzisiejszą liczbą słów."
 
 #: ../novprog.desktop.in.h:1
 msgid "NovProg"
@@ -42,4 +48,4 @@ msgstr "Program graficzny podsumowania liczby słów"
 
 #: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
-msgstr ""
+msgstr "Postęp powieści"

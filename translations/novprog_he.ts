@@ -4,35 +4,35 @@
 <context>
     <name>Bar</name>
     <message numerus="yes">
-        <location filename="../src/graph.cpp" line="39"/>
+        <location filename="../src/graph.cpp" line="40"/>
         <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>מילה %Ln</numerusform>
+            <numerusform>%Ln מילים</numerusform>
         </translation>
     </message>
 </context>
 <context>
     <name>LocaleDialog</name>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="50"/>
+        <location filename="../src/locale_dialog.cpp" line="52"/>
         <source>Select application language:</source>
-        <translation>בחירת שפת יישום:</translation>
+        <translation>בחר שפת יישום:</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="53"/>
+        <location filename="../src/locale_dialog.cpp" line="55"/>
         <source>&lt;System Language&gt;</source>
         <translation>&lt;שפת מערכת&gt;</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="181"/>
+        <location filename="../src/locale_dialog.cpp" line="170"/>
         <source>Note</source>
         <translation>הערה</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="181"/>
+        <location filename="../src/locale_dialog.cpp" line="170"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>נא לאתחל את יישום זה כדי להחיל את השינוי בשפה.</translation>
+        <translation>אנא אתחל את יישום זה כדי להחיל את השינוי בשפה.</translation>
     </message>
 </context>
 <context>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="47"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>שם:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation type="unfinished">יעדים</translation>
+        <translation>יעדים</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
@@ -66,12 +66,12 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation type="unfinished">סך הכל:</translation>
+        <translation>סך הכל:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation type="unfinished">יומי:</translation>
+        <translation>יומי:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
@@ -101,91 +101,91 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>Sorry</source>
-        <translation type="unfinished"></translation>
+        <translation>מצטערים</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>A novel already exists with that name.</source>
-        <translation type="unfinished"></translation>
+        <translation>כבר קיים רומן עם שם זה.</translation>
     </message>
 </context>
 <context>
     <name>Window</name>
     <message>
-        <location filename="../src/window.cpp" line="47"/>
+        <location filename="../src/main.cpp" line="33"/>
         <source>Novel Progress</source>
         <translation>התקדמות רומן</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="72"/>
+        <location filename="../src/window.cpp" line="68"/>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation>סך הכל</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="77"/>
+        <location filename="../src/window.cpp" line="73"/>
         <source>Daily</source>
-        <translation type="unfinished"></translation>
+        <translation>יומי</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="85"/>
+        <location filename="../src/window.cpp" line="81"/>
         <source>Word count:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="95"/>
-        <source>&amp;New Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="96"/>
-        <source>&amp;Edit Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="97"/>
-        <source>&amp;Delete Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="99"/>
-        <location filename="../src/window.cpp" line="120"/>
-        <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="115"/>
+        <location filename="../src/window.cpp" line="111"/>
         <source>&amp;Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;רומן</translation>
     </message>
     <message>
+        <location filename="../src/window.cpp" line="91"/>
+        <source>&amp;New Novel</source>
+        <translation>רומן &amp;חדש</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="92"/>
+        <source>&amp;Edit Novel</source>
+        <translation>&amp;ערוך רומן</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="93"/>
+        <source>&amp;Delete Novel</source>
+        <translation>&amp;מחק רומן</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="95"/>
         <location filename="../src/window.cpp" line="116"/>
+        <source>&amp;Quit</source>
+        <translation>י&amp;ציאה</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="112"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;חדש</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="117"/>
+        <location filename="../src/window.cpp" line="113"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ערוך</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="118"/>
+        <location filename="../src/window.cpp" line="114"/>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;מחק</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="182"/>
+        <source>Delete novel?</source>
+        <translation>למחוק רומן?</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="183"/>
-        <source>Delete novel?</source>
-        <translation type="unfinished"></translation>
+        <source>Delete progress for the novel &apos;%1&apos;?</source>
+        <translation>למחוק התקדמות עבור הרומן &apos;%1&apos;?</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="184"/>
-        <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="185"/>
         <source>This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>פעולה זו היא בלתי הפיכה.</translation>
     </message>
 </context>
 </TS>

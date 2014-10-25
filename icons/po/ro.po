@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Oprea Nicolae <jaff2002@yahoo.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-14 21:09+0000\n"
-"PO-Revision-Date: 2014-10-14 21:09+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-10-17 06:36+0000\n"
+"Last-Translator: Oprea Nicolae <jaff2002@yahoo.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/novprog/"
 "language/ro/)\n"
 "Language: ro\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ../novprog.appdata.xml.in.h:1
 msgid "Wordcount graphing program"
-msgstr ""
+msgstr "Program contorizare grafică a cuvintelor"
 
 #: ../novprog.appdata.xml.in.h:2
 msgid ""
@@ -31,6 +32,12 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
+"NovProg este un instrument de reprezentare grafică a progresului în scrierea "
+"unui roman. Introduceţi nr. de cuvinte şi se actualizează un grafic care vă "
+"arată cît de mult aţi progresat. De asemenea, vă arată cît de departe "
+"sînteţi de obiectivul dvs. de zi cu zi, şi obiectivul dvs. total. Mişcînd "
+"mouse-ul pe o bară din grafic vă va arăta o bulă de informaţii cu nr. de "
+"cuvinte din acea zi."
 
 #: ../novprog.desktop.in.h:1
 msgid "NovProg"
@@ -42,4 +49,4 @@ msgstr "Program contorizare grafică a cuvintelor"
 
 #: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
-msgstr ""
+msgstr "Urmăriţi progresul romanului dvs."

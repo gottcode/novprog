@@ -4,34 +4,34 @@
 <context>
     <name>Bar</name>
     <message numerus="yes">
-        <location filename="../src/graph.cpp" line="39"/>
+        <location filename="../src/graph.cpp" line="40"/>
         <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%Ln cuvînt</numerusform>
+            <numerusform>%Ln cuvinte</numerusform>
+            <numerusform>%Ln cuvinte</numerusform>
         </translation>
     </message>
 </context>
 <context>
     <name>LocaleDialog</name>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="50"/>
+        <location filename="../src/locale_dialog.cpp" line="52"/>
         <source>Select application language:</source>
         <translation>Selectaţi limba aplicaţiei:</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="53"/>
+        <location filename="../src/locale_dialog.cpp" line="55"/>
         <source>&lt;System Language&gt;</source>
         <translation>&lt;Limbaj Sistem&gt;</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="181"/>
+        <location filename="../src/locale_dialog.cpp" line="170"/>
         <source>Note</source>
         <translation>Notă</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="181"/>
+        <location filename="../src/locale_dialog.cpp" line="170"/>
         <source>Please restart this application for the change in language to take effect.</source>
         <translation>Vă rugăm reporniţi această aplicaţie pentru ca schimbarea limbii să aibă efect.</translation>
     </message>
@@ -41,152 +41,152 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="47"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nume:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation type="unfinished">Obiective</translation>
+        <translation>Obiective</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
         <location filename="../src/novel_dialog.cpp" line="61"/>
         <source>N/A</source>
-        <translation type="unfinished"></translation>
+        <translation>Indisponibil</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="64"/>
         <source>Date Range</source>
-        <translation type="unfinished"></translation>
+        <translation>Interval de timp</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="75"/>
         <source>Word Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Număr de cuvinte</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation type="unfinished">Total:</translation>
+        <translation>Total:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation type="unfinished">Zilnic:</translation>
+        <translation>Zilnic:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
         <source>Start On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Început la:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="94"/>
         <source>End On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminat la:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="97"/>
         <source>Start At:</source>
-        <translation type="unfinished"></translation>
+        <translation>Start la:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="111"/>
         <source>Add Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Adaugă roman</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="120"/>
         <source>Edit Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Editează roman</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>Sorry</source>
-        <translation type="unfinished"></translation>
+        <translation>Scuze!</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>A novel already exists with that name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Există deja un roman cu acest nume.</translation>
     </message>
 </context>
 <context>
     <name>Window</name>
     <message>
-        <location filename="../src/window.cpp" line="47"/>
+        <location filename="../src/main.cpp" line="33"/>
         <source>Novel Progress</source>
         <translation>Progresul romanului</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="72"/>
+        <location filename="../src/window.cpp" line="68"/>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Total</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="77"/>
+        <location filename="../src/window.cpp" line="73"/>
         <source>Daily</source>
-        <translation type="unfinished"></translation>
+        <translation>Zilnic</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="85"/>
+        <location filename="../src/window.cpp" line="81"/>
         <source>Word count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Număr de cuvinte:</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="111"/>
+        <source>&amp;Novel</source>
+        <translation>Roma&amp;n</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="91"/>
+        <source>&amp;New Novel</source>
+        <translation>Roman &amp;nou</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="92"/>
+        <source>&amp;Edit Novel</source>
+        <translation>&amp;Editare roman</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="93"/>
+        <source>&amp;Delete Novel</source>
+        <translation>Ştergere roman</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="95"/>
-        <source>&amp;New Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="96"/>
-        <source>&amp;Edit Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="97"/>
-        <source>&amp;Delete Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="99"/>
-        <location filename="../src/window.cpp" line="120"/>
-        <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="115"/>
-        <source>&amp;Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/window.cpp" line="116"/>
+        <source>&amp;Quit</source>
+        <translation>Ieşire</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="112"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nou</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="117"/>
+        <location filename="../src/window.cpp" line="113"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Edit</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="118"/>
+        <location filename="../src/window.cpp" line="114"/>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Şterge</translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="182"/>
+        <source>Delete novel?</source>
+        <translation>Ştergeţi romanul?</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="183"/>
-        <source>Delete novel?</source>
-        <translation type="unfinished"></translation>
+        <source>Delete progress for the novel &apos;%1&apos;?</source>
+        <translation>Ştergeți progresul pentru romanul &apos;%1&apos;?</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="184"/>
-        <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="185"/>
         <source>This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Această acţiune nu este reversibilă.</translation>
     </message>
 </context>
 </TS>

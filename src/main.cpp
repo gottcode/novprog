@@ -30,6 +30,7 @@ int main(int argc, char** argv)
 {
 	QApplication app(argc, argv);
 	app.setApplicationName("NovProg");
+	app.setApplicationDisplayName(Window::tr("Novel Progress"));
 	app.setApplicationVersion(VERSIONSTR);
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");

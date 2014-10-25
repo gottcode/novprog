@@ -46,7 +46,6 @@
 
 Window::Window()
 {
-	setWindowTitle(tr("Novel Progress"));
 	setContextMenuPolicy(Qt::NoContextMenu);
 
 	if (iconSize().width() == 26) {

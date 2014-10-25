@@ -1,3 +1,13 @@
+About
+=====
+
+NovProg is a tool to graph your progress in writing a novel. You enter your
+wordcount and it updates a graph showing you how much progress you have
+made. It also shows you how far you are through your daily goal, and your
+total goal. Mousing over a bar in the graph will show a tooltip with that
+day’s wordcount.
+
+
 Portable Mode
 =============
 
@@ -13,10 +23,10 @@ newly created "Data" folder. The "Novels" folder is located in one of the
 following places:
 
   Linux:
-    ~/.local/share/data/GottCode/NovProg
+    ~/.local/share/GottCode/NovProg
 
   Mac OS X:
     ~/Library/Application Support/GottCode/NovProg
 
   Windows:
-    %APPDATA%\GottCode\NovProg
+    %APPDATA%\Local\GottCode\NovProg

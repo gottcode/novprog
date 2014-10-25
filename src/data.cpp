@@ -22,7 +22,7 @@
 #include <QDir>
 #include <QSettings>
 
-#include <algorithm>
+#include <cmath>
 
 //-----------------------------------------------------------------------------
 

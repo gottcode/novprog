@@ -1,0 +1,24 @@
+2.0.5
+-----
+* FIXED: Binary not installed with make install.
+
+2.0.4
+-----
+* Added application icon.
+* Added Mac support.
+* Added Windows support
+* Relicensed to GPLv3.
+
+2.0.3
+-----
+* FIXED: Daily progressbar was sometimes showing 100% at startup.
+
+2.0.2
+-----
+* Added labels to progressbars.
+* Added prompt for novel name.
+
+2.0.1
+-----
+* FIXED: New novels were not parsed correctly.
+* FIXED: Total progressbar didn't update with wordcount changes.

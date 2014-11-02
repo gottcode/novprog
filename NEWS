@@ -1,3 +1,17 @@
+3.0.0
+-----
+* Added daily graph.
+* Added tabs for interface.
+* Added showing goal line.
+* Added start wordcount for novels.
+* Added portable mode.
+* Added menu button.
+* Added appdata in Linux.
+* Replaced program icon.
+* Switched to spinbox for setting wordcount.
+* Switched to Qt5.
+* Translation updates: Dutch, French, German, Greek, Hebrew, Polish, Romanian, Russian, Spanish, Turkish.
+
 2.0.5
 -----
 * FIXED: Binary not installed with make install.

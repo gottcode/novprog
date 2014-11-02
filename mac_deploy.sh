@@ -2,7 +2,7 @@
 
 APP='NovProg'
 BUNDLE="$APP.app"
-VERSION=$(git rev-parse --short HEAD)
+VERSION='3.0.0'
 
 # Remove any previous disk folder or DMG
 echo -n 'Preparing... '

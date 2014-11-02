@@ -1,7 +1,7 @@
 @ECHO OFF
 
 SET APP=NovProg
-FOR /f %%i IN ('git describe') DO SET VERSION=%%i
+SET VERSION=3.0.0
 
 ECHO Copying executable
 MKDIR %APP%

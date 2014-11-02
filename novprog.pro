@@ -13,7 +13,7 @@ CONFIG += warn_on c++11
 }
 
 # Set program version
-VERSION = $$system(git describe)
+VERSION = 3.0.0
 isEmpty(VERSION) {
 	VERSION = 0
 }
@@ -72,10 +72,10 @@ macx {
 	desktop.path = $$DATADIR/applications
 
 	appdata.files = icons/novprog.appdata.xml
-	appdata.path = $$DATADIR/appdata/
+	appdata.path = $$DATADIR/appdata
 
 	qm.files = translations/*.qm
 	qm.path = $$DATADIR/novprog/translations
 
-	INSTALLS += target icon desktop qm
+	INSTALLS += target icon desktop appdata qm
 }

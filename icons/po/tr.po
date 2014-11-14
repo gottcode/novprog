@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-14 21:09+0000\n"
+"POT-Creation-Date: 2014-11-14 20:52+0000\n"
 "PO-Revision-Date: 2014-10-14 21:09+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/novprog/language/"
@@ -18,11 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../novprog.appdata.xml.in.h:1
+#: ../novprog.appdata.xml.in.h:1 ../novprog.desktop.in.h:1
+msgid "NovProg"
+msgstr "NovProg"
+
+#: ../novprog.appdata.xml.in.h:2
 msgid "Wordcount graphing program"
 msgstr ""
 
-#: ../novprog.appdata.xml.in.h:2
+#: ../novprog.appdata.xml.in.h:3
 msgid ""
 "NovProg is a tool to graph your progress in writing a novel. You enter your "
 "wordcount and it updates a graph showing you how much progress you have "
@@ -30,10 +34,6 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
-
-#: ../novprog.desktop.in.h:1
-msgid "NovProg"
-msgstr "NovProg"
 
 #: ../novprog.desktop.in.h:2
 msgid "Wordcount Graphing Program"

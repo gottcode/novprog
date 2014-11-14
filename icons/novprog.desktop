@@ -27,4 +27,4 @@ Exec=novprog
 Icon=novprog
 Terminal=false
 Type=Application
-Categories=Qt;Utility;
+Categories=Qt;Utility;TimeUtility;

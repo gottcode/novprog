@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application>
-  <id type="desktop">novprog.desktop</id>
-  <licence>CC0</licence>
+<component type="desktop">
+  <id>novprog.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>NovProg</name>
   <summary>Wordcount graphing program</summary>
   <summary xml:lang="de">Ein grafisches Programm zum Wörter zählen</summary>
   <summary xml:lang="pl">Program graficzny podsumowania liczby słów</summary>
@@ -13,7 +15,16 @@
     <p xml:lang="ro">NovProg este un instrument de reprezentare grafică a progresului în scrierea unui roman. Introduceţi nr. de cuvinte şi se actualizează un grafic care vă arată cît de mult aţi progresat. De asemenea, vă arată cît de departe sînteţi de obiectivul dvs. de zi cu zi, şi obiectivul dvs. total. Mişcînd mouse-ul pe o bară din grafic vă va arăta o bulă de informaţii cu nr. de cuvinte din acea zi.</p>
   </description>
   <screenshots>
-    <screenshot width="1280" type="default" height="720">http://gottcode.org/novprog/screenshots/appdata.png</screenshot>
+    <screenshot width="752" type="default" height="423">
+      <image>http://gottcode.org/novprog/screenshots/appdata.png</image>
+    </screenshot>
   </screenshots>
   <url type="homepage">http://gottcode.org/novprog/</url>
-</application>
+  <url type="bugtracker">http://gottcode.org/novprog/bugs/</url>
+  <url type="donation">http://gottcode.org/tip/</url>
+  <developer_name>Graeme Gott</developer_name>
+  <updatecontact>graeme@gottcode.org</updatecontact>
+  <provides>
+    <binary>novprog</binary>
+  </provides>
+</component>

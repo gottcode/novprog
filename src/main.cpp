@@ -34,18 +34,8 @@ int main(int argc, char** argv)
 	app.setApplicationVersion(VERSIONSTR);
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-	{
-		QIcon fallback(":/hicolor/256x256/apps/novprog.png");
-		fallback.addFile(":/hicolor/16x16/apps/novprog.png");
-		fallback.addFile(":/hicolor/22x22/apps/novprog.png");
-		fallback.addFile(":/hicolor/24x24/apps/novprog.png");
-		fallback.addFile(":/hicolor/32x32/apps/novprog.png");
-		fallback.addFile(":/hicolor/48x48/apps/novprog.png");
-		fallback.addFile(":/hicolor/64x64/apps/novprog.png");
-		fallback.addFile(":/hicolor/128x128/apps/novprog.png");
-		app.setWindowIcon(QIcon::fromTheme("novprog", fallback));
-	}
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+	app.setWindowIcon(QIcon::fromTheme("novprog", QIcon(":/novprog.png")));
 #endif
 
 	LocaleDialog::loadTranslator("novprog_");

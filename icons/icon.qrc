@@ -1,12 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-	<file>hicolor/16x16/apps/novprog.png</file>
-	<file>hicolor/22x22/apps/novprog.png</file>
-	<file>hicolor/24x24/apps/novprog.png</file>
-	<file>hicolor/32x32/apps/novprog.png</file>
-	<file>hicolor/48x48/apps/novprog.png</file>
-	<file>hicolor/64x64/apps/novprog.png</file>
-	<file>hicolor/128x128/apps/novprog.png</file>
-	<file>hicolor/256x256/apps/novprog.png</file>
+	<file alias="novprog.png">hicolor/256x256/apps/novprog.png</file>
 </qresource>
 </RCC>

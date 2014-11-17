@@ -68,6 +68,9 @@ macx {
 	icon.files = icons/hicolor/*
 	icon.path = $$DATADIR/icons/hicolor
 
+	pixmap.files = icons/novprog.xpm
+	pixmap.path = $$DATADIR/pixmaps
+
 	desktop.files = icons/novprog.desktop
 	desktop.path = $$DATADIR/applications
 
@@ -77,5 +80,5 @@ macx {
 	qm.files = translations/*.qm
 	qm.path = $$DATADIR/novprog/translations
 
-	INSTALLS += target icon desktop appdata qm
+	INSTALLS += target icon pixmap desktop appdata qm
 }

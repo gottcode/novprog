@@ -240,8 +240,6 @@ Section "Uninstall"
 
 	;Remove directories
 	RMDir /r $INSTDIR\data
-	RMDir $INSTDIR\bearer
-	RMDir $INSTDIR\platforms
 	RMDir $INSTDIR\translations
 	RMDir $INSTDIR
 

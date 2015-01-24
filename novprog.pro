@@ -80,5 +80,8 @@ macx {
 	qm.files = translations/*.qm
 	qm.path = $$DATADIR/novprog/translations
 
-	INSTALLS += target icon pixmap desktop appdata qm
+	man.files = doc/novprog.1
+	man.path = $$DATADIR/man/man1
+
+	INSTALLS += target icon pixmap desktop appdata qm man
 }

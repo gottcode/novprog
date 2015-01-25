@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2014-10-14 21:09+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-12-21 18:01+0000\n"
+"Last-Translator: geogeo.gr <admin@geogeo.gr>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/novprog/language/"
 "el/)\n"
 "Language: el\n"
@@ -24,7 +24,7 @@ msgstr "NovProg"
 
 #: ../novprog.appdata.xml.in.h:2
 msgid "Wordcount graphing program"
-msgstr ""
+msgstr "Πρόγραμμα γραφικής απεικόνισης καταμέτρησης κειμένου"
 
 #: ../novprog.appdata.xml.in.h:3
 msgid ""
@@ -34,6 +34,13 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
+"Το NovProg είναι ένα εργαλείο για τη γραφική απεικόνιση της προόδου σας στη "
+"συγγραφή ενός έργου. Εισάγετε τον καταμετρητή των λέξεών σας και αυτό θα "
+"ενημερώνει ένα γράφημα που θα σας δείχνει πόσο μεγάλη πρόοδο έχετε κάνει. "
+"Επίσης σας δείχνει πόσο μακριά είστε από τον ημερήσιο και τον συνολικό σας "
+"στόχο. Μετακινώντας το δείκτη του ποντικιού πάνω από μια γραμμή στο "
+"διάγραμμα, θα εμφανιστεί μια επεξήγηση εργαλείου με την καταμέτρηση λέξεων "
+"εκείνης της ημέρας."
 
 #: ../novprog.desktop.in.h:2
 msgid "Wordcount Graphing Program"
@@ -41,4 +48,4 @@ msgstr "Πρόγραμμα γραφικής απεικόνισης καταμέ�
 
 #: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
-msgstr ""
+msgstr "Παρακολουθήστε την πρόοδο των έργων σας"

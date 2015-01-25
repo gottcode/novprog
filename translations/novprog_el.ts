@@ -6,9 +6,9 @@
     <message numerus="yes">
         <location filename="../src/graph.cpp" line="40"/>
         <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%Ln λέξεις</numerusform>
+            <numerusform>%Ln λέξεις</numerusform>
         </translation>
     </message>
 </context>
@@ -25,12 +25,12 @@
         <translation>&lt;Γλώσσα συστήματος&gt;</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="170"/>
+        <location filename="../src/locale_dialog.cpp" line="173"/>
         <source>Note</source>
         <translation>Σημείωση</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="170"/>
+        <location filename="../src/locale_dialog.cpp" line="173"/>
         <source>Please restart this application for the change in language to take effect.</source>
         <translation>Παρακαλώ επανεκκινήστε το πρόγραμμα για εφαρμογή της αλλαγής γλώσσας.</translation>
     </message>
@@ -40,73 +40,73 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="47"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Όνομα:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation type="unfinished"></translation>
+        <translation>Στόχοι</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
         <location filename="../src/novel_dialog.cpp" line="61"/>
         <source>N/A</source>
-        <translation type="unfinished"></translation>
+        <translation>Μη διαθέσιμο</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="64"/>
         <source>Date Range</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρονικό διάστημα</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="75"/>
         <source>Word Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Καταμέτρηση λέξεων</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation type="unfinished"></translation>
+        <translation>Συνολικά:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημερήσια:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
         <source>Start On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Έναρξη:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="94"/>
         <source>End On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήξη:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="97"/>
         <source>Start At:</source>
-        <translation type="unfinished"></translation>
+        <translation>Έναρξη στις:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="111"/>
         <source>Add Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη έργου</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="120"/>
         <source>Edit Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία έργου</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>Sorry</source>
-        <translation type="unfinished"></translation>
+        <translation>Συγγνώμη</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>A novel already exists with that name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Υπάρχει ήδη ένα έργο με αυτό το όνομα.</translation>
     </message>
 </context>
 <context>
@@ -119,73 +119,73 @@
     <message>
         <location filename="../src/window.cpp" line="68"/>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Συνολικά</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="73"/>
         <source>Daily</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημερήσια</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="81"/>
         <source>Word count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Καταμέτρηση λέξεων:</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="111"/>
         <source>&amp;Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Έ&amp;ργο</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="91"/>
         <source>&amp;New Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Νέο έργο</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="92"/>
         <source>&amp;Edit Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Επεξεργασία έργου</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="93"/>
         <source>&amp;Delete Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Διαγραφή έργου</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="95"/>
         <location filename="../src/window.cpp" line="116"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Έ&amp;ξοδος</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="112"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Νέο</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="113"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="114"/>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Διαγρσφή</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="182"/>
         <source>Delete novel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή έργου;</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="183"/>
         <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή της προόδου για το έργο &apos;%1&apos;;</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="184"/>
         <source>This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</translation>
     </message>
 </context>
 </TS>

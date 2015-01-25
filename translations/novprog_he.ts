@@ -25,12 +25,12 @@
         <translation>&lt;שפת מערכת&gt;</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="170"/>
+        <location filename="../src/locale_dialog.cpp" line="173"/>
         <source>Note</source>
         <translation>הערה</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="170"/>
+        <location filename="../src/locale_dialog.cpp" line="173"/>
         <source>Please restart this application for the change in language to take effect.</source>
         <translation>אנא אתחל את יישום זה כדי להחיל את השינוי בשפה.</translation>
     </message>
@@ -61,7 +61,7 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="75"/>
         <source>Word Count</source>
-        <translation type="unfinished"></translation>
+        <translation>ספירת מילים</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
@@ -91,12 +91,12 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="111"/>
         <source>Add Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>הוסף רומן</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="120"/>
         <source>Edit Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>ערוך רומן</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
@@ -129,7 +129,7 @@
     <message>
         <location filename="../src/window.cpp" line="81"/>
         <source>Word count:</source>
-        <translation type="unfinished"></translation>
+        <translation>ספירת מילים:</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="111"/>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.1" language="lt">
 <context>
     <name>Bar</name>
     <message numerus="yes">
         <location filename="../src/graph.cpp" line="40"/>
         <source>%Ln word(s)</source>
         <translation>
-            <numerusform>%Ln Wort</numerusform>
-            <numerusform>%Ln Wörter</numerusform>
+            <numerusform>%Ln žodis</numerusform>
+            <numerusform>%Ln žodžiai</numerusform>
+            <numerusform>%Ln žodžių</numerusform>
         </translation>
     </message>
 </context>
@@ -17,22 +18,22 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="52"/>
         <source>Select application language:</source>
-        <translation>Sprachdatei auswählen:</translation>
+        <translation>Pasirinkite programos kalbą:</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="55"/>
         <source>&lt;System Language&gt;</source>
-        <translation>&lt;System Sprache&gt;</translation>
+        <translation>&lt;Sistemos kalba&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="173"/>
         <source>Note</source>
-        <translation>Notiz</translation>
+        <translation>Pastaba</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="173"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Bitte starten Sie diese Anwendung für die Änderung in der Sprache zu übernehmen.</translation>
+        <translation>Kad kalbos pakeitimai įsigaliotų, paleiskite programą iš naujo.</translation>
     </message>
 </context>
 <context>
@@ -40,73 +41,73 @@
     <message>
         <location filename="../src/novel_dialog.cpp" line="47"/>
         <source>Name:</source>
-        <translation>Name:</translation>
+        <translation>Pavadinimas:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="51"/>
         <source>Goals</source>
-        <translation>Ziele</translation>
+        <translation>Tikslai</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="56"/>
         <location filename="../src/novel_dialog.cpp" line="61"/>
         <source>N/A</source>
-        <translation>nicht verfügbar</translation>
+        <translation>Nėra</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="64"/>
         <source>Date Range</source>
-        <translation>Datumsbereich</translation>
+        <translation>Datos ruožas</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="75"/>
         <source>Word Count</source>
-        <translation>Wortanzahl</translation>
+        <translation>Žodžių apskaita</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="89"/>
         <source>Total:</source>
-        <translation>Gesamt:</translation>
+        <translation>Iš viso:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="90"/>
         <source>Daily:</source>
-        <translation>Täglich:</translation>
+        <translation>Kasdien:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="93"/>
         <source>Start On:</source>
-        <translation>Begonnen am:</translation>
+        <translation>Pradėti:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="94"/>
         <source>End On:</source>
-        <translation>Beendet am:</translation>
+        <translation>Pabaigti:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="97"/>
         <source>Start At:</source>
-        <translation>Ab:</translation>
+        <translation>Pradėti nuo:</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="111"/>
         <source>Add Novel</source>
-        <translation>Roman hinzufügen</translation>
+        <translation>Pridėti Novelę</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="120"/>
         <source>Edit Novel</source>
-        <translation>Roman bearbeiten</translation>
+        <translation>Redaguoti Novelę</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>Sorry</source>
-        <translation>Entschuldigung</translation>
+        <translation>Atleiskite</translation>
     </message>
     <message>
         <location filename="../src/novel_dialog.cpp" line="137"/>
         <source>A novel already exists with that name.</source>
-        <translation>Ein Roman mit diesem Namen ist bereits vorhanden.</translation>
+        <translation>Novelė tokiu pavadinimu jau yra.</translation>
     </message>
 </context>
 <context>
@@ -114,78 +115,78 @@
     <message>
         <location filename="../src/main.cpp" line="33"/>
         <source>Novel Progress</source>
-        <translation>Novel Status</translation>
+        <translation>Novelės Eiga</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="68"/>
         <source>Total</source>
-        <translation>Gesamt</translation>
+        <translation>Viso</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="73"/>
         <source>Daily</source>
-        <translation>Täglich</translation>
+        <translation>Kasdien</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="81"/>
         <source>Word count:</source>
-        <translation>Wortanzahl:</translation>
+        <translation>Žodžių apskaita:</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="111"/>
         <source>&amp;Novel</source>
-        <translation>&amp;Roman</translation>
+        <translation>&amp;Novelė</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="91"/>
         <source>&amp;New Novel</source>
-        <translation>&amp;Neuer Roman</translation>
+        <translation>&amp;Nauja Novelė</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="92"/>
         <source>&amp;Edit Novel</source>
-        <translation>Roman &amp;bearbeiten</translation>
+        <translation>&amp;Redaguoti Novelę</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="93"/>
         <source>&amp;Delete Novel</source>
-        <translation>Roman &amp;löschen</translation>
+        <translation>&amp;Ištrinti Novelę</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="95"/>
         <location filename="../src/window.cpp" line="116"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Beenden</translation>
+        <translation>&amp;Baigti</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="112"/>
         <source>&amp;New</source>
-        <translation>&amp;Neu</translation>
+        <translation>&amp;Nauja</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="113"/>
         <source>&amp;Edit</source>
-        <translation>B&amp;earbeiten</translation>
+        <translation>&amp;Redaguoti</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="114"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Löschen</translation>
+        <translation>&amp;Ištrinti</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="182"/>
         <source>Delete novel?</source>
-        <translation>Roman löschen?</translation>
+        <translation>Ištrinti novelę?</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="183"/>
         <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation>Fortschritt für den Roman &apos;%1&apos; löschen?</translation>
+        <translation>Ištrinti novelės &apos;%1&apos; eigą?</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="184"/>
         <source>This action cannot be undone.</source>
-        <translation>Dieser Vorgang kann nicht rückgängig gemacht werden.</translation>
+        <translation>Šis veiksmas negali būti atšauktas.</translation>
     </message>
 </context>
 </TS>

@@ -21,6 +21,7 @@
 #define NOVPROG_DATA_H
 
 #include <QDate>
+#include <QObject>
 #include <QString>
 #include <QStringList>
 

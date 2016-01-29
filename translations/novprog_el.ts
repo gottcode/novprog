@@ -180,7 +180,7 @@
     <message>
         <location filename="../src/window.cpp" line="183"/>
         <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation>Διαγραφή της προόδου για το έργο &apos;%1&apos;;</translation>
+        <translation>Διαγραφή της προόδου για το έργο «%1»;</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="184"/>

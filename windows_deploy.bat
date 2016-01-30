@@ -17,6 +17,17 @@ MKDIR %TRANSLATIONS%
 COPY translations\*.qm %TRANSLATIONS% >nul
 COPY %QTDIR%\translations\qt_*.qm %TRANSLATIONS% >nul
 
+ECHO Copying Qt libraries
+COPY %QTDIR%\bin\libgcc_s_dw2-1.dll %APP% >nul
+COPY "%QTDIR%\bin\libstdc++-6.dll" %APP% >nul
+COPY %QTDIR%\bin\libwinpthread-1.dll %APP% >nul
+COPY %QTDIR%\bin\Qt5Core.dll %APP% >nul
+COPY %QTDIR%\bin\Qt5Gui.dll %APP% >nul
+COPY %QTDIR%\bin\Qt5Widgets.dll %APP% >nul
+
+MKDIR %APP%\platforms
+COPY %QTDIR%\plugins\platforms\qwindows.dll %APP%\platforms >nul
+
 ECHO Making portable
 MKDIR %APP%\Data
 

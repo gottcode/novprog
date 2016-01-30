@@ -1,7 +1,7 @@
 @ECHO OFF
 
 SET APP=NovProg
-SET VERSION=3.0.0
+SET VERSION=3.1.0
 
 ECHO Copying executable
 MKDIR %APP%

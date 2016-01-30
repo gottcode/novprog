@@ -3,7 +3,7 @@
 
 !define APPNAME "NovProg"
 !define VERSIONMAJOR 3
-!define VERSIONMINOR 0
+!define VERSIONMINOR 1
 !define VERSIONPATCH 0
 !define APPVERSION "${VERSIONMAJOR}.${VERSIONMINOR}.${VERSIONPATCH}"
 !define ABOUTURL "http://gottcode.org/novprog/"

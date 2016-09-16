@@ -20,6 +20,7 @@
   <summary xml:lang="lt">Žodžių apskaitos vaizdavimo programa</summary>
   <summary xml:lang="pl">Program graficzny podsumowania liczby słów</summary>
   <summary xml:lang="ro">Program contorizare grafică a cuvintelor</summary>
+
   <description>
     <p>NovProg is a tool to graph your progress in writing a novel. You enter your wordcount and it updates a graph showing you how much progress you have made. It also shows you how far you are through your daily goal, and your total goal. Mousing over a bar in the graph will show a tooltip with that day’s wordcount.</p>
     <p xml:lang="de">NovProg ist ein Werkzeug, dass grafisch Ihren Fortschritt einen Roman zu schreiben darstellt. Sie geben Ihre Wortanzahl ein und eine Grafik zeigt Ihnen, wie weit Sie gekommen sind. Es zeigt Ihnen auch, wie weit Sie von Ihren täglichen und Ihren insgesamten Ziel entfernt sind. Beim Bewegen der Maus über einen Balken im Diagramm, wird ein Tooltip mit der Wortanzahl des heutigen Tages angezeigt.</p>
@@ -28,17 +29,29 @@
     <p xml:lang="pl">NovProg jest narzędziem do wykresu twojego postępu w pisaniu powieści. Wprowadzasz twoją liczbę słów i aktualizujesz wykres, pokazujący twój aktualny postęp. Program pokazuje również, jak daleko jesteś oddalony od twojego codziennego i całkowitego celu. Najeżdżając myszką na słupek w wykresie, pojawi się tooltip z dzisiejszą liczbą słów.</p>
     <p xml:lang="ro">NovProg este un instrument de reprezentare grafică a progresului în scrierea unui roman. Introduceţi nr. de cuvinte şi se actualizează un grafic care vă arată cît de mult aţi progresat. De asemenea, vă arată cît de departe sînteţi de obiectivul dvs. de zi cu zi, şi obiectivul dvs. total. Mişcînd mouse-ul pe o bară din grafic vă va arăta o bulă de informaţii cu nr. de cuvinte din acea zi.</p>
   </description>
+
   <screenshots>
     <screenshot type="default">
-      <image>http://gottcode.org/novprog/screenshots/appdata.png</image>
+      <image>https://gottcode.org/novprog/screenshots/appdata.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">http://gottcode.org/novprog/</url>
-  <url type="bugtracker">http://gottcode.org/novprog/bugs/</url>
-  <url type="donation">http://gottcode.org/tip/</url>
+
+  <url type="homepage">https://gottcode.org/novprog/</url>
+  <url type="bugtracker">https://gottcode.org/novprog/bugs/</url>
+  <url type="donation">https://gottcode.org/tip/</url>
+  <url type="translate">https://www.transifex.com/projects/p/novprog/</url>
+
   <developer_name>Graeme Gott</developer_name>
-  <updatecontact>graeme@gottcode.org</updatecontact>
+  <update_contact>graeme@gottcode.org</update_contact>
+
+  <translation type="qt">novprog</translation>
+
   <provides>
     <binary>novprog</binary>
   </provides>
+
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
 </component>

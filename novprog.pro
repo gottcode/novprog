@@ -82,6 +82,7 @@ macx {
 
 	qm.files = translations/*.qm
 	qm.path = $$DATADIR/novprog/translations
+	qm.CONFIG += no_check_exist
 
 	man.files = doc/novprog.1
 	man.path = $$DATADIR/man/man1

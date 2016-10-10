@@ -75,11 +75,11 @@
     </message>
     <message>
         <source>Add Novel</source>
-        <translation>Pridėti Novelę</translation>
+        <translation>Pridėti novelę</translation>
     </message>
     <message>
         <source>Edit Novel</source>
-        <translation>Redaguoti Novelę</translation>
+        <translation>Redaguoti novelę</translation>
     </message>
     <message>
         <source>Sorry</source>
@@ -94,7 +94,7 @@
     <name>Window</name>
     <message>
         <source>Novel Progress</source>
-        <translation>Novelės Eiga</translation>
+        <translation>Novelės eiga</translation>
     </message>
     <message>
         <source>Total</source>
@@ -114,15 +114,15 @@
     </message>
     <message>
         <source>&amp;New Novel</source>
-        <translation>&amp;Nauja Novelė</translation>
+        <translation>&amp;Nauja novelė</translation>
     </message>
     <message>
         <source>&amp;Edit Novel</source>
-        <translation>&amp;Redaguoti Novelę</translation>
+        <translation>&amp;Redaguoti novelę</translation>
     </message>
     <message>
         <source>&amp;Delete Novel</source>
-        <translation>&amp;Ištrinti Novelę</translation>
+        <translation>&amp;Ištrinti novelę</translation>
     </message>
     <message>
         <source>&amp;Quit</source>

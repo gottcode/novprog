@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Heimen Stoffels <vistausss@outlook.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2014-10-14 21:09+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/novprog/language/"
+"PO-Revision-Date: 2016-07-04 09:17+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/gottcode/novprog/language/"
 "nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +25,7 @@ msgstr "NovProg"
 
 #: ../novprog.appdata.xml.in.h:2
 msgid "Wordcount graphing program"
-msgstr ""
+msgstr "Applicatie voor het in kaart brengen van het aantal woorden"
 
 #: ../novprog.appdata.xml.in.h:3
 msgid ""
@@ -34,11 +35,17 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
+"NovProg is een hulpmiddel om de voortgang van het schrijven van een roman in "
+"kaart te brengen. U voert het aantal woorden in waarna er een grafiek zal "
+"verschijnen die u de voortgang weergeeft. Het weergeeft ook of u al inde "
+"buurt komt van uw dagelijkse doel en uw totale doel. Als u de muis over een "
+"balk houdt, zal er een ballon verschijnen die het aantal woorden van die dag "
+"weergeeft."
 
 #: ../novprog.desktop.in.h:2
 msgid "Wordcount Graphing Program"
-msgstr "Programma voor grafische weergave van het aantal woorden"
+msgstr "Applicatie voor weergave van het aantal woorden in een grafiek"
 
 #: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
-msgstr ""
+msgstr "Houdt uw romanvoortgang bij"

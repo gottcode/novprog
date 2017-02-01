@@ -81,7 +81,7 @@ macx {
 	desktop.path = $$DATADIR/applications
 
 	appdata.files = icons/novprog.appdata.xml
-	appdata.path = $$DATADIR/appdata
+	appdata.path = $$DATADIR/metainfo
 
 	qm.files = translations/*.qm
 	qm.path = $$DATADIR/novprog/translations

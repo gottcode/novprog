@@ -84,7 +84,7 @@ macx {
 	appdata.files = icons/novprog.appdata.xml
 	appdata.path = $$DATADIR/metainfo
 
-	qm.files = translations/*.qm
+	qm.files = $$replace(TRANSLATIONS, .ts, .qm)
 	qm.path = $$DATADIR/novprog/translations
 	qm.CONFIG += no_check_exist
 

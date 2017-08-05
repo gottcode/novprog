@@ -1,3 +1,8 @@
+3.1.2
+-----
+* FIXED: Did not always install translations in Linux.
+* Translation updates: Dutch.
+
 3.1.1
 -----
 * Generate binary translations at build time.

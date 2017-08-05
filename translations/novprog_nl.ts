@@ -15,11 +15,11 @@
     <name>LocaleDialog</name>
     <message>
         <source>Select application language:</source>
-        <translation>Selecteer de taal van de applicatie</translation>
+        <translation>Applicatietaal selecteren:</translation>
     </message>
     <message>
         <source>&lt;System Language&gt;</source>
-        <translation>&lt;systeemtaal&gt;</translation>
+        <translation>&lt;Systeemtaal&gt;</translation>
     </message>
     <message>
         <source>Note</source>
@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Graag de applicatie herstarten om de taalwijziging uit te voeren</translation>
+        <translation>Herstart de applicatie om de taalwijziging toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation>N.V.T.</translation>
     </message>
     <message>
         <source>Date Range</source>
@@ -93,7 +93,7 @@
     <name>Window</name>
     <message>
         <source>Novel Progress</source>
-        <translation>Voortgang verhaal</translation>
+        <translation>Voortgang van roman</translation>
     </message>
     <message>
         <source>Total</source>

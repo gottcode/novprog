@@ -7,6 +7,7 @@
   <name xml:lang="de">NovProg</name>
   <name xml:lang="el">NovProg</name>
   <name xml:lang="es">NovProg</name>
+  <name xml:lang="fr">NovProg</name>
   <name xml:lang="he">NovProg</name>
   <name xml:lang="lt">NovProg</name>
   <name xml:lang="nl">NovProg</name>
@@ -17,6 +18,7 @@
   <summary>Wordcount graphing program</summary>
   <summary xml:lang="de">Ein grafisches Programm zum Wörter zählen</summary>
   <summary xml:lang="el">Πρόγραμμα γραφικής απεικόνισης καταμέτρησης κειμένου</summary>
+  <summary xml:lang="fr">Programme de suivi statistique de comptage de mots</summary>
   <summary xml:lang="lt">Žodžių apskaitos vaizdavimo programa</summary>
   <summary xml:lang="nl">Applicatie voor het in kaart brengen van het aantal woorden</summary>
   <summary xml:lang="pl">Program graficzny podsumowania liczby słów</summary>
@@ -26,6 +28,7 @@
     <p>NovProg is a tool to graph your progress in writing a novel. You enter your wordcount and it updates a graph showing you how much progress you have made. It also shows you how far you are through your daily goal, and your total goal. Mousing over a bar in the graph will show a tooltip with that day’s wordcount.</p>
     <p xml:lang="de">NovProg ist ein Werkzeug, dass grafisch Ihren Fortschritt einen Roman zu schreiben darstellt. Sie geben Ihre Wortanzahl ein und eine Grafik zeigt Ihnen, wie weit Sie gekommen sind. Es zeigt Ihnen auch, wie weit Sie von Ihren täglichen und Ihren insgesamten Ziel entfernt sind. Beim Bewegen der Maus über einen Balken im Diagramm, wird ein Tooltip mit der Wortanzahl des heutigen Tages angezeigt.</p>
     <p xml:lang="el">Το NovProg είναι εργαλείο που προσφέρει γραφική απεικόνιση της προόδου σας στη συγγραφή ενός έργου. Εισάγετε την καταμέτρηση λέξεών σας και αυτό θα ενημερώνει το γράφημα που θα σας δείχνει πόσο μεγάλη πρόοδο έχετε κάνει. Επίσης σας δείχνει πόσο μακριά είστε από τον ημερήσιο και τον συνολικό σας στόχο. Μετακινώντας το δείκτη του ποντικιού πάνω από μια γραμμή στο διάγραμμα, θα εμφανιστεί μια επεξήγηση εργαλείου με την καταμέτρηση λέξεων εκείνης της ημέρας.</p>
+    <p xml:lang="fr">NovProg est un outil permettant d'afficher le graphique de progression de l'écriture de votre roman. Vous n'avez qu'à entrer votre nombre de mots et il met à jour un graphique vous affichant les progrès effectués. Il vous montre également la distance à votre objectif quotidien et votre objectif total. En survolant à la souris une barre du graphe, vous verrez une annotation avec le nombre de mots rédigés ce jour là.</p>
     <p xml:lang="lt">NovProg yra įrankis, kuris vaizduoja jūsų novelės rašymo eigą. Jūs įvedate žodžių apskaitą ir programa atnaujina grafiką, rodantį kiek pažengėte. Programa taip pat rodo, kiek įveikėte savo kasdienio tikslo ir galutinio tikslo. Užvedę pėle ant stulpelių, pamatysite tam tikros dienos žodžių apskaitą.</p>
     <p xml:lang="nl">NovProg is een hulpmiddel om de voortgang van het schrijven van een roman in kaart te brengen. U voert het aantal woorden in waarna er een grafiek zal verschijnen die u de voortgang weergeeft. Het weergeeft ook of u al inde buurt komt van uw dagelijkse doel en uw totale doel. Als u de muis over een balk houdt, zal er een ballon verschijnen die het aantal woorden van die dag weergeeft.</p>
     <p xml:lang="pl">NovProg jest narzędziem do wykresu twojego postępu w pisaniu powieści. Wprowadzasz twoją liczbę słów i aktualizujesz wykres, pokazujący twój aktualny postęp. Program pokazuje również, jak daleko jesteś oddalony od twojego codziennego i całkowitego celu. Najeżdżając myszką na słupek w wykresie, pojawi się tooltip z dzisiejszą liczbą słów.</p>

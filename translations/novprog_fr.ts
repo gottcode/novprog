@@ -5,9 +5,9 @@
     <name>Bar</name>
     <message numerus="yes">
         <source>%Ln word(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%Ln mot</numerusform>
+            <numerusform>%Ln mots</numerusform>
         </translation>
     </message>
 </context>
@@ -34,59 +34,59 @@
     <name>NovelDialog</name>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre :</translation>
     </message>
     <message>
         <source>Goals</source>
-        <translation type="unfinished"></translation>
+        <translation>Objectifs</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished"></translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Date Range</source>
-        <translation type="unfinished"></translation>
+        <translation>Intervalle de dates</translation>
     </message>
     <message>
         <source>Word Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de mots</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation type="unfinished"></translation>
+        <translation>Total :</translation>
     </message>
     <message>
         <source>Daily:</source>
-        <translation type="unfinished"></translation>
+        <translation>Quotidien :</translation>
     </message>
     <message>
         <source>Start On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Commencer le :</translation>
     </message>
     <message>
         <source>End On:</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminer le :</translation>
     </message>
     <message>
         <source>Start At:</source>
-        <translation type="unfinished"></translation>
+        <translation>Débuter à :</translation>
     </message>
     <message>
         <source>Add Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un roman</translation>
     </message>
     <message>
         <source>Edit Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>Éditer un roman</translation>
     </message>
     <message>
         <source>Sorry</source>
-        <translation type="unfinished"></translation>
+        <translation>Désolé</translation>
     </message>
     <message>
         <source>A novel already exists with that name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un roman existe déjà avec ce titre.</translation>
     </message>
 </context>
 <context>
@@ -97,59 +97,59 @@
     </message>
     <message>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Total</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished"></translation>
+        <translation>Quotidien</translation>
     </message>
     <message>
         <source>Word count:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de mots :</translation>
     </message>
     <message>
         <source>&amp;Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Roman</translation>
     </message>
     <message>
         <source>&amp;New Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ajouter un roman</translation>
     </message>
     <message>
         <source>&amp;Edit Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Éditer un roman</translation>
     </message>
     <message>
         <source>&amp;Delete Novel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Supprimer un roman</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Quitter</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nouveau</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Éditer</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Supprimer</translation>
     </message>
     <message>
         <source>Delete novel?</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer ce roman ?</translation>
     </message>
     <message>
         <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer la progression pour le roman « %1 » ?</translation>
     </message>
     <message>
         <source>This action cannot be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette action ne peut pas être annulée.</translation>
     </message>
 </context>
 </TS>

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Étienne Deparis <etienne@depar.is>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2014-10-14 21:09+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/novprog/language/"
+"PO-Revision-Date: 2017-12-27 10:44+0000\n"
+"Last-Translator: Étienne Deparis <etienne@depar.is>\n"
+"Language-Team: French (http://www.transifex.com/gottcode/novprog/language/"
 "fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: ../novprog.appdata.xml.in.h:1 ../novprog.desktop.in.h:1
 msgid "NovProg"
-msgstr ""
+msgstr "NovProg"
 
 #: ../novprog.appdata.xml.in.h:2
 msgid "Wordcount graphing program"
-msgstr ""
+msgstr "Programme de suivi statistique de comptage de mots"
 
 #: ../novprog.appdata.xml.in.h:3
 msgid ""
@@ -34,11 +35,17 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
+"NovProg est un outil permettant d'afficher le graphique de progression de "
+"l'écriture de votre roman. Vous n'avez qu'à entrer votre nombre de mots et "
+"il met à jour un graphique vous affichant les progrès effectués. Il vous "
+"montre également la distance à votre objectif quotidien et votre objectif "
+"total. En survolant à la souris une barre du graphe, vous verrez une "
+"annotation avec le nombre de mots rédigés ce jour là."
 
 #: ../novprog.desktop.in.h:2
 msgid "Wordcount Graphing Program"
-msgstr ""
+msgstr "Programme de suivi statistique de comptage de mots"
 
 #: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
-msgstr ""
+msgstr "Suivez l'avancement de l'écriture de votre roman"

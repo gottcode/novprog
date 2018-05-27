@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Graeme Gott
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Rui <xymarior@yandex.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: NovProg\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-14 20:52+0000\n"
+"PO-Revision-Date: 2018-04-26 00:43+0000\n"
+"Last-Translator: Rui <xymarior@yandex.com>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/gottcode/"
+"novprog/language/pt_PT/)\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../novprog.appdata.xml.in.h:1 ../novprog.desktop.in.h:1
+msgid "NovProg"
+msgstr "NovProg"
+
+#: ../novprog.appdata.xml.in.h:2
+msgid "Wordcount graphing program"
+msgstr "Programa gráfico de contagem de palavras"
+
+#: ../novprog.appdata.xml.in.h:3
+msgid ""
+"NovProg is a tool to graph your progress in writing a novel. You enter your "
+"wordcount and it updates a graph showing you how much progress you have "
+"made. It also shows you how far you are through your daily goal, and your "
+"total goal. Mousing over a bar in the graph will show a tooltip with that "
+"day’s wordcount."
+msgstr ""
+"O NovProg é uma ferramenta para criar gráficos do progresso de uma novela "
+"escrita. Introduz-se a contagem de palavras e o programa atualiza um gráfico "
+"que mostra o progresso que fez. Também mostra quão longe está do objetivo "
+"diário e do objetivo total. Ao passar com o cursor sobre uma barra do "
+"gráfico é mostrada a informação com a contagem de palavras do dia."
+
+#: ../novprog.desktop.in.h:2
+msgid "Wordcount Graphing Program"
+msgstr "Programa Gráfico de Contagem de Palavras"
+
+#: ../novprog.desktop.in.h:3
+msgid "Track your novel progress"
+msgstr "Registe e controle o progresso da sua novela"

@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2014-10-15 21:06+0000\n"
+"PO-Revision-Date: 2017-09-20 14:35+0000\n"
 "Last-Translator: M T <michtrz@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/novprog/language/"
+"Language-Team: German (http://www.transifex.com/gottcode/novprog/language/"
 "de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../novprog.appdata.xml.in.h:1 ../novprog.desktop.in.h:1
+#: ../novprog.appdata.xml.in:6 ../novprog.desktop.in:3
 msgid "NovProg"
 msgstr "NovProg"
 
-#: ../novprog.appdata.xml.in.h:2
+#: ../novprog.appdata.xml.in:7
 msgid "Wordcount graphing program"
 msgstr "Ein grafisches Programm zum Wörter zählen"
 
-#: ../novprog.appdata.xml.in.h:3
+#: ../novprog.appdata.xml.in:10
 msgid ""
 "NovProg is a tool to graph your progress in writing a novel. You enter your "
 "wordcount and it updates a graph showing you how much progress you have "
@@ -42,10 +42,10 @@ msgstr ""
 "Maus über einen Balken im Diagramm, wird ein Tooltip mit der Wortanzahl des "
 "heutigen Tages angezeigt."
 
-#: ../novprog.desktop.in.h:2
+#: ../novprog.desktop.in:4
 msgid "Wordcount Graphing Program"
 msgstr "Ein grafisches Programm zum Wörter zählen"
 
-#: ../novprog.desktop.in.h:3
+#: ../novprog.desktop.in:5
 msgid "Track your novel progress"
 msgstr "Verfolgen Sie Ihren Fortschritt einen Roman zu schreiben"

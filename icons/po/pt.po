@@ -19,15 +19,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../novprog.appdata.xml.in.h:1 ../novprog.desktop.in.h:1
+#: ../novprog.appdata.xml.in:6 ../novprog.desktop.in:3
 msgid "NovProg"
 msgstr "NovProg"
 
-#: ../novprog.appdata.xml.in.h:2
+#: ../novprog.appdata.xml.in:7
 msgid "Wordcount graphing program"
 msgstr "Programa gráfico de contagem de palavras"
 
-#: ../novprog.appdata.xml.in.h:3
+#: ../novprog.appdata.xml.in:10
 msgid ""
 "NovProg is a tool to graph your progress in writing a novel. You enter your "
 "wordcount and it updates a graph showing you how much progress you have "
@@ -41,10 +41,10 @@ msgstr ""
 "diário e do objetivo total. Ao passar com o cursor sobre uma barra do "
 "gráfico é mostrada a informação com a contagem de palavras do dia."
 
-#: ../novprog.desktop.in.h:2
+#: ../novprog.desktop.in:4
 msgid "Wordcount Graphing Program"
 msgstr "Programa Gráfico de Contagem de Palavras"
 
-#: ../novprog.desktop.in.h:3
+#: ../novprog.desktop.in:5
 msgid "Track your novel progress"
 msgstr "Registe e controle o progresso da sua novela"

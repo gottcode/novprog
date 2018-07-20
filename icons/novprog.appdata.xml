@@ -64,6 +64,13 @@
   </kudos>
 
   <releases>
+    <release version="3.1.5" date="2018-07-20">
+      <description>
+        <ul>
+          <li>FIXED: Automatic high DPI support</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.4" date="2018-05-29">
       <description>
         <ul>

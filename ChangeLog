@@ -1,3 +1,7 @@
+3.1.5
+-----
+* FIXED: Automatic high DPI support.
+
 3.1.4
 -----
 * Extra warnings only shown in debug build.

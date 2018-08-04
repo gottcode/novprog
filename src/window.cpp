@@ -15,6 +15,7 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
+#include <QInputDialog>
 #include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
@@ -69,6 +70,13 @@ Window::Window()
 	m_wordcount->setFocus();
 	connect(m_wordcount, &QSpinBox::editingFinished, this, &Window::wordcountEdited);
 
+	m_modify_wordcount = new QToolButton(this);
+	m_modify_wordcount->setIconSize(QSize(24,24));
+	m_modify_wordcount->setIcon(QIcon::fromTheme("document-edit"));
+	m_modify_wordcount->setAutoRaise(true);
+	m_modify_wordcount->setToolTip(tr("Set words written today"));
+	connect(m_modify_wordcount, &QToolButton::clicked, this, &Window::modifyWordCount);
+
 	QLabel* wordcount_label = new QLabel(tr("Word count:"), this);
 
 #ifndef Q_OS_MAC
@@ -118,13 +126,14 @@ Window::Window()
 
 	QGridLayout* layout = new QGridLayout(contents);
 	layout->setColumnStretch(0, 1);
-	layout->setColumnStretch(1, 1);
+	layout->setColumnStretch(4, 1);
 #ifdef Q_OS_MAC
-	layout->addWidget(m_novels, 0, 0, 1, 2);
+	layout->addWidget(m_novels, 0, 0, 1, 5);
 #endif
-	layout->addWidget(graphs, 1, 0, 1, 2);
-	layout->addWidget(wordcount_label, 2, 0, Qt::AlignRight | Qt::AlignVCenter);
-	layout->addWidget(m_wordcount, 2, 1, Qt::AlignLeft| Qt::AlignVCenter);
+	layout->addWidget(graphs, 1, 0, 1, 5);
+	layout->addWidget(wordcount_label, 2, 1);
+	layout->addWidget(m_wordcount, 2, 2);
+	layout->addWidget(m_modify_wordcount, 2, 3);
 
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 
@@ -230,6 +239,23 @@ void Window::wordcountEdited()
 
 //-----------------------------------------------------------------------------
 
+void Window::modifyWordCount()
+{
+	const int current = m_data->currentValue(Database::Daily);
+
+	bool ok;
+	const int value = QInputDialog::getInt(this, QString(), tr("Words written today:"), current, -9999999, 9999999, 1, &ok);
+	if (!ok) {
+		return;
+	}
+
+	const int delta = value - current;
+	m_wordcount->setValue(m_wordcount->value() + delta);
+	wordcountEdited();
+}
+
+//-----------------------------------------------------------------------------
+
 void Window::reloadList()
 {
 	m_novels->clear();
@@ -239,6 +265,7 @@ void Window::reloadList()
 	m_edit_button->setEnabled(found);
 	m_delete_button->setEnabled(found);
 	m_wordcount->setEnabled(found);
+	m_modify_wordcount->setEnabled(found);
 	if (found) {
 		m_novels->setCurrentIndex(index);
 	}

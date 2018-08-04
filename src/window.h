@@ -15,6 +15,7 @@ class QAction;
 class QComboBox;
 class QProgressBar;
 class QSpinBox;
+class QToolButton;
 
 class Window : public QMainWindow
 {
@@ -33,6 +34,7 @@ private slots:
 	void load(const QString& novel);
 	void novelModified();
 	void wordcountEdited();
+	void modifyWordCount();
 
 private:
 	void reloadList();
@@ -47,6 +49,7 @@ private:
 	QProgressBar* m_daily_progress;
 	QProgressBar* m_total_progress;
 	QSpinBox* m_wordcount;
+	QToolButton* m_modify_wordcount;
 };
 
 #endif // NOVPROG_WINDOW_H

@@ -63,7 +63,9 @@ RESOURCES += icons/icon-application-menu.qrc
 macx {
 	ICON = icons/novprog.icns
 } else:win32 {
-	RC_FILE = icons/icon.rc
+	RC_ICONS = icons/novprog.ico
+	QMAKE_TARGET_DESCRIPTION = "Wordcount graphing program"
+	QMAKE_TARGET_COPYRIGHT = "Copyright (C) 2018 Graeme Gott"
 } else:unix {
 	isEmpty(PREFIX) {
 		PREFIX = /usr

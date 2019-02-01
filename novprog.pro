@@ -1,8 +1,8 @@
 lessThan(QT_MAJOR_VERSION, 5) {
-	error("NovProg requires Qt 5.2 or greater")
+	error("NovProg requires Qt 5.9 or greater")
 }
-equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 2) {
-	error("NovProg requires Qt 5.2 or greater")
+equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9) {
+	error("NovProg requires Qt 5.9 or greater")
 }
 
 TEMPLATE = app

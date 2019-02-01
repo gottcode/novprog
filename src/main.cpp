@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010, 2012, 2014, 2015, 2018 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2012, 2014, 2015, 2018, 2019 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,6 +44,7 @@ int main(int argc, char** argv)
 	app.setOrganizationName("GottCode");
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
 	app.setWindowIcon(QIcon::fromTheme("novprog", QIcon(":/novprog.png")));
+	app.setDesktopFileName("novprog");
 #endif
 	app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 

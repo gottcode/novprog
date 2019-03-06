@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2010, 2011, 2012, 2014, 2015, 2016, 2018 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2010, 2011, 2012, 2014, 2015, 2016, 2018, 2019 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,8 +43,8 @@ QString LocaleDialog::m_appname;
 
 //-----------------------------------------------------------------------------
 
-LocaleDialog::LocaleDialog(QWidget* parent)
-	: QDialog(parent, Qt::WindowTitleHint | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint)
+LocaleDialog::LocaleDialog(QWidget* parent) :
+	QDialog(parent, Qt::WindowTitleHint | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint)
 {
 	QString title = parent ? parent->window()->windowTitle() : QString();
 	setWindowTitle(!title.isEmpty() ? title : QCoreApplication::applicationName());
@@ -84,62 +84,50 @@ void LocaleDialog::loadTranslator(const QString& name)
 
 	// Find translator path
 	QStringList paths;
-	paths.append(appdir + "/translations/");
-	paths.append(appdir + "/../share/" + QCoreApplication::applicationName().toLower() + "/translations/");
-	paths.append(appdir + "/../Resources/translations");
+	paths.append(appdir);
+	paths.append(appdir + "/../share/" + QCoreApplication::applicationName().toLower());
+	paths.append(appdir + "/../Resources");
 	for (const QString& path : paths) {
-		if (QFile::exists(path)) {
-			m_path = path;
+		if (QFile::exists(path + "/translations/")) {
+			m_path = path + "/translations/";
 			break;
 		}
 	}
 
 	// Find current locale
 	m_current = QSettings().value("Locale/Language").toString();
-	QString current = !m_current.isEmpty() ? m_current : QLocale::system().name();
-	QStringList translations = findTranslations();
-	if (!translations.contains(m_appname + current)) {
-		current = current.left(2);
-		if (!translations.contains(m_appname + current)) {
-			current.clear();
-		}
+	if (!m_current.isEmpty()) {
+		QLocale::setDefault(m_current);
 	}
-	if (!current.isEmpty()) {
-		QLocale::setDefault(current);
-	} else {
-		current = "en";
-	}
+	const QLocale locale;
 
 	// Load translators
-	static QTranslator qt_translator;
-	qt_translator.load("qt_" + current, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-	QCoreApplication::installTranslator(&qt_translator);
-
-	static QTranslator qtbase_translator;
-	if (translations.contains("qtbase_" + current) || translations.contains("qtbase_" + current.left(2))) {
-		qtbase_translator.load("qtbase_" + current, m_path);
-	} else {
-		qtbase_translator.load("qtbase_" + current, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-	}
-	QCoreApplication::installTranslator(&qtbase_translator);
-
 	static QTranslator translator;
-	translator.load(m_appname + current, m_path);
-	QCoreApplication::installTranslator(&translator);
+	if (translator.load(locale, m_appname, "", m_path)) {
+		QCoreApplication::installTranslator(&translator);
 
-	// Work around bug in Qt 5 where text direction is not loaded
-	QGuiApplication::setLayoutDirection(QLocale(current).textDirection());
+		const QString path = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+
+		static QTranslator qtbase_translator;
+		if (qtbase_translator.load(locale, "qtbase", "_", m_path) || qtbase_translator.load(locale, "qtbase", "_", path)) {
+			QCoreApplication::installTranslator(&qtbase_translator);
+		}
+
+		static QTranslator qt_translator;
+		if (qt_translator.load(locale, "qt", "_", m_path) || qt_translator.load(locale, "qt", "_", path)) {
+			QCoreApplication::installTranslator(&qt_translator);
+		}
+	}
 }
 
 //-----------------------------------------------------------------------------
 
 QString LocaleDialog::languageName(const QString& language)
 {
-	QString lang_code = language.left(5);
-	QLocale locale(lang_code);
 	QString name;
-	if (lang_code.length() > 2) {
-		if (locale.name() == lang_code) {
+	const QLocale locale(language);
+	if (language.contains('_')) {
+		if (locale.name() == language) {
 			name = locale.nativeLanguageName() + " (" + locale.nativeCountryName() + ")";
 		} else {
 			name = locale.nativeLanguageName() + " (" + language + ")";

@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006, 2007, 2008, 2010, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006, 2007, 2008, 2010, 2014, 2019 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -58,7 +58,11 @@ Window::Window()
 	m_data = new Database(this);
 	m_novels = new QComboBox(this);
 	m_novels->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
+	connect(m_novels, &QComboBox::textActivated, this, &Window::load);
+#else
 	connect(m_novels, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), this, &Window::load);
+#endif
 
 	QTabWidget* graphs = new QTabWidget(this);
 

@@ -22,7 +22,7 @@ OBJECTS_DIR = build
 RCC_DIR = build
 
 # Set program version
-VERSION = 3.1.6
+VERSION = 3.1.7
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
 # Set program name

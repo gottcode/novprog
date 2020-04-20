@@ -2,7 +2,7 @@
 
 APP='NovProg'
 BUNDLE="$APP.app"
-VERSION='3.1.6'
+VERSION='3.1.7'
 
 # Remove any previous disk folder or DMG
 echo -n 'Preparing... '

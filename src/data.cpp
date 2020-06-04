@@ -263,11 +263,19 @@ void Database::read()
 	file.close();
 
 	// Parse header data
+#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
+	QStringList lines = data.split('\n', Qt::SkipEmptyParts);
+#else
 	QStringList lines = data.split('\n', QString::SkipEmptyParts);
+#endif
 	if (lines.count() == 0) {
 		return;
 	}
-	QStringList header = lines.takeFirst().split(' ', QString::SkipEmptyParts);
+#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
+	const QStringList header = lines.takeFirst().split(' ', Qt::SkipEmptyParts);
+#else
+	const QStringList header = lines.takeFirst().split(' ', QString::SkipEmptyParts);
+#endif
 	if (header.count() < 4) {
 		return;
 	}

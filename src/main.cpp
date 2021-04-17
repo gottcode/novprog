@@ -1,6 +1,6 @@
 /************************************************************************
  *
- * Copyright (C) 2006-2020 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2006-2021 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "window.h"
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDir>
 #include <QFileInfo>
 #include <QSettings>
@@ -51,6 +52,12 @@ int main(int argc, char** argv)
 #endif
 
 	LocaleDialog::loadTranslator("novprog_");
+
+	QCommandLineParser parser;
+	parser.setApplicationDescription(QCoreApplication::translate("main", "A wordcount graphing program"));
+	parser.addHelpOption();
+	parser.addVersionOption();
+	parser.process(app);
 
 	// Handle portability
 	QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);

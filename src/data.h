@@ -73,12 +73,18 @@ private:
 
 	struct Data
 	{
-		Data() : maximum_value(0), goal(0) { }
+		Data()
+			: maximum_value(0)
+			, goal(0)
+		{
+		}
+
 		QList<int> values;
 		QList<int> minimum_values;
 		int maximum_value;
 		int goal;
-	} m_data[2];
+	}
+	m_data[2];
 };
 
 #endif // NOVPROG_DATA_H

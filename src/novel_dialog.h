@@ -31,6 +31,7 @@ class QSpinBox;
 class NovelDialog : public QDialog
 {
 	Q_OBJECT
+
 public:
 	NovelDialog(const QString& novel, Database* data, QWidget* parent);
 

@@ -26,8 +26,8 @@
 
 //-----------------------------------------------------------------------------
 
-Database::Database(QObject* parent) :
-	QObject(parent)
+Database::Database(QObject* parent)
+	: QObject(parent)
 {
 	QString novel = QSettings().value("Current").toString();
 	if (novel.isEmpty()) {

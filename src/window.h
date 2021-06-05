@@ -32,6 +32,7 @@ class QSpinBox;
 class Window : public QMainWindow
 {
 	Q_OBJECT
+
 public:
 	Window();
 

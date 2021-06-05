@@ -34,10 +34,10 @@
 
 //-----------------------------------------------------------------------------
 
-NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent) :
-	QDialog(parent),
-	m_data(data),
-	m_new(novel.isEmpty())
+NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent)
+	: QDialog(parent)
+	, m_data(data)
+	, m_new(novel.isEmpty())
 {
 	// Create name widget
 	m_name = new QLineEdit(this);

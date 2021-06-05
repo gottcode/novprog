@@ -30,8 +30,8 @@
 
 //-----------------------------------------------------------------------------
 
-Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color) :
-	QGraphicsRectItem(x, y, w, h)
+Bar::Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color)
+	: QGraphicsRectItem(x, y, w, h)
 {
 	setPen(Qt::NoPen);
 	setBrush(color);
@@ -60,10 +60,10 @@ void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
 
 //-----------------------------------------------------------------------------
 
-Graph::Graph(Database* data, Database::GoalType type, QWidget* parent) :
-	QGraphicsView(parent),
-	m_data(data),
-	m_type(type)
+Graph::Graph(Database* data, Database::GoalType type, QWidget* parent)
+	: QGraphicsView(parent)
+	, m_data(data)
+	, m_type(type)
 {
 	m_scene = new QGraphicsScene;
 	m_scene->setBackgroundBrush(Qt::white);

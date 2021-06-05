@@ -28,7 +28,7 @@ class LocaleDialog : public QDialog
 	Q_OBJECT
 
 public:
-	LocaleDialog(QWidget* parent = nullptr);
+	explicit LocaleDialog(QWidget* parent = nullptr);
 
 	static void loadTranslator(const QString& appname);
 	static QString languageName(const QString& language);

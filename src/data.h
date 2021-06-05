@@ -28,7 +28,7 @@
 class Database : public QObject
 {
 public:
-	Database(QObject* parent);
+	explicit Database(QObject* parent);
 
 	enum GoalType
 	{
@@ -73,7 +73,7 @@ private:
 
 	struct Data
 	{
-		Data()
+		explicit Data()
 			: maximum_value(0)
 			, goal(0)
 		{

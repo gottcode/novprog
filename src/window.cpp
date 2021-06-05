@@ -79,11 +79,11 @@ Window::Window()
 	addToolBar(actions);
 
 	QMenu* menu = new QMenu(this);
-	menu->addAction(tr("&New Novel"), this, SLOT(newNovel()), QKeySequence::New);
-	m_edit_button = menu->addAction(tr("&Edit Novel"), this, SLOT(editNovel()));
-	m_delete_button = menu->addAction(tr("&Delete Novel"), this, SLOT(deleteNovel()));
+	menu->addAction(tr("&New Novel"), this, &Window::newNovel, QKeySequence::New);
+	m_edit_button = menu->addAction(tr("&Edit Novel"), this, &Window::editNovel);
+	m_delete_button = menu->addAction(tr("&Delete Novel"), this, &Window::deleteNovel);
 	menu->addSeparator();
-	menu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
+	menu->addAction(tr("&Quit"), this, &Window::close, QKeySequence::Quit);
 
 	QToolButton* menubutton = new QToolButton(this);
 	{
@@ -100,11 +100,11 @@ Window::Window()
 	actions->addWidget(menubutton);
 #else
 	QMenu* menu = menuBar()->addMenu(tr("&Novel"));
-	menu->addAction(tr("&New"), this, SLOT(newNovel()), QKeySequence::New);
-	m_edit_button = menu->addAction(tr("&Edit"), this, SLOT(editNovel()));
-	m_delete_button = menu->addAction(tr("&Delete"), this, SLOT(deleteNovel()));
+	menu->addAction(tr("&New"), this, &Window::newNovel, QKeySequence::New);
+	m_edit_button = menu->addAction(tr("&Edit"), this, &Window::editNovel);
+	m_delete_button = menu->addAction(tr("&Delete"), this, &Window::deleteNovel);
 	menu->addSeparator();
-	QAction* quit = menu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
+	QAction* quit = menu->addAction(tr("&Quit"), this, &Window::close, QKeySequence::Quit);
 	quit->setMenuRole(QAction::QuitRole);
 #endif
 

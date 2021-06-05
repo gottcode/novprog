@@ -57,7 +57,7 @@ int main(int argc, char** argv)
 
 	// Change to novels directory
 	path += "/Novels/";
-	if (!QFileInfo(path).exists()) {
+	if (!QFileInfo::exists(path)) {
 		QDir::home().mkpath(path);
 
 		// Import NovProg2 files

@@ -36,7 +36,7 @@ public:
 	NovelDialog(const QString& novel, Database* data, QWidget* parent);
 
 public slots:
-	void accept();
+	void accept() override;
 
 private slots:
 	void checkAcceptAllowed();

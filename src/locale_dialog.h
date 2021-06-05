@@ -34,7 +34,7 @@ public:
 	static QString languageName(const QString& language);
 
 public slots:
-	virtual void accept();
+	void accept() override;
 
 private:
 	static QStringList findTranslations();

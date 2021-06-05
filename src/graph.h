@@ -34,8 +34,8 @@ public:
 	Bar(int x, int y, int w, int h, int value, const QDate& day, const QColor& color);
 
 protected:
-	void hoverEnterEvent(QGraphicsSceneHoverEvent* e);
-	void hoverLeaveEvent(QGraphicsSceneHoverEvent* e);
+	void hoverEnterEvent(QGraphicsSceneHoverEvent* e) override;
+	void hoverLeaveEvent(QGraphicsSceneHoverEvent* e) override;
 };
 
 

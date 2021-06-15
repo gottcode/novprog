@@ -151,5 +151,20 @@
         <source>This action cannot be undone.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Set words written today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words written today:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>A wordcount graphing program</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

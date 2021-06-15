@@ -53,7 +53,7 @@ updateqm.CONFIG += no_link target_predeps
 QMAKE_EXTRA_COMPILERS += updateqm
 
 # Install program data
-RESOURCES += icons/icon-application-menu.qrc
+RESOURCES += icons/breeze.qrc
 
 macx {
 	ICON = icons/novprog.icns

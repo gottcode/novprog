@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2006-2019 Graeme Gott <graeme@gottcode.org>
+	SPDX-FileCopyrightText: 2006-2021 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -15,11 +15,13 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
+#include <QImage>
 #include <QInputDialog>
 #include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
+#include <QPainter>
 #include <QProgressBar>
 #include <QSettings>
 #include <QSpinBox>
@@ -29,6 +31,63 @@
 #include <QVBoxLayout>
 
 #include <algorithm>
+
+//-----------------------------------------------------------------------------
+
+namespace
+{
+
+class IconButton : public QToolButton
+{
+public:
+	IconButton(const QString& icon, QWidget* parent = nullptr)
+		: QToolButton(parent)
+		, m_icon(icon)
+	{
+		loadIcon();
+	}
+
+protected:
+	void changeEvent(QEvent* event) override
+	{
+		QToolButton::changeEvent(event);
+		if (event->type() == QEvent::PaletteChange) {
+			loadIcon();
+		}
+	}
+
+private:
+	void loadIcon();
+
+private:
+	QString m_icon;
+};
+
+void IconButton::loadIcon()
+{
+	QIcon fallback;
+	const QColor color = palette().text().color();
+
+	const QList<int> sizes{16,22,24,32,48,64};
+	for (const int size : sizes) {
+		const QImage mask(QString(":/breeze/actions/%1/%2.png").arg(size).arg(m_icon));
+
+		QImage image(QSize(size, size), QImage::Format_ARGB32_Premultiplied);
+		image.fill(color);
+
+		QPainter painter;
+		painter.begin(&image);
+		painter.setCompositionMode(QPainter::CompositionMode_DestinationAtop);
+		painter.drawImage(0, 0, mask);
+		painter.end();
+
+		fallback.addPixmap(QPixmap::fromImage(image));
+	}
+
+	setIcon(QIcon::fromTheme(m_icon, fallback));
+}
+
+}
 
 //-----------------------------------------------------------------------------
 
@@ -70,9 +129,8 @@ Window::Window()
 	m_wordcount->setFocus();
 	connect(m_wordcount, &QSpinBox::editingFinished, this, &Window::wordcountEdited);
 
-	m_modify_wordcount = new QToolButton(this);
+	m_modify_wordcount = new IconButton("document-edit", this);
 	m_modify_wordcount->setIconSize(QSize(24,24));
-	m_modify_wordcount->setIcon(QIcon::fromTheme("document-edit"));
 	m_modify_wordcount->setAutoRaise(true);
 	m_modify_wordcount->setToolTip(tr("Set words written today"));
 	connect(m_modify_wordcount, &QToolButton::clicked, this, &Window::modifyWordCount);
@@ -93,16 +151,7 @@ Window::Window()
 	menu->addSeparator();
 	menu->addAction(tr("&Quit"), this, &Window::close, QKeySequence::Quit);
 
-	QToolButton* menubutton = new QToolButton(this);
-	{
-		QIcon fallback(":/application-menu/64.png");
-		fallback.addFile(":/application-menu/48.png");
-		fallback.addFile(":/application-menu/32.png");
-		fallback.addFile(":/application-menu/24.png");
-		fallback.addFile(":/application-menu/22.png");
-		fallback.addFile(":/application-menu/16.png");
-		menubutton->setIcon(QIcon::fromTheme("application-menu", fallback));
-	}
+	QToolButton* menubutton = new IconButton("application-menu", this);
 	menubutton->setPopupMode(QToolButton::InstantPopup);
 	menubutton->setMenu(menu);
 	actions->addWidget(menubutton);

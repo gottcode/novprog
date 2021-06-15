@@ -40,7 +40,7 @@ qt6_add_executable(novprog
 	src/main.cpp
 	src/novel_dialog.cpp
 	src/window.cpp
-	icons/icon-application-menu.qrc
+	icons/breeze.qrc
 	${translations_QM}
 )
 

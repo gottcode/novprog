@@ -1,0 +1,17 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file>breeze/actions/16/application-menu.png</file>
+	<file>breeze/actions/22/application-menu.png</file>
+	<file>breeze/actions/24/application-menu.png</file>
+	<file>breeze/actions/32/application-menu.png</file>
+	<file>breeze/actions/48/application-menu.png</file>
+	<file>breeze/actions/64/application-menu.png</file>
+
+	<file>breeze/actions/16/document-edit.png</file>
+	<file>breeze/actions/22/document-edit.png</file>
+	<file>breeze/actions/24/document-edit.png</file>
+	<file>breeze/actions/32/document-edit.png</file>
+	<file>breeze/actions/48/document-edit.png</file>
+	<file>breeze/actions/64/document-edit.png</file>
+</qresource>
+</RCC>

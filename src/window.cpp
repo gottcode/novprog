@@ -105,11 +105,7 @@ Window::Window()
 	m_data = new Database(this);
 	m_novels = new QComboBox(this);
 	m_novels->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
 	connect(m_novels, &QComboBox::textActivated, this, &Window::load);
-#else
-	connect(m_novels, qOverload<const QString&>(&QComboBox::activated), this, &Window::load);
-#endif
 
 	QTabWidget* graphs = new QTabWidget(this);
 

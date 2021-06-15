@@ -93,11 +93,7 @@ void LocaleDialog::loadTranslator(const QString& name)
 	if (translator.load(m_appname + locale, m_path)) {
 		QCoreApplication::installTranslator(&translator);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6,0,0))
 		const QString path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
-#else
-		const QString path = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
-#endif
 
 		static QTranslator qtbase_translator;
 		if (qtbase_translator.load("qtbase_" + locale, m_path) || qtbase_translator.load("qtbase_" + locale, path)) {

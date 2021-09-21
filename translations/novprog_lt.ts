@@ -109,10 +109,6 @@
         <translation>Žodžių apskaita:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;Novelė</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>&amp;Nauja novelė</translation>
     </message>
@@ -127,6 +123,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Baigti</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;Novelė</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -154,18 +154,18 @@
     </message>
     <message>
         <source>Set words written today</source>
-        <translation type="unfinished"></translation>
+        <translation>Nustatyti šiandien parašytus žodžius</translation>
     </message>
     <message>
         <source>Words written today:</source>
-        <translation type="unfinished"></translation>
+        <translation>Šiandien parašyta žodžių:</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>A wordcount graphing program</source>
-        <translation type="unfinished"></translation>
+        <translation>Žodžių apskaitos vaizdavimo programa</translation>
     </message>
 </context>
 </TS>

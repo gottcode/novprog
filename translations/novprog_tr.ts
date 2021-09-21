@@ -107,10 +107,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -124,6 +120,10 @@
     </message>
     <message>
         <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

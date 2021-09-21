@@ -108,10 +108,6 @@
         <translation>Contagem de palavras:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;Novela</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>&amp;Nova Novela</translation>
     </message>
@@ -126,6 +122,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Sair</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;Novela</translation>
     </message>
     <message>
         <source>&amp;New</source>

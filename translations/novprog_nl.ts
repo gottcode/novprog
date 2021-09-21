@@ -15,7 +15,7 @@
     <name>LocaleDialog</name>
     <message>
         <source>Select application language:</source>
-        <translation>Applicatietaal selecteren:</translation>
+        <translation>Kies de programmataal:</translation>
     </message>
     <message>
         <source>&lt;System Language&gt;</source>
@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>Note</source>
-        <translation>Notitie</translation>
+        <translation>Opmerking</translation>
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Herstart de applicatie om de taalwijziging toe te passen.</translation>
+        <translation>Herstart het programma om de taalwijziging toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>N/A</source>
-        <translation>N.V.T.</translation>
+        <translation>n.v.t.</translation>
     </message>
     <message>
         <source>Date Range</source>
@@ -74,11 +74,11 @@
     </message>
     <message>
         <source>Add Novel</source>
-        <translation>Roman toevoegen</translation>
+        <translation>Verhaal toevoegen</translation>
     </message>
     <message>
         <source>Edit Novel</source>
-        <translation>Roman bewerken</translation>
+        <translation>Verhaal bewerken</translation>
     </message>
     <message>
         <source>Sorry</source>
@@ -86,14 +86,14 @@
     </message>
     <message>
         <source>A novel already exists with that name.</source>
-        <translation>Er bestaat al een roman met die naam.</translation>
+        <translation>Er is al een verhaal met die naam.</translation>
     </message>
 </context>
 <context>
     <name>Window</name>
     <message>
         <source>Novel Progress</source>
-        <translation>Voortgang van roman</translation>
+        <translation>Schrijfvoortgang</translation>
     </message>
     <message>
         <source>Total</source>
@@ -108,24 +108,24 @@
         <translation>Woordenteller:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;Roman</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
-        <translation>&amp;Nieuwe roman</translation>
+        <translation>&amp;Nieuw verhaal</translation>
     </message>
     <message>
         <source>&amp;Edit Novel</source>
-        <translation>Roman &amp;bewerken</translation>
+        <translation>Verhaal b&amp;ewerken</translation>
     </message>
     <message>
         <source>&amp;Delete Novel</source>
-        <translation>Roman &amp;verwijderen</translation>
+        <translation>Verhaal verwij&amp;deren</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Afsluiten</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;Verhaal</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -133,19 +133,19 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Bewerken</translation>
+        <translation>B&amp;ewerken</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Verwijderen</translation>
+        <translation>Verwij&amp;deren</translation>
     </message>
     <message>
         <source>Delete novel?</source>
-        <translation>Wilt u de roman verwijderen?</translation>
+        <translation>Wilt u het verhaal verwijderen?</translation>
     </message>
     <message>
         <source>Delete progress for the novel &apos;%1&apos;?</source>
-        <translation>Wilt u de voortgang van roman &apos;%1&apos; verwijderen?</translation>
+        <translation>Wilt u de voortgang van ‘%1’ verwijderen?</translation>
     </message>
     <message>
         <source>This action cannot be undone.</source>
@@ -153,18 +153,18 @@
     </message>
     <message>
         <source>Set words written today</source>
-        <translation type="unfinished"></translation>
+        <translation>Stel het aantal vandaag geschreven woorden in</translation>
     </message>
     <message>
         <source>Words written today:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantal vandaag geschreven woorden:</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>A wordcount graphing program</source>
-        <translation type="unfinished"></translation>
+        <translation>Een programma voor het in kaart brengen van het aantal woorden</translation>
     </message>
 </context>
 </TS>

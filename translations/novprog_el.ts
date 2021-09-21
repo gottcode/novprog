@@ -108,10 +108,6 @@
         <translation>Καταμέτρηση λέξεων:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>Έ&amp;ργο</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>&amp;Νέο έργο</translation>
     </message>
@@ -126,6 +122,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>Έ&amp;ξοδος</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>Έ&amp;ργο</translation>
     </message>
     <message>
         <source>&amp;New</source>

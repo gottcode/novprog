@@ -109,10 +109,6 @@
         <translation>Număr de cuvinte:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>Roma&amp;n</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>Roman &amp;nou</translation>
     </message>
@@ -127,6 +123,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>Ieşire</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>Roma&amp;n</translation>
     </message>
     <message>
         <source>&amp;New</source>

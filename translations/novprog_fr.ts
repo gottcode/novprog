@@ -108,10 +108,6 @@
         <translation>Nombre de mots :</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;Roman</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>&amp;Ajouter un roman</translation>
     </message>
@@ -126,6 +122,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Quitter</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;Roman</translation>
     </message>
     <message>
         <source>&amp;New</source>

@@ -109,10 +109,6 @@
         <translation>Liczba słów:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;Powieść</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>&amp;Nowa powieść</translation>
     </message>
@@ -127,6 +123,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Zamknij</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;Powieść</translation>
     </message>
     <message>
         <source>&amp;New</source>

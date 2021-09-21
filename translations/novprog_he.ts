@@ -108,10 +108,6 @@
         <translation>ספירת מילים:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;רומן</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>רומן &amp;חדש</translation>
     </message>
@@ -126,6 +122,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>י&amp;ציאה</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;רומן</translation>
     </message>
     <message>
         <source>&amp;New</source>

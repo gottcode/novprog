@@ -108,10 +108,6 @@
         <translation>Wortanzahl:</translation>
     </message>
     <message>
-        <source>&amp;Novel</source>
-        <translation>&amp;Roman</translation>
-    </message>
-    <message>
         <source>&amp;New Novel</source>
         <translation>&amp;Neuer Roman</translation>
     </message>
@@ -126,6 +122,10 @@
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Beenden</translation>
+    </message>
+    <message>
+        <source>&amp;Novel</source>
+        <translation>&amp;Roman</translation>
     </message>
     <message>
         <source>&amp;New</source>

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Heimen Stoffels <vistausss@outlook.com>, 2016
+# Heimen Stoffels <vistausss@fastmail.com>, 2021
+# Heimen Stoffels <vistausss@fastmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2017-09-20 14:35+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"PO-Revision-Date: 2021-06-18 18:14+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/gottcode/novprog/language/"
 "nl/)\n"
 "Language: nl\n"
@@ -25,7 +26,7 @@ msgstr "NovProg"
 
 #: ../novprog.appdata.xml.in:7
 msgid "Wordcount graphing program"
-msgstr "Applicatie voor het in kaart brengen van het aantal woorden"
+msgstr "Een programma voor het in kaart brengen van het aantal woorden"
 
 #: ../novprog.appdata.xml.in:10
 msgid ""
@@ -35,17 +36,16 @@ msgid ""
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
 msgstr ""
-"NovProg is een hulpmiddel om de voortgang van het schrijven van een roman in "
-"kaart te brengen. U voert het aantal woorden in waarna er een grafiek zal "
-"verschijnen die u de voortgang weergeeft. Het weergeeft ook of u al inde "
-"buurt komt van uw dagelijkse doel en uw totale doel. Als u de muis over een "
-"balk houdt, zal er een ballon verschijnen die het aantal woorden van die dag "
-"weergeeft."
+"NovProg helpt u bij het schrijven van een verhaal door de schrijfvoortgang "
+"in kaart te brengen. Voer het aantal woorden in om een grafiek op te maken "
+"die de voortgang toont. Ook toont het programma of u al dichter bij uw "
+"dagelijkse en totale doel bent gekomen. Als u de muis op een balk houdt, zal "
+"er een ballon verschijnen die het aantal woorden van die dag toont."
 
 #: ../novprog.desktop.in:4
 msgid "Wordcount Graphing Program"
-msgstr "Applicatie voor weergave van het aantal woorden in een grafiek"
+msgstr "Een programma voor het in kaart brengen van het aantal woorden"
 
 #: ../novprog.desktop.in:5
 msgid "Track your novel progress"
-msgstr "Houdt uw romanvoortgang bij"
+msgstr "Houd uw schrijfvoortgang bij"

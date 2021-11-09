@@ -34,6 +34,7 @@ Comment[nl]=Houd uw schrijfvoortgang bij
 Comment[pl]=Postęp powieści
 Comment[pt]=Registe e controle o progresso da sua novela
 Comment[ro]=Urmăriţi progresul romanului dvs.
+TryExec=novprog
 Exec=novprog
 Icon=novprog
 Terminal=false

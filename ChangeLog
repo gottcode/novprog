@@ -1,3 +1,7 @@
+3.2.1
+-----
+* Switched to Qt 6.
+
 3.2.0
 -----
 * Added setting words written for current day.

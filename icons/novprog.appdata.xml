@@ -57,6 +57,7 @@
   <provides>
     <binary>novprog</binary>
   </provides>
+  <launchable type="desktop-id">novprog.desktop</launchable>
 
   <kudos>
     <kudo>HiDpiIcon</kudo>

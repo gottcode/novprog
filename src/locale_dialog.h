@@ -20,7 +20,7 @@ public:
 	static void loadTranslator(const QString& appname);
 	static QString languageName(const QString& language);
 
-public slots:
+public Q_SLOTS:
 	void accept() override;
 
 private:

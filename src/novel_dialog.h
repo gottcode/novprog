@@ -22,10 +22,10 @@ class NovelDialog : public QDialog
 public:
 	NovelDialog(const QString& novel, Database* data, QWidget* parent);
 
-public slots:
+public Q_SLOTS:
 	void accept() override;
 
-private slots:
+private Q_SLOTS:
 	void checkAcceptAllowed();
 
 private:

@@ -77,6 +77,8 @@ endif()
 
 # Install
 if(UNIX AND NOT APPLE)
+	target_compile_definitions(novprog PRIVATE DATADIR="${CMAKE_INSTALL_FULL_DATADIR}/novprog")
+
 	target_sources(novprog PRIVATE icons/icon.qrc)
 
 	install(TARGETS novprog RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

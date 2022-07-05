@@ -64,17 +64,12 @@ LocaleDialog::LocaleDialog(QWidget* parent)
 
 //-----------------------------------------------------------------------------
 
-void LocaleDialog::loadTranslator(const QString& name)
+void LocaleDialog::loadTranslator(const QString& name, const QStringList& datadirs)
 {
-	QString appdir = QCoreApplication::applicationDirPath();
 	m_appname = name;
 
 	// Find translator path
-	QStringList paths;
-	paths.append(appdir);
-	paths.append(appdir + "/../share/" + QCoreApplication::applicationName().toLower());
-	paths.append(appdir + "/../Resources");
-	for (const QString& path : paths) {
+	for (const QString& path : datadirs) {
 		if (QFile::exists(path + "/translations/")) {
 			m_path = path + "/translations/";
 			break;

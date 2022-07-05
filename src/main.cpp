@@ -40,22 +40,28 @@ int main(int argc, char** argv)
 #endif
 	};
 
-	LocaleDialog::loadTranslator("novprog_", datadirs);
-
-	QCommandLineParser parser;
-	parser.setApplicationDescription(QCoreApplication::translate("main", "A wordcount graphing program"));
-	parser.addHelpOption();
-	parser.addVersionOption();
-	parser.process(app);
-
 	// Handle portability
 	QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-	QFileInfo portable(app.applicationDirPath() + "/Data");
+#ifdef Q_OS_MAC
+	const QFileInfo portable(appdir + "/../../../Data");
+#else
+	const QFileInfo portable(appdir + "/Data");
+#endif
 	if (portable.exists() && portable.isWritable()) {
 		path = portable.absoluteFilePath();
 		QSettings::setDefaultFormat(QSettings::IniFormat);
 		QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, path + "/Settings");
 	}
+
+	// Load application language
+	LocaleDialog::loadTranslator("novprog_", datadirs);
+
+	// Handle commandline
+	QCommandLineParser parser;
+	parser.setApplicationDescription(QCoreApplication::translate("main", "A wordcount graphing program"));
+	parser.addHelpOption();
+	parser.addVersionOption();
+	parser.process(app);
 
 	// Change to novels directory
 	path += "/Novels/";
@@ -81,6 +87,7 @@ int main(int argc, char** argv)
 	}
 	QDir::setCurrent(path);
 
+	// Create main window
 	Window window;
 	window.show();
 

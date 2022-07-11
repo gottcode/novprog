@@ -7,6 +7,8 @@ cmake_minimum_required(VERSION 3.16)
 # Configure project
 project(novprog VERSION 3.2.1 LANGUAGES CXX)
 
+set(project_copyright "2006-2022 Graeme Gott")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -14,9 +16,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui LinguistTools Widgets)
-if(UNIX AND NOT APPLE)
-	include(GNUInstallDirs)
-endif()
+include(GNUInstallDirs)
 
 add_compile_definitions(
 	QT_NO_KEYWORDS
@@ -76,7 +76,35 @@ if(ENABLE_STRIP)
 endif()
 
 # Install
-if(UNIX AND NOT APPLE)
+if(APPLE)
+	set(datadir "../Resources")
+
+	set_target_properties(novprog PROPERTIES
+		OUTPUT_NAME NovProg
+		MACOSX_BUNDLE TRUE
+		MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/mac/Info.plist.in
+	)
+
+	include(cmake/BundleResources.cmake)
+	bundle_data(novprog ${CMAKE_SOURCE_DIR}/icons/novprog.icns Resources)
+	bundle_translations(novprog "${translations_QM}")
+elseif(WIN32)
+	set(datadir ".")
+
+	# Use Qt6 macro until CMake provides something
+	# https://bugreports.qt.io/browse/QTBUG-87618
+	set_target_properties(novprog PROPERTIES
+		OUTPUT_NAME NovProg
+		WIN32_EXECUTABLE TRUE
+		QT_TARGET_VERSION "${PROJECT_VERSION}"
+		QT_TARGET_COMPANY_NAME "Graeme Gott"
+		QT_TARGET_DESCRIPTION "Wordcount graphing program"
+		QT_TARGET_COPYRIGHT "\\xA9 ${project_copyright}"
+		QT_TARGET_PRODUCT_NAME "NovProg"
+		QT_TARGET_RC_ICONS ${CMAKE_SOURCE_DIR}/icons/novprog.ico
+	)
+	_qt_internal_generate_win32_rc_file(novprog)
+else()
 	file(RELATIVE_PATH datadir ${CMAKE_INSTALL_FULL_BINDIR} ${CMAKE_INSTALL_FULL_DATADIR}/novprog)
 
 	target_sources(novprog PRIVATE icons/icon.qrc)
@@ -87,21 +115,6 @@ if(UNIX AND NOT APPLE)
 	install(DIRECTORY icons/hicolor DESTINATION ${CMAKE_INSTALL_DATADIR}/icons)
 	install(FILES icons/novprog.appdata.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 	install(FILES icons/novprog.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
-elseif(WIN32)
-	set(datadir ".")
-
-	# Use Qt6 macro until CMake provides something
-	# https://bugreports.qt.io/browse/QTBUG-87618
-	set_target_properties(novprog PROPERTIES
-		WIN32_EXECUTABLE TRUE
-		QT_TARGET_VERSION "${PROJECT_VERSION}"
-		QT_TARGET_COMPANY_NAME "Graeme Gott"
-		QT_TARGET_DESCRIPTION "Wordcount graphing program"
-		QT_TARGET_COPYRIGHT "Copyright (C) 2022 Graeme Gott"
-		QT_TARGET_PRODUCT_NAME "NovProg"
-		QT_TARGET_RC_ICONS ${CMAKE_SOURCE_DIR}/icons/novprog.ico
-	)
-	_qt_internal_generate_win32_rc_file(novprog)
 endif()
 
 set_property(SOURCE src/main.cpp APPEND PROPERTY COMPILE_DEFINITIONS NOVPROG_DATADIR="${datadir}")

@@ -29,16 +29,7 @@ int main(int argc, char** argv)
 
 	// Find application data
 	const QString appdir = app.applicationDirPath();
-	const QStringList datadirs{
-#if defined(Q_OS_MAC)
-		appdir + "/../Resources"
-#elif defined(Q_OS_UNIX)
-		DATADIR,
-		appdir + "/../share/novprog"
-#else
-		appdir
-#endif
-	};
+	const QString datadir = QDir::cleanPath(appdir + "/" + NOVPROG_DATADIR);
 
 	// Handle portability
 	QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
@@ -54,7 +45,7 @@ int main(int argc, char** argv)
 	}
 
 	// Load application language
-	LocaleDialog::loadTranslator("novprog_", datadirs);
+	LocaleDialog::loadTranslator("novprog_", datadir);
 
 	// Handle commandline
 	QCommandLineParser parser;

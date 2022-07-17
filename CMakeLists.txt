@@ -77,7 +77,7 @@ endif()
 
 # Install
 if(UNIX AND NOT APPLE)
-	target_compile_definitions(novprog PRIVATE DATADIR="${CMAKE_INSTALL_FULL_DATADIR}/novprog")
+	file(RELATIVE_PATH datadir ${CMAKE_INSTALL_FULL_BINDIR} ${CMAKE_INSTALL_FULL_DATADIR}/novprog)
 
 	target_sources(novprog PRIVATE icons/icon.qrc)
 
@@ -88,6 +88,8 @@ if(UNIX AND NOT APPLE)
 	install(FILES icons/novprog.appdata.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 	install(FILES icons/novprog.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 elseif(WIN32)
+	set(datadir ".")
+
 	# Use Qt6 macro until CMake provides something
 	# https://bugreports.qt.io/browse/QTBUG-87618
 	set_target_properties(novprog PROPERTIES
@@ -101,3 +103,5 @@ elseif(WIN32)
 	)
 	_qt_internal_generate_win32_rc_file(novprog)
 endif()
+
+set_property(SOURCE src/main.cpp APPEND PROPERTY COMPILE_DEFINITIONS NOVPROG_DATADIR="${datadir}")

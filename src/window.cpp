@@ -141,11 +141,13 @@ Window::Window()
 	addToolBar(actions);
 
 	QMenu* menu = new QMenu(this);
-	menu->addAction(tr("&New Novel"), this, &Window::newNovel, QKeySequence::New);
+	QAction* action = menu->addAction(tr("&New Novel"), this, &Window::newNovel);
+	action->setShortcut(QKeySequence::New);
 	m_edit_button = menu->addAction(tr("&Edit Novel"), this, &Window::editNovel);
 	m_delete_button = menu->addAction(tr("&Delete Novel"), this, &Window::deleteNovel);
 	menu->addSeparator();
-	menu->addAction(tr("&Quit"), this, &Window::close, QKeySequence::Quit);
+	action = menu->addAction(tr("&Quit"), this, &Window::close);
+	action->setShortcut(QKeySequence::Quit);
 
 	QToolButton* menubutton = new IconButton("application-menu", this);
 	menubutton->setPopupMode(QToolButton::InstantPopup);
@@ -153,12 +155,14 @@ Window::Window()
 	actions->addWidget(menubutton);
 #else
 	QMenu* menu = menuBar()->addMenu(tr("&Novel"));
-	menu->addAction(tr("&New"), this, &Window::newNovel, QKeySequence::New);
+	QAction* action = menu->addAction(tr("&New"), this, &Window::newNovel);
+	action->setShortcut(QKeySequence::New);
 	m_edit_button = menu->addAction(tr("&Edit"), this, &Window::editNovel);
 	m_delete_button = menu->addAction(tr("&Delete"), this, &Window::deleteNovel);
 	menu->addSeparator();
-	QAction* quit = menu->addAction(tr("&Quit"), this, &Window::close, QKeySequence::Quit);
-	quit->setMenuRole(QAction::QuitRole);
+	action = menu->addAction(tr("&Quit"), this, &Window::close);
+	action->setShortcut(QKeySequence::Quit);
+	action->setMenuRole(QAction::QuitRole);
 #endif
 
 	QVBoxLayout* daily_layout = new QVBoxLayout(daily_group);

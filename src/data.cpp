@@ -348,7 +348,7 @@ void Database::updateValues()
 	m_data[Daily].maximum_value = 0;
 	m_data[Total].maximum_value = 0;
 	int prev_value = m_start_value;
-	for (int value : qAsConst(m_data[Total].values)) {
+	for (int value : std::as_const(m_data[Total].values)) {
 		m_data[Total].maximum_value = std::max(value, m_data[Total].maximum_value);
 		m_data[Daily].values.append(std::max(0, value - prev_value));
 		m_data[Daily].maximum_value = std::max(m_data[Daily].values.last(), m_data[Daily].maximum_value);

@@ -7,7 +7,6 @@
         <source>%Ln word(s)</source>
         <translation>
             <numerusform>%Ln sözcük</numerusform>
-            <numerusform>%Ln sözcük</numerusform>
         </translation>
     </message>
 </context>

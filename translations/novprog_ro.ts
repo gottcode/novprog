@@ -154,18 +154,18 @@
     </message>
     <message>
         <source>Set words written today</source>
-        <translation type="unfinished"></translation>
+        <translation>Stabilește cuvintele scrise astăzi</translation>
     </message>
     <message>
         <source>Words written today:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuvinte scrise azi:</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>A wordcount graphing program</source>
-        <translation type="unfinished"></translation>
+        <translation>Un program de graficare a numărului de cuvinte</translation>
     </message>
 </context>
 </TS>

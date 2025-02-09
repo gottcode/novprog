@@ -31,12 +31,20 @@ add_version_compile_definition(src/main.cpp VERSIONSTR)
 
 # Create program
 qt_add_executable(novprog
+	# Headers
+	src/data.h
+	src/graph.h
+	src/locale_dialog.h
+	src/novel_dialog.h
+	src/window.h
+	# Sources
 	src/data.cpp
 	src/graph.cpp
 	src/locale_dialog.cpp
 	src/main.cpp
 	src/novel_dialog.cpp
 	src/window.cpp
+	# Resources
 	icons/breeze.qrc
 	${translations_QM}
 )

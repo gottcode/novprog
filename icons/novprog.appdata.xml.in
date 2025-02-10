@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>novprog.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+
+  <name>NovProg</name>
+  <summary>Wordcount graphing program</summary>
+  <description>
+    <p>NovProg is a tool to graph your progress in writing a novel. You enter your wordcount and it updates a graph showing you how much progress you have made. It also shows you how far you are through your daily goal, and your total goal. Mousing over a bar in the graph will show a tooltip with that day’s wordcount.</p>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://gottcode.org/novprog/screenshots/appdata.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://gottcode.org/novprog/</url>
+  <url type="bugtracker">https://gottcode.org/novprog/bugs/</url>
+  <url type="donation">https://gottcode.org/tip/</url>
+  <url type="translate">https://www.transifex.com/gottcode/novprog/</url>
+
+  <developer id="org.gottcode">
+    <name translatable="no">Graeme Gott</name>
+  </developer>
+  <update_contact>graeme@gottcode.org</update_contact>
+
+  <translation type="qt">novprog</translation>
+
+  <provides>
+    <binary>novprog</binary>
+  </provides>
+  <launchable type="desktop-id">novprog.desktop</launchable>
+  <icon type="stock">novprog</icon>
+
+  <categories>
+    <category>Office</category>
+    <category>Chart</category>
+  </categories>
+
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+
+  <content_rating type="oars-1.1"/>
+
+  <releases>
+    <release version="3.2.4" date="2025-01-06">
+      <description>
+        <ul>
+          <li>Improved deployment</li>
+          <li>Translation updates: Romanian</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.3" date="2024-01-16">
+      <description>
+        <ul>
+          <li>Replaced deprecated code</li>
+          <li>Translation updates: Turkish</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.2" date="2023-01-10">
+      <description>
+        <ul>
+          <li>Improved Linux deployment</li>
+          <li>Replaced deprecated code</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.1" date="2022-05-03">
+      <description>
+        <ul>
+          <li>Switched to Qt 6</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.0" date="2021-09-21">
+      <description>
+        <ul>
+          <li>Added setting words written for current day</li>
+          <li>Added support for Qt 6</li>
+          <li>Refactored code</li>
+          <li>Removed XPM icon</li>
+          <li>Translation updates: Dutch, Lithuanian</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.1.7" date="2020-04-20">
+      <description>
+        <ul>
+          <li>FIXED: Did not load locales with underscores</li>
+          <li>Improved Windows deployment</li>
+          <li>Replaced deprecated code</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.1.6" date="2019-08-07">
+      <description>
+        <ul>
+          <li>FIXED: Window icon didn't work in Wayland</li>
+          <li>Improved loading locales</li>
+          <li>Improved Windows deployment</li>
+          <li>Replaced deprecated code</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.1.5" date="2018-07-20">
+      <description>
+        <ul>
+          <li>FIXED: Automatic high DPI support</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.1.4" date="2018-05-29">
+      <description>
+        <ul>
+          <li>Extra warnings only shown in debug build</li>
+          <li>Improved Linux deployment</li>
+          <li>Improved macOS deployment</li>
+          <li>Improved Windows deployment</li>
+          <li>Translation updates: Portuguese</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>

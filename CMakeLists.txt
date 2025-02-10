@@ -119,8 +119,9 @@ else()
 	install(FILES ${translations_QM} DESTINATION ${CMAKE_INSTALL_DATADIR}/novprog/translations)
 	install(FILES doc/novprog.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1 COMPONENT doc)
 	install(DIRECTORY icons/hicolor DESTINATION ${CMAKE_INSTALL_DATADIR}/icons)
-	install(FILES icons/novprog.appdata.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
-	install(FILES icons/novprog.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+
+	include(cmake/TranslateMetainfo.cmake)
+	process_and_install_metainfo(NovProg ${CMAKE_SOURCE_DIR}/icons/po)
 endif()
 
 set_property(SOURCE src/main.cpp APPEND PROPERTY COMPILE_DEFINITIONS NOVPROG_DATADIR="${datadir}")

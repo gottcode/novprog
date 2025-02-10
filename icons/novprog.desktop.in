@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=NovProg
+GenericName=Wordcount Graphing Program
+Comment=Track your novel progress
+TryExec=novprog
+Exec=novprog
+Icon=novprog
+Terminal=false
+Type=Application
+Categories=Qt;Office;Chart;

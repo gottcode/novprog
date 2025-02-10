@@ -1,34 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2018-05-28 18:05+0000\n"
-"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
-"Language-Team: Russian (http://www.transifex.com/gottcode/novprog/language/"
-"ru/)\n"
-"Language: ru\n"
+"POT-Creation-Date: 2014-10-14 21:00+0000\n"
+"PO-Revision-Date: 2014-10-14 21:09+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Russian (http://app.transifex.com/gottcode/novprog/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: ../novprog.appdata.xml.in:6 ../novprog.desktop.in:3
-msgid "NovProg"
-msgstr "NovProg"
-
-#: ../novprog.appdata.xml.in:7
+#: ../novprog.appdata.xml.in.h:1
 msgid "Wordcount graphing program"
 msgstr ""
 
-#: ../novprog.appdata.xml.in:10
+#: ../novprog.appdata.xml.in.h:2
 msgid ""
 "NovProg is a tool to graph your progress in writing a novel. You enter your "
 "wordcount and it updates a graph showing you how much progress you have "
@@ -37,10 +30,14 @@ msgid ""
 "day’s wordcount."
 msgstr ""
 
-#: ../novprog.desktop.in:4
+#: ../novprog.desktop.in.h:1
+msgid "NovProg"
+msgstr "NovProg"
+
+#: ../novprog.desktop.in.h:2
 msgid "Wordcount Graphing Program"
 msgstr "Программа для графического подсчёта слов"
 
-#: ../novprog.desktop.in:5
+#: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
 msgstr ""

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Heimen Stoffels <vistausss@fastmail.com>, 2021
 # Heimen Stoffels <vistausss@fastmail.com>, 2016
@@ -9,43 +9,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NovProg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 20:52+0000\n"
-"PO-Revision-Date: 2021-06-18 18:14+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/gottcode/novprog/language/"
-"nl/)\n"
-"Language: nl\n"
+"POT-Creation-Date: 2014-10-14 21:00+0000\n"
+"PO-Revision-Date: 2014-10-14 21:09+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2021\n"
+"Language-Team: Dutch (http://app.transifex.com/gottcode/novprog/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../novprog.appdata.xml.in:6 ../novprog.desktop.in:3
-msgid "NovProg"
-msgstr "NovProg"
-
-#: ../novprog.appdata.xml.in:7
+#: ../novprog.appdata.xml.in.h:1
 msgid "Wordcount graphing program"
 msgstr "Een programma voor het in kaart brengen van het aantal woorden"
 
-#: ../novprog.appdata.xml.in:10
+#: ../novprog.appdata.xml.in.h:2
 msgid ""
 "NovProg is a tool to graph your progress in writing a novel. You enter your "
 "wordcount and it updates a graph showing you how much progress you have "
 "made. It also shows you how far you are through your daily goal, and your "
 "total goal. Mousing over a bar in the graph will show a tooltip with that "
 "day’s wordcount."
-msgstr ""
-"NovProg helpt u bij het schrijven van een verhaal door de schrijfvoortgang "
-"in kaart te brengen. Voer het aantal woorden in om een grafiek op te maken "
-"die de voortgang toont. Ook toont het programma of u al dichter bij uw "
-"dagelijkse en totale doel bent gekomen. Als u de muis op een balk houdt, zal "
-"er een ballon verschijnen die het aantal woorden van die dag toont."
+msgstr "NovProg helpt u bij het schrijven van een verhaal door de schrijfvoortgang in kaart te brengen. Voer het aantal woorden in om een grafiek op te maken die de voortgang toont. Ook toont het programma of u al dichter bij uw dagelijkse en totale doel bent gekomen. Als u de muis op een balk houdt, zal er een ballon verschijnen die het aantal woorden van die dag toont."
 
-#: ../novprog.desktop.in:4
+#: ../novprog.desktop.in.h:1
+msgid "NovProg"
+msgstr "NovProg"
+
+#: ../novprog.desktop.in.h:2
 msgid "Wordcount Graphing Program"
 msgstr "Een programma voor het in kaart brengen van het aantal woorden"
 
-#: ../novprog.desktop.in:5
+#: ../novprog.desktop.in.h:3
 msgid "Track your novel progress"
 msgstr "Houd uw schrijfvoortgang bij"

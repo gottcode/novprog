@@ -32,12 +32,6 @@
     <binary>novprog</binary>
   </provides>
   <launchable type="desktop-id">novprog.desktop</launchable>
-  <icon type="stock">novprog</icon>
-
-  <categories>
-    <category>Office</category>
-    <category>Chart</category>
-  </categories>
 
   <kudos>
     <kudo>HiDpiIcon</kudo>

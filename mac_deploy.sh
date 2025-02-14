@@ -2,7 +2,7 @@
 
 APP='NovProg'
 BUNDLE="$APP.app"
-VERSION='3.2.4'
+VERSION='3.2.5'
 
 # Locate deployment script
 BIN_DIR=$(pwd)

@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Configure project
-project(novprog VERSION 3.2.4 LANGUAGES CXX)
+project(novprog VERSION 3.2.5 LANGUAGES CXX)
 
 set(project_copyright "2006-2025 Graeme Gott")
 

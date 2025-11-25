@@ -19,7 +19,7 @@
   <url type="homepage">https://gottcode.org/novprog/</url>
   <url type="bugtracker">https://gottcode.org/novprog/bugs/</url>
   <url type="donation">https://gottcode.org/tip/</url>
-  <url type="translate">https://www.transifex.com/gottcode/novprog/</url>
+  <url type="translate">https://app.transifex.com/gottcode/novprog/</url>
 
   <developer id="org.gottcode">
     <name translatable="no">Graeme Gott</name>

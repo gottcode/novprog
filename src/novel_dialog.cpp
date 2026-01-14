@@ -21,9 +21,9 @@
 
 //-----------------------------------------------------------------------------
 
-NovelDialog::NovelDialog(const QString& novel, Database* data, QWidget* parent)
+NovelDialog::NovelDialog(const QString& novel, Database* database, QWidget* parent)
 	: QDialog(parent)
-	, m_data(data)
+	, m_data(database)
 	, m_new(novel.isEmpty())
 {
 	// Create name widget

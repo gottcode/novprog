@@ -29,7 +29,7 @@ protected:
 class Graph : public QGraphicsView
 {
 public:
-	Graph(Database* data, Database::GoalType type, QWidget* parent);
+	Graph(Database* database, Database::GoalType type, QWidget* parent);
 
 	void draw();
 

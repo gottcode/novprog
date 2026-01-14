@@ -47,9 +47,9 @@ void Bar::hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
 
 //-----------------------------------------------------------------------------
 
-Graph::Graph(Database* data, Database::GoalType type, QWidget* parent)
+Graph::Graph(Database* database, Database::GoalType type, QWidget* parent)
 	: QGraphicsView(parent)
-	, m_data(data)
+	, m_data(database)
 	, m_type(type)
 {
 	m_scene = new QGraphicsScene;
@@ -146,19 +146,20 @@ void Graph::draw()
 	}
 
 	// Draw bars
-	int prev_value = 0, value, tooltipvalue, minimum, x, h;
+	int prev_value = 0;
 	QColor color;
 	QDate day = m_data->startDate();
 	for (int c = 0; c < columns; ++c) {
-		tooltipvalue = value = m_data->value(m_type, day);
-		minimum = m_data->minimumValue(m_type, day);
+		const int tooltipvalue = m_data->value(m_type, day);
+		const int minimum = m_data->minimumValue(m_type, day);
+		int value = tooltipvalue;
 		if (m_type == Database::Total) {
 			value = std::max(0, value - start_value);
 		}
 
 		// Bar for value
-		h = value / pixel_value;
-		x = (c * 9) + 8;
+		int h = value / pixel_value;
+		const int x = (c * 9) + 8;
 		if (value < prev_value && m_type == Database::Total) {
 			color.setRgb(255, 0, 0);
 		} else if (value >= goal) {

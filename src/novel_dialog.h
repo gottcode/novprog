@@ -20,7 +20,7 @@ class NovelDialog : public QDialog
 	Q_OBJECT
 
 public:
-	NovelDialog(const QString& novel, Database* data, QWidget* parent);
+	NovelDialog(const QString& novel, Database* database, QWidget* parent);
 
 public Q_SLOTS:
 	void accept() override;

@@ -1,3 +1,9 @@
+3.2.7
+-----
+* Document policy prohibiting the use of AI.
+* Use strict mode to disable unsafe Qt APIs.
+* Translation updates: Croatian.
+
 3.2.6
 -----
 * Replaced shadowed variable names.

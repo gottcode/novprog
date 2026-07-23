@@ -4,7 +4,7 @@
 
 SET SRCDIR=..\novprog
 SET APP=NovProg
-SET VERSION=3.2.6
+SET VERSION=3.2.7
 
 ECHO Copying executable
 MKDIR %SRCDIR%\%APP%
